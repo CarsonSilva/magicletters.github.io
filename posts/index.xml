@@ -1,0 +1,313 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on DreamAsHourse</title>
+    <link>https://magicletters.github.io/posts/</link>
+    <description>Recent content in Posts on DreamAsHourse</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>Zhu Jia - All rights reserved</copyright>
+    <lastBuildDate>Sat, 19 Sep 2020 13:17:04 +0800</lastBuildDate>
+    
+	<atom:link href="https://magicletters.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Bash获取当前脚本的绝对路径</title>
+      <link>https://magicletters.github.io/posts/linux/bash%E8%8E%B7%E5%8F%96%E5%BD%93%E5%89%8D%E8%84%9A%E6%9C%AC%E7%9A%84%E7%BB%9D%E5%AF%B9%E8%B7%AF%E5%BE%84/</link>
+      <pubDate>Sat, 19 Sep 2020 13:17:04 +0800</pubDate>
+      
+      <guid>https://magicletters.github.io/posts/linux/bash%E8%8E%B7%E5%8F%96%E5%BD%93%E5%89%8D%E8%84%9A%E6%9C%AC%E7%9A%84%E7%BB%9D%E5%AF%B9%E8%B7%AF%E5%BE%84/</guid>
+      <description>在某些情况下，我们需要获取当前运行脚本的绝对路径，Linux提供了一个realpath的命令来获取给定路径的绝对路径，让我们演示一下它是如何工作的：</description>
+    </item>
+    
+    <item>
+      <title>Goroutine简介</title>
+      <link>https://magicletters.github.io/posts/golang/goroutine%E7%AE%80%E4%BB%8B/</link>
+      <pubDate>Fri, 11 Sep 2020 16:28:03 +0800</pubDate>
+      
+      <guid>https://magicletters.github.io/posts/golang/goroutine%E7%AE%80%E4%BB%8B/</guid>
+      <description>什么是Goroutine？ Goroutine是在Golang中同时执行任务的一种方式。它使我们能够廉价地在同一地址空间中同时创建和运行多个方法或函数。Goroutine的想法是受协程启发的。</description>
+    </item>
+    
+    <item>
+      <title>何时在golang中使用指针</title>
+      <link>https://magicletters.github.io/posts/golang/%E4%BD%95%E6%97%B6%E5%9C%A8golang%E4%B8%AD%E4%BD%BF%E7%94%A8%E6%8C%87%E9%92%88/</link>
+      <pubDate>Wed, 09 Sep 2020 13:22:55 +0800</pubDate>
+      
+      <guid>https://magicletters.github.io/posts/golang/%E4%BD%95%E6%97%B6%E5%9C%A8golang%E4%B8%AD%E4%BD%BF%E7%94%A8%E6%8C%87%E9%92%88/</guid>
+      <description>一个普遍的观点是，当我们在使用指针时，我们的应用程序会更快，因为我们将避免一直复制数据。</description>
+    </item>
+    
+    <item>
+      <title>node节点无法启动pod</title>
+      <link>https://magicletters.github.io/posts/k8sdocker/node%E8%8A%82%E7%82%B9%E6%97%A0%E6%B3%95%E5%90%AF%E5%8A%A8pod/</link>
+      <pubDate>Mon, 17 Aug 2020 12:00:00 +0000</pubDate>
+      
+      <guid>https://magicletters.github.io/posts/k8sdocker/node%E8%8A%82%E7%82%B9%E6%97%A0%E6%B3%95%E5%90%AF%E5%8A%A8pod/</guid>
+      <description>错误日志  Warning FailedCreatePodSandBox 29s kubelet, k8s-node3 Failed create pod sandbox: rpc error: code = Unknown desc = failed to set up sandbox container &#34;</description>
+    </item>
+    
+    <item>
+      <title>Go Modules使用私有git仓库</title>
+      <link>https://magicletters.github.io/posts/golang/go-modules%E4%BD%BF%E7%94%A8%E7%A7%81%E6%9C%89git%E4%BB%93%E5%BA%93/</link>
+      <pubDate>Mon, 17 Aug 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://magicletters.github.io/posts/golang/go-modules%E4%BD%BF%E7%94%A8%E7%A7%81%E6%9C%89git%E4%BB%93%E5%BA%93/</guid>
+      <description>模块极大地改善了Golang的依赖管理过程。正确配置所有内容后，很容易就能够从公共存储库获取特定版本的Go软件包。一个典型的go.mod：</description>
+    </item>
+    
+    <item>
+      <title>清除Linux内存缓存，缓冲区和交换空间</title>
+      <link>https://magicletters.github.io/posts/linux/%E6%B8%85%E9%99%A4linux%E5%86%85%E5%AD%98%E7%BC%93%E5%AD%98/</link>
+      <pubDate>Mon, 17 Aug 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://magicletters.github.io/posts/linux/%E6%B8%85%E9%99%A4linux%E5%86%85%E5%AD%98%E7%BC%93%E5%AD%98/</guid>
+      <description>如何清除缓存 每个Linux系统都有三个清除缓存的选项，而不会中断任何进程或服务。</description>
+    </item>
+    
+    <item>
+      <title>使用vlookup批量替换</title>
+      <link>https://magicletters.github.io/posts/office/%E4%BD%BF%E7%94%A8vlookup%E6%89%B9%E9%87%8F%E6%9B%BF%E6%8D%A2/</link>
+      <pubDate>Thu, 13 Aug 2020 12:00:00 +0000</pubDate>
+      
+      <guid>https://magicletters.github.io/posts/office/%E4%BD%BF%E7%94%A8vlookup%E6%89%B9%E9%87%8F%E6%9B%BF%E6%8D%A2/</guid>
+      <description>需求 Excel中有一列是数字编码，需要替换成相关的汉字描述。</description>
+    </item>
+    
+    <item>
+      <title>adoc文本颜色</title>
+      <link>https://magicletters.github.io/posts/adoc/adoc%E6%96%87%E6%9C%AC%E9%A2%9C%E8%89%B2/</link>
+      <pubDate>Sun, 26 Jul 2020 10:00:00 +0000</pubDate>
+      
+      <guid>https://magicletters.github.io/posts/adoc/adoc%E6%96%87%E6%9C%AC%E9%A2%9C%E8%89%B2/</guid>
+      <description>文本颜色 adoc书写内容 [red]#字体颜色# and [big red yellow-background]*大号字体颜色加背景*.</description>
+    </item>
+    
+    <item>
+      <title>Asciidoctor PDF Theming Guide</title>
+      <link>https://magicletters.github.io/posts/adoc/pdf-theming-guide/</link>
+      <pubDate>Sun, 26 Jul 2020 10:00:00 +0000</pubDate>
+      
+      <guid>https://magicletters.github.io/posts/adoc/pdf-theming-guide/</guid>
+      <description>The theming system is used to control the style of a PDF file generated by Asciidoctor PDF from AsciiDoc.</description>
+    </item>
+    
+    <item>
+      <title>asciidoctor常用指令</title>
+      <link>https://magicletters.github.io/posts/adoc/asciidoctor%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A4/</link>
+      <pubDate>Sun, 26 Jul 2020 10:00:00 +0000</pubDate>
+      
+      <guid>https://magicletters.github.io/posts/adoc/asciidoctor%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A4/</guid>
+      <description>asciidoctor参考手册</description>
+    </item>
+    
+    <item>
+      <title>Raft算法</title>
+      <link>https://magicletters.github.io/posts/algorithm/raft%E7%AE%97%E6%B3%95/</link>
+      <pubDate>Sun, 26 Jul 2020 10:00:00 +0000</pubDate>
+      
+      <guid>https://magicletters.github.io/posts/algorithm/raft%E7%AE%97%E6%B3%95/</guid>
+      <description>Raft 一致性算法论文译文</description>
+    </item>
+    
+    <item>
+      <title>docker多架构镜像</title>
+      <link>https://magicletters.github.io/posts/k8sdocker/docker%E5%A4%9A%E6%9E%B6%E6%9E%84%E9%95%9C%E5%83%8F/</link>
+      <pubDate>Sat, 25 Jul 2020 09:00:00 +0000</pubDate>
+      
+      <guid>https://magicletters.github.io/posts/k8sdocker/docker%E5%A4%9A%E6%9E%B6%E6%9E%84%E9%95%9C%E5%83%8F/</guid>
+      <description>如何查询docker镜像是否支持多架构 docker container run mplatform/mquery gcr.</description>
+    </item>
+    
+    <item>
+      <title>clion基于docker的开发环境配置</title>
+      <link>https://magicletters.github.io/posts/linux/clion%E5%9F%BA%E4%BA%8Edocker%E7%9A%84%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/</link>
+      <pubDate>Fri, 24 Jul 2020 14:12:10 +0000</pubDate>
+      
+      <guid>https://magicletters.github.io/posts/linux/clion%E5%9F%BA%E4%BA%8Edocker%E7%9A%84%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/</guid>
+      <description>构建开发环境容器镜像 Dockerfile FROM i386/ubuntu:18.</description>
+    </item>
+    
+    <item>
+      <title>树梅派安装kubernetes</title>
+      <link>https://magicletters.github.io/posts/k8sdocker/%E6%A0%91%E6%A2%85%E6%B4%BE%E5%AE%89%E8%A3%85kubernetes/</link>
+      <pubDate>Fri, 24 Jul 2020 09:00:00 +0000</pubDate>
+      
+      <guid>https://magicletters.github.io/posts/k8sdocker/%E6%A0%91%E6%A2%85%E6%B4%BE%E5%AE%89%E8%A3%85kubernetes/</guid>
+      <description>系统选择 Ubuntu 20.</description>
+    </item>
+    
+    <item>
+      <title>asciidoctor生成包含中文的pdf</title>
+      <link>https://magicletters.github.io/posts/adoc/asciidoctor%E7%94%9F%E6%88%90%E5%8C%85%E5%90%AB%E4%B8%AD%E6%96%87%E7%9A%84pdf/</link>
+      <pubDate>Thu, 16 Jul 2020 14:06:51 +0000</pubDate>
+      
+      <guid>https://magicletters.github.io/posts/adoc/asciidoctor%E7%94%9F%E6%88%90%E5%8C%85%E5%90%AB%E4%B8%AD%E6%96%87%E7%9A%84pdf/</guid>
+      <description>asciidoctor生成pdf时中文出现方框的原因是因为默认主题的字体不支持中文，所以需要自定义一套模板，在模板中选择使用支持中文的字体即可</description>
+    </item>
+    
+    <item>
+      <title>使用glusterfs做持久化存储</title>
+      <link>https://magicletters.github.io/posts/%E4%BD%BF%E7%94%A8glusterfs%E5%81%9A%E6%8C%81%E4%B9%85%E5%8C%96%E5%AD%98%E5%82%A8/</link>
+      <pubDate>Wed, 15 Jul 2020 10:58:46 +0000</pubDate>
+      
+      <guid>https://magicletters.github.io/posts/%E4%BD%BF%E7%94%A8glusterfs%E5%81%9A%E6%8C%81%E4%B9%85%E5%8C%96%E5%AD%98%E5%82%A8/</guid>
+      <description>安装glusterfs 我们直接在物理机上使用yum安装，如果你选择在kubernetes上安装，请参考：https://github.</description>
+    </item>
+    
+    <item>
+      <title>Glusterfs的常用命令</title>
+      <link>https://magicletters.github.io/posts/glusterfs%E7%9A%84%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</link>
+      <pubDate>Wed, 15 Jul 2020 10:07:18 +0000</pubDate>
+      
+      <guid>https://magicletters.github.io/posts/glusterfs%E7%9A%84%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</guid>
+      <description>服务器节点   gluster peer status //查看所有节点信息，显示时不包括本节点</description>
+    </item>
+    
+    <item>
+      <title>使用SSH反向隧道进行内网穿透</title>
+      <link>https://magicletters.github.io/posts/linux/%E4%BD%BF%E7%94%A8ssh%E5%8F%8D%E5%90%91%E9%9A%A7%E9%81%93%E8%BF%9B%E8%A1%8C%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/</link>
+      <pubDate>Thu, 28 May 2020 13:45:01 +0000</pubDate>
+      
+      <guid>https://magicletters.github.io/posts/linux/%E4%BD%BF%E7%94%A8ssh%E5%8F%8D%E5%90%91%E9%9A%A7%E9%81%93%E8%BF%9B%E8%A1%8C%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/</guid>
+      <description>机器代号 机器位置 地址 账户 ssh/sshd端口     A 公网 zhujia.</description>
+    </item>
+    
+    <item>
+      <title>Why you should use a Go module proxy</title>
+      <link>https://magicletters.github.io/posts/golang/why-you-should-use-a-go-module-proxy/</link>
+      <pubDate>Wed, 27 May 2020 13:39:02 +0000</pubDate>
+      
+      <guid>https://magicletters.github.io/posts/golang/why-you-should-use-a-go-module-proxy/</guid>
+      <description>use Go module proxy</description>
+    </item>
+    
+    <item>
+      <title>Spring @Transactional说明</title>
+      <link>https://magicletters.github.io/posts/java/spring-transactional%E8%AF%B4%E6%98%8E/</link>
+      <pubDate>Fri, 15 May 2020 10:35:48 +0000</pubDate>
+      
+      <guid>https://magicletters.github.io/posts/java/spring-transactional%E8%AF%B4%E6%98%8E/</guid>
+      <description>@Transactional注解生效的几种情况  当在一个@Transactional方法中调用没有@Transactional的方法时，调用者的事务会持续到被调用的方法中；调用者和被调用者都使用同一个连接，调用方法中的任何异常都将触发@Transactional配置的事务回滚。</description>
+    </item>
+    
+    <item>
+      <title>git输出颜色</title>
+      <link>https://magicletters.github.io/posts/linux/git%E8%BE%93%E5%87%BA%E9%A2%9C%E8%89%B2/</link>
+      <pubDate>Thu, 28 Nov 2019 14:12:10 +0000</pubDate>
+      
+      <guid>https://magicletters.github.io/posts/linux/git%E8%BE%93%E5%87%BA%E9%A2%9C%E8%89%B2/</guid>
+      <description>在~/.gitconfig文件中添加[color]部分：</description>
+    </item>
+    
+    <item>
+      <title>FIXED: Flannel CNI plugin. Error</title>
+      <link>https://magicletters.github.io/posts/k8sdocker/fixed-flannel-cni-plugin-error/</link>
+      <pubDate>Sat, 21 Sep 2019 20:48:07 +0000</pubDate>
+      
+      <guid>https://magicletters.github.io/posts/k8sdocker/fixed-flannel-cni-plugin-error/</guid>
+      <description>Question Flannel CNI plugin.</description>
+    </item>
+    
+    <item>
+      <title>k8s从需要认证的registry获取images</title>
+      <link>https://magicletters.github.io/posts/k8sdocker/k8s%E4%BB%8E%E9%9C%80%E8%A6%81%E8%AE%A4%E8%AF%81%E7%9A%84registry%E8%8E%B7%E5%8F%96images/</link>
+      <pubDate>Sat, 07 Sep 2019 20:29:04 +0000</pubDate>
+      
+      <guid>https://magicletters.github.io/posts/k8sdocker/k8s%E4%BB%8E%E9%9C%80%E8%A6%81%E8%AE%A4%E8%AF%81%E7%9A%84registry%E8%8E%B7%E5%8F%96images/</guid>
+      <description>方法1：</description>
+    </item>
+    
+    <item>
+      <title>kubernetes dashboard部署</title>
+      <link>https://magicletters.github.io/posts/k8sdocker/kubernetes-dashboard%E9%83%A8%E7%BD%B2/</link>
+      <pubDate>Sat, 07 Sep 2019 20:27:35 +0000</pubDate>
+      
+      <guid>https://magicletters.github.io/posts/k8sdocker/kubernetes-dashboard%E9%83%A8%E7%BD%B2/</guid>
+      <description>Step#1 下载yaml文件  wget https://raw.</description>
+    </item>
+    
+    <item>
+      <title>k8s本地访问pod应用</title>
+      <link>https://magicletters.github.io/posts/k8sdocker/k8s%E6%9C%AC%E5%9C%B0%E8%AE%BF%E9%97%AEpod%E5%BA%94%E7%94%A8/</link>
+      <pubDate>Sat, 07 Sep 2019 20:27:10 +0000</pubDate>
+      
+      <guid>https://magicletters.github.io/posts/k8sdocker/k8s%E6%9C%AC%E5%9C%B0%E8%AE%BF%E9%97%AEpod%E5%BA%94%E7%94%A8/</guid>
+      <description>自Kubernetes v1.</description>
+    </item>
+    
+    <item>
+      <title>kubernetes集群</title>
+      <link>https://magicletters.github.io/posts/k8sdocker/kubernetes%E9%9B%86%E7%BE%A4/</link>
+      <pubDate>Sat, 07 Sep 2019 20:26:24 +0000</pubDate>
+      
+      <guid>https://magicletters.github.io/posts/k8sdocker/kubernetes%E9%9B%86%E7%BE%A4/</guid>
+      <description>Step#1 master节点初始化 本步骤中的命令只能在master节点服务器上运行，使用kubeadm命令进行初始化操作：</description>
+    </item>
+    
+    <item>
+      <title>kubernetes安装指南</title>
+      <link>https://magicletters.github.io/posts/k8sdocker/kubernetes%E5%AE%89%E8%A3%85%E6%8C%87%E5%8D%97/</link>
+      <pubDate>Sat, 07 Sep 2019 20:25:22 +0000</pubDate>
+      
+      <guid>https://magicletters.github.io/posts/k8sdocker/kubernetes%E5%AE%89%E8%A3%85%E6%8C%87%E5%8D%97/</guid>
+      <description>Step#1 添加Ubuntu源  cat &amp;laquo;EOF &amp;gt; /etc/apt/sources.</description>
+    </item>
+    
+    <item>
+      <title>Java lambda修改本地变量</title>
+      <link>https://magicletters.github.io/posts/java/java-lambda%E4%BF%AE%E6%94%B9%E6%9C%AC%E5%9C%B0%E5%8F%98%E9%87%8F/</link>
+      <pubDate>Sat, 07 Sep 2019 20:17:42 +0000</pubDate>
+      
+      <guid>https://magicletters.github.io/posts/java/java-lambda%E4%BF%AE%E6%94%B9%E6%9C%AC%E5%9C%B0%E5%8F%98%E9%87%8F/</guid>
+      <description>Use a wrapper Any kind of wrapper is good.</description>
+    </item>
+    
+    <item>
+      <title>Kibana启动出错</title>
+      <link>https://magicletters.github.io/posts/kibana%E5%90%AF%E5%8A%A8%E5%87%BA%E9%94%99/</link>
+      <pubDate>Sat, 07 Sep 2019 13:03:17 +0000</pubDate>
+      
+      <guid>https://magicletters.github.io/posts/kibana%E5%90%AF%E5%8A%A8%E5%87%BA%E9%94%99/</guid>
+      <description>Kibana启动的时候错误信息：</description>
+    </item>
+    
+    <item>
+      <title>Ubuntu命令行连接WiFi</title>
+      <link>https://magicletters.github.io/posts/linux/ubuntu%E5%91%BD%E4%BB%A4%E8%A1%8C%E8%BF%9E%E6%8E%A5wifi/</link>
+      <pubDate>Sat, 07 Sep 2019 12:52:24 +0000</pubDate>
+      
+      <guid>https://magicletters.github.io/posts/linux/ubuntu%E5%91%BD%E4%BB%A4%E8%A1%8C%E8%BF%9E%E6%8E%A5wifi/</guid>
+      <description>Show available wlan access points:   nmcli dev wifi</description>
+    </item>
+    
+    <item>
+      <title>docker访问http的registry</title>
+      <link>https://magicletters.github.io/posts/k8sdocker/docker%E8%AE%BF%E9%97%AEhttp%E7%9A%84registry/</link>
+      <pubDate>Sat, 07 Sep 2019 11:42:25 +0000</pubDate>
+      
+      <guid>https://magicletters.github.io/posts/k8sdocker/docker%E8%AE%BF%E9%97%AEhttp%E7%9A%84registry/</guid>
+      <description>默认情况下docker只允许访问https的registry，但是有些情况需要访问只有http的registry（比如在内网配置私有的registry）。具体步骤如下（需要修改所有docker节点）：</description>
+    </item>
+    
+    <item>
+      <title>通过clang了解C&#43;&#43;对象的内存布局</title>
+      <link>https://magicletters.github.io/posts/ccpp/%E9%80%9A%E8%BF%87clang%E4%BA%86%E8%A7%A3c&#43;&#43;%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%86%85%E5%AD%98%E5%B8%83%E5%B1%80/</link>
+      <pubDate>Tue, 17 Apr 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://magicletters.github.io/posts/ccpp/%E9%80%9A%E8%BF%87clang%E4%BA%86%E8%A7%A3c&#43;&#43;%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%86%85%E5%AD%98%E5%B8%83%E5%B1%80/</guid>
+      <description>内存布局示例 class Base { public: int method(int p); protected: int foo; private: int pbfoo; }; struct Point { double cx, cy; }; class Derived : public Base { public: int method(int p); protected: int bar, baz; Point a_point; char c; }; int main(int argc, char** argv) { return sizeof(Derived); }   要查看布局，请运行clang -cc1 -fdump-record-layouts myfile.</description>
+    </item>
+    
+    <item>
+      <title>深入理解C&#43;&#43;对象模型</title>
+      <link>https://magicletters.github.io/posts/ccpp/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3c&#43;&#43;%E5%AF%B9%E8%B1%A1%E6%A8%A1%E5%9E%8B/</link>
+      <pubDate>Thu, 12 Apr 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://magicletters.github.io/posts/ccpp/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3c&#43;&#43;%E5%AF%B9%E8%B1%A1%E6%A8%A1%E5%9E%8B/</guid>
+      <description>理解C的对象模型及在内存中的布局有利于更深入的理解C语言，更有利于出问题的时候进行Debug。</description>
+    </item>
+    
+  </channel>
+</rss>

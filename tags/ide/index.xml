@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>ide on DreamAsHourse</title>
+    <link>https://magicletters.github.io/tags/ide/</link>
+    <description>Recent content in ide on DreamAsHourse</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>Zhu Jia - All rights reserved</copyright>
+    <lastBuildDate>Fri, 24 Jul 2020 14:12:10 +0000</lastBuildDate>
+    
+	<atom:link href="https://magicletters.github.io/tags/ide/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>clion基于docker的开发环境配置</title>
+      <link>https://magicletters.github.io/posts/linux/clion%E5%9F%BA%E4%BA%8Edocker%E7%9A%84%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/</link>
+      <pubDate>Fri, 24 Jul 2020 14:12:10 +0000</pubDate>
+      
+      <guid>https://magicletters.github.io/posts/linux/clion%E5%9F%BA%E4%BA%8Edocker%E7%9A%84%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/</guid>
+      <description>构建开发环境容器镜像 Dockerfile FROM i386/ubuntu:18.</description>
+    </item>
+    
+  </channel>
+</rss>

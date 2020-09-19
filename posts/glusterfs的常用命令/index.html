@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en-us"><head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="generator" content="Hugo 0.74.3" />
+	
+	<link rel="icon" href="/static/images/logo.png">
+	
+	<title>Glusterfs的常用命令 | DreamAsHourse</title>
+	
+	
+
+	<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Glusterfs的常用命令"/>
+<meta name="twitter:description" content="服务器节点   gluster peer status //查看所有节点信息，显示时不包括本节点"/>
+
+	<meta property="og:title" content="Glusterfs的常用命令" />
+<meta property="og:description" content="服务器节点   gluster peer status //查看所有节点信息，显示时不包括本节点" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://magicletters.github.io/posts/glusterfs%E7%9A%84%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" />
+<meta property="article:published_time" content="2020-07-15T10:07:18+00:00" />
+<meta property="article:modified_time" content="2020-07-15T10:07:18+00:00" />
+
+
+	<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
+	 crossorigin="anonymous">
+	<link href="https://fonts.googleapis.com/css?family=Righteous%7CMerriweather:300,300i,400,400i,700,700i" rel="stylesheet">
+	<link href="/css/medium.css" rel="stylesheet">
+	<link href="/css/additional.css" rel="stylesheet">
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top mediumnavigation nav-down">
+    <div class="container pr-0">
+        
+        <a class="navbar-brand" href="https://magicletters.github.io//">
+
+            
+            <img src="/static/images/logo.png" alt="logo">
+            
+        </a>
+        
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarMediumish" aria-controls="navbarSupportedContent"
+            aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        
+        <div class="collapse navbar-collapse" id="navbarMediumish">
+            
+            <ul class="navbar-nav ml-auto">
+                 
+                <li class="nav-item ">
+                    <a class="nav-link" href="/posts">Posts</a>
+                </li>
+                 
+                <li class="nav-item ">
+                    <a class="nav-link" href="/categories">Categories</a>
+                </li>
+                 
+                <li class="nav-item ">
+                    <a class="nav-link" href="/tags">Tags</a>
+                </li>
+                 
+                <li class="nav-item ">
+                    <a class="nav-link" href="/">About Me</a>
+                </li>
+                 
+                <li class="nav-item ">
+                    <a class="nav-link" href="/static/imprint">Imprint</a>
+                </li>
+                
+            </ul>
+        </div>
+        
+    </div>
+</nav>
+
+
+        <div class="site-content">   
+            <div class="container">
+<div class="mainheading">
+    <h1 class="sitetitle">DreamAsHourse</h1>
+    <p class="lead">
+         以梦为马🏇
+    </p>
+</div><div class="main-content">
+        
+        <div class="container">
+            <div class="row">
+                
+                <div class="col-md-2 pl-0"><div class="share sticky-top sticky-top-offset">
+    <p>Share</p>
+    <ul>
+        <li class="ml-1 mr-1">
+        <a target="_blank" href="https://twitter.com/intent/tweet?text=Glusterfs%e7%9a%84%e5%b8%b8%e7%94%a8%e5%91%bd%e4%bb%a4&url=https%3a%2f%2fmagicletters.github.io%2fposts%2fglusterfs%25E7%259A%2584%25E5%25B8%25B8%25E7%2594%25A8%25E5%2591%25BD%25E4%25BB%25A4%2f" onclick="window.open(this.href, 'twitter-share', 'width=550,height=435');return false;">
+        <i class="fab fa-twitter"></i>
+        </a>
+        </li>
+        
+        <li class="ml-1 mr-1">
+        <a target="_blank" href="https://facebook.com/sharer.php?u=https%3a%2f%2fmagicletters.github.io%2fposts%2fglusterfs%25E7%259A%2584%25E5%25B8%25B8%25E7%2594%25A8%25E5%2591%25BD%25E4%25BB%25A4%2f" onclick="window.open(this.href, 'facebook-share', 'width=550,height=435');return false;">
+        <i class="fab fa-facebook-f"></i>
+        </a>
+        </li>
+
+        <li class="ml-1 mr-1">
+        <a target="_blank" href="https://www.xing.com/spi/shares/new?url=https%3a%2f%2fmagicletters.github.io%2fposts%2fglusterfs%25E7%259A%2584%25E5%25B8%25B8%25E7%2594%25A8%25E5%2591%25BD%25E4%25BB%25A4%2f" onclick="window.open(this.href, 'xing-share', 'width=550,height=435');return false;">
+        <i class="fab fa-xing"></i>
+        </a>
+        </li>        
+    </ul>
+
+    
+</div>
+</div>
+                                
+                <div class="col-md-9 flex-first flex-md-unordered">
+                    <div class="mainheading">
+                        	
+                        
+                        
+                        
+                        <div class="row post-top-meta">
+                            <div class="col-xs-12 col-md-3 col-lg-2 text-center text-md-left mb-4 mb-md-0 md-nopad-right">
+                                <img class="author-thumb" src="/static/images/author.png" alt="Zhu Jia">
+                            </div>
+                            <div class="col-xs-12 col-md-9 col-lg-10 text-center text-md-left md-nopad-left">
+                                <a target="_blank" class="link-dark">Zhu Jia</a><br>
+                                <span class="author-description">
+                                    以梦为马<br>
+                                    <i class="far fa-star"></i>
+                                    Jul 15, 2020
+                                    <i class="far fa-clock clock"></i>
+                                    2 min read
+                                </span>					
+                            </div>
+                        </div>			
+                        	
+                        
+                                                
+                        
+                        <h1 class="posttitle">Glusterfs的常用命令</h1> 
+                    </div>
+
+                    
+                    
+                    
+                    
+
+                    
+                    <div class="article-post">
+                        <h1 id="服务器节点">服务器节点</h1>
+<ul>
+<li>
+<p>gluster peer status                          //查看所有节点信息，显示时不包括本节点</p>
+</li>
+<li>
+<p>gluster peer probe   NODE-NAME //添加节点</p>
+</li>
+<li>
+<p>gluster peer detach  NODE-NAME //移除节点，需要提前将该节点上的brick移除</p>
+</li>
+</ul>
+<h1 id="卷管理">卷管理</h1>
+<h2 id="创建卷">创建卷</h2>
+<ul>
+<li>复制卷</li>
+</ul>
+<p>语法：  gluster volume create NEW-VOLNAME [replica COUNT] [transport tcp | rdma | tcp, rdma] NEW-BRICK</p>
+<p>示例1：gluster volume create test-volume replica 2 transport tcp server1:/exp1/brick server2:/exp2/brick</p>
+<ul>
+<li>条带卷</li>
+</ul>
+<p>语法：gluster volume create NEW-VOLNAME [stripe COUNT] [transport tcp | rdma | tcp, rdma] NEW-BRICK&hellip;</p>
+<p>示例：gluster volume create test-volume stripe 2 transport tcp server1:/exp1/brick server2:/exp2/brick</p>
+<ul>
+<li>分布式卷</li>
+</ul>
+<p>语法：  gluster volume create NEW-VOLNAME [transport tcp | rdma | tcp, rdma] NEW-BRICK</p>
+<p>示例1：gluster volume create test-volume server1:/exp1/brick server2:/exp2/brick
+示例2：gluster volume create test-volume transport rdma server1:/exp1/brick server2:/exp2/brick server3:/exp3/brick server4:/exp4/brick</p>
+<ul>
+<li>分布式复制卷</li>
+</ul>
+<p>语法： gluster volume create NEW-VOLNAME [replica COUNT] [transport tcp | rdma | tcp, rdma] NEW-BRICK&hellip;
+示例： gluster volume create test-volume replica 2 transport tcp server1:/exp1/brick server2:/exp2/brick server3:/exp3/brick server4:/exp4/brick</p>
+<ul>
+<li>分布式条带卷</li>
+</ul>
+<p>语法：gluster volume create NEW-VOLNAME [stripe COUNT] [transport tcp | rdma | tcp, rdma] NEW-BRICK&hellip;</p>
+<p>示例：gluster volume create test-volume stripe 2 transport tcp server1:/exp1/brick server2:/exp2/brick server3:/exp3/brick server4:/exp4/brick</p>
+<ul>
+<li>条带复制卷</li>
+</ul>
+<p>语法：gluster volume create NEW-VOLNAME [stripe COUNT] [replica COUNT] [transport tcp | rdma | tcp, rdma] NEW-BRICK&hellip;</p>
+<p>示例：gluster volume create test-volume stripe 2 replica 2 transport tcp server1:/exp1/brick server2:/exp2/brick server3:/exp3/brick server4:/exp4/brick</p>
+<h2 id="启动卷">启动卷</h2>
+<ul>
+<li>gluster volume start test-volume</li>
+</ul>
+<h2 id="停止卷">停止卷</h2>
+<ul>
+<li>gluster volume stop test-volume</li>
+</ul>
+<h2 id="删除卷">删除卷</h2>
+<ul>
+<li>gluster volume delete test-volume  //先停止卷后才能删除</li>
+</ul>
+<h2 id="查看卷">查看卷</h2>
+<ul>
+<li>
+<p>gluster volume list              /<em>列出集群中的所有卷</em>/</p>
+</li>
+<li>
+<p>gluster volume info [all]      /<em>查看集群中的卷信息</em>/</p>
+</li>
+<li>
+<p>gluster volume status [all]  /<em>查看集群中的卷状态</em>/</p>
+</li>
+<li>
+<p>gluster volume status  [detail| clients | mem | inode | fd]</p>
+</li>
+</ul>
+<h2 id="配置卷">配置卷</h2>
+<ul>
+<li>gluster volume set <!-- raw HTML omitted --> <!-- raw HTML omitted --> <!-- raw HTML omitted --></li>
+</ul>
+<h2 id="扩展卷">扩展卷</h2>
+<ul>
+<li>gluster volume add-brick <!-- raw HTML omitted --> <!-- raw HTML omitted -->
+注意，如果是复制卷或者条带卷，则每次添加的Brick数必须是replica或者stripe的整数倍。</li>
+</ul>
+<h2 id="收缩卷">收缩卷</h2>
+<p>先将数据迁移到其它可用的Brick，迁移结束后才将该Brick移除：</p>
+<ul>
+<li>gluster volume remove-brick  start
+在执行了start之后，可以使用status命令查看移除进度：</li>
+<li>gluster volume remove-brick  status
+不进行数据迁移，直接删除该Brick：</li>
+</ul>
+<h1 id="gluster-volume-remove-brick--commit">gluster volume remove-brick  commit</h1>
+<p>注意，如果是复制卷或者条带卷，则每次移除的Brick数必须是replica或者stripe的整数倍。</p>
+<h2 id="迁移卷">迁移卷</h2>
+<p>使用start命令开始进行迁移：</p>
+<ul>
+<li>gluster volume replace-brick  start
+在数据迁移过程中，可以使用pause命令暂停迁移：</li>
+<li>gluster volume replace-brick  pause
+在数据迁移过程中，可以使用abort命令终止迁移：</li>
+<li>gluster volume replace-brick  abort
+在数据迁移过程中，可以使用status命令查看迁移进度：</li>
+<li>gluster volume replace-brick  status
+在数据迁移结束后，执行commit命令来进行Brick替换：</li>
+<li>gluster volume replace-brick  commit</li>
+</ul>
+<h2 id="重新均衡卷">重新均衡卷</h2>
+<p>不迁移数据：</p>
+<ul>
+<li>gluster volume rebalance  lay-outstart</li>
+<li>gluster volume rebalance  start</li>
+<li>gluster volume rebalance  startforce</li>
+<li>gluster volume rebalance  status</li>
+<li>gluster volume rebalance  stop</li>
+</ul>
+<h1 id="brick管理">Brick管理</h1>
+<h2 id="添加brick">添加Brick</h2>
+<ul>
+<li>gluster volume add-brick test-volume 192.168.1.{151,152}:/mnt/brick2</li>
+</ul>
+<h2 id="删除brick">删除Brick</h2>
+<p>若是副本卷，则移除的Bricks数是replica的整数倍</p>
+<ul>
+<li>gluster volume remove-brick test-volume 192.168.1.{151,152}:/mnt/brick2 start
+在执行开始移除之后，可以使用status命令进行移除状态查看。</li>
+<li>gluster volume remove-brick test-volume 192.168.1.{151,152}:/mnt/brick2 status</li>
+</ul>
+<p>使用commit命令执行Brick移除，则不会进行数据迁移而直接删除Brick，符合不需要数据迁移的用户需求。</p>
+<ul>
+<li>gluster volume remove-brick test-volume 192.168.1.{151,152}:/mnt/brick2 commit</li>
+</ul>
+<h2 id="替换brick">替换Brick</h2>
+<p>任务：把192.168.1.151:/mnt/brick0 替换为192.168.1.151:/mnt/brick2
+&lt;1&gt;开始替换</p>
+<ul>
+<li>gluster volume replace-brick test-volume 192.168.1.:/mnt/brick0 ..152:/mnt/brick2 start
+异常信息：volume replace-brick: failed: /data/share2 or a prefix of it is already part of a volume</li>
+</ul>
+<p>说明 /mnt/brick2 曾经是一个Brick。具体解决方法</p>
+<ul>
+<li>
+<p>rm -rf /mnt/brick2/.glusterfs</p>
+</li>
+<li>
+<p>setfattr -x trusted.glusterfs.volume-id /mnt/brick2</p>
+</li>
+<li>
+<p>setfattr -x trusted.gfid  /mnt/brick2</p>
+</li>
+</ul>
+<p>//如上，执行replcace-brick卷替换启动命令，使用start启动命令后，开始将原始Brick的数据迁移到即将需要替换的Brick上。</p>
+<p>&lt;2&gt;查看是否替换完</p>
+<ul>
+<li>gluster volume replace-brick test-volume 192.168.1.151:/mnt/brick0 ..152:/mnt/brick2 status
+&lt;3&gt;在数据迁移的过程中，可以执行abort命令终止Brick替换。</li>
+<li>gluster volume replace-brick test-volume 192.168.1.151:/mnt/brick0 ..152:/mnt/brick2 abort</li>
+</ul>
+<p>&lt;4&gt;在数据迁移结束之后，执行commit命令结束任务，则进行Brick替换。使用volume info命令可以查看到Brick已经被替换。</p>
+<ul>
+<li>gluster volume replace-brick test-volume 192.168.1.151:/mnt/brick0 .152:/mnt/brick2 commit</li>
+<li>此时我们再往 /sf/data/vs/gfs/rep2上添加数据的话，数据会同步到 192.168.1.152:/mnt/brick0和192.168.1.152:/mnt/brick2上。而不会同步到
+192.168.1.151:/mnt/brick0 上。</li>
+</ul>
+<h1 id="文件系统扩展属性">文件系统扩展属性</h1>
+<p>获取文件扩展属性</p>
+<p>getfattr -d -m . -e hex filename</p>
+<p>getfattr -d -m &ldquo;trusted.afr.*&rdquo; -e hex filename</p>
+
+                    </div>
+                    
+                    
+                    <div class="after-post-tags">
+                        <ul class="tags">
+                        
+                        <li>
+                        <a href="/tags/%E5%88%86%E5%B8%83%E5%BC%8F%E5%AD%98%E5%82%A8">分布式存储</a>
+                        </li>
+                        
+                        </ul>
+                    </div>
+                    
+                    
+                    
+                    <div class="row PageNavigation d-flex justify-content-between font-weight-bold">
+                    
+                        <a class="d-block col-md-6" href="https://magicletters.github.io/posts/%E4%BD%BF%E7%94%A8glusterfs%E5%81%9A%E6%8C%81%E4%B9%85%E5%8C%96%E5%AD%98%E5%82%A8/"> &laquo; 使用glusterfs做持久化存储</a>
+                    
+                    
+                        <a class="d-block col-md-6 text-lg-right" href="https://magicletters.github.io/posts/linux/%E4%BD%BF%E7%94%A8ssh%E5%8F%8D%E5%90%91%E9%9A%A7%E9%81%93%E8%BF%9B%E8%A1%8C%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/">使用SSH反向隧道进行内网穿透 &raquo;</a>
+                    
+                    <div class="clearfix"></div>
+                    </div>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+    </div>
+
+
+            </div>
+<div class="jumbotron fortags">
+	<div class="d-md-flex h-100">
+		<div class="col-md-4 transpdark align-self-center text-center h-100">
+			<div class="d-md-flex align-items-center justify-content-center h-100">
+				<h2 class="d-md-block d-none align-self-center py-1 font-weight-light">Explore <span class="d-none d-md-inline">→</span></h2>
+			</div>
+		</div>
+		<div class="col-md-8 p-5 align-self-center text-center">
+			
+			<a class="mt-1 mb-1" href="/tags/adoc">adoc</a>
+			
+			<a class="mt-1 mb-1" href="/tags/arm">arm</a>
+			
+			<a class="mt-1 mb-1" href="/tags/clion">clion</a>
+			
+			<a class="mt-1 mb-1" href="/tags/cpp">cpp</a>
+			
+			<a class="mt-1 mb-1" href="/tags/docker">docker</a>
+			
+			<a class="mt-1 mb-1" href="/tags/golang">golang</a>
+			
+			<a class="mt-1 mb-1" href="/tags/ide">ide</a>
+			
+			<a class="mt-1 mb-1" href="/tags/java">java</a>
+			
+			<a class="mt-1 mb-1" href="/tags/k8s">k8s</a>
+			
+			<a class="mt-1 mb-1" href="/tags/raft">raft</a>
+			
+			<a class="mt-1 mb-1" href="/tags/shell">shell</a>
+			
+			<a class="mt-1 mb-1" href="/tags/spring">spring</a>
+			
+			<a class="mt-1 mb-1" href="/tags/%E5%88%86%E5%B8%83%E5%BC%8F%E5%AD%98%E5%82%A8">分布式存储</a>
+			
+		</div>
+	</div>
+</div>
+
+<footer class="footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-sm-6 text-center text-lg-left">
+                &copy; Copyright Zhu Jia - All rights reserved
+            </div>
+            <div class="col-md-6 col-sm-6 text-center text-lg-right">    
+                <a target="_blank" rel="noopener" href="https://www.wowthemes.net">Mediumish Theme</a> by WowThemes.net
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+        </div>
+
+
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+<script src="/js/mediumish.js"></script>
+
+    </body>
+</html>

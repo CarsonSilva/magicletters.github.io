@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en-us"><head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="generator" content="Hugo 0.74.3" />
+	
+	<link rel="icon" href="/static/images/logo.png">
+	
+	<title>Spring @Transactional说明 | DreamAsHourse</title>
+	
+	
+
+	<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Spring @Transactional说明"/>
+<meta name="twitter:description" content="@Transactional注解生效的几种情况  当在一个@Transactional方法中调用没有@Transactional的方法时，调用者的事务会持续到被调用的方法中；调用者和被调用者都使用同一个连接，调用方法中的任何异常都将触发@Transactional配置的事务回滚。"/>
+
+	<meta property="og:title" content="Spring @Transactional说明" />
+<meta property="og:description" content="@Transactional注解生效的几种情况  当在一个@Transactional方法中调用没有@Transactional的方法时，调用者的事务会持续到被调用的方法中；调用者和被调用者都使用同一个连接，调用方法中的任何异常都将触发@Transactional配置的事务回滚。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://magicletters.github.io/posts/java/spring-transactional%E8%AF%B4%E6%98%8E/" />
+<meta property="article:published_time" content="2020-05-15T10:35:48+00:00" />
+<meta property="article:modified_time" content="2020-05-15T10:35:48+00:00" />
+
+
+	<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
+	 crossorigin="anonymous">
+	<link href="https://fonts.googleapis.com/css?family=Righteous%7CMerriweather:300,300i,400,400i,700,700i" rel="stylesheet">
+	<link href="/css/medium.css" rel="stylesheet">
+	<link href="/css/additional.css" rel="stylesheet">
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top mediumnavigation nav-down">
+    <div class="container pr-0">
+        
+        <a class="navbar-brand" href="https://magicletters.github.io//">
+
+            
+            <img src="/static/images/logo.png" alt="logo">
+            
+        </a>
+        
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarMediumish" aria-controls="navbarSupportedContent"
+            aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        
+        <div class="collapse navbar-collapse" id="navbarMediumish">
+            
+            <ul class="navbar-nav ml-auto">
+                 
+                <li class="nav-item ">
+                    <a class="nav-link" href="/posts">Posts</a>
+                </li>
+                 
+                <li class="nav-item ">
+                    <a class="nav-link" href="/categories">Categories</a>
+                </li>
+                 
+                <li class="nav-item ">
+                    <a class="nav-link" href="/tags">Tags</a>
+                </li>
+                 
+                <li class="nav-item ">
+                    <a class="nav-link" href="/">About Me</a>
+                </li>
+                 
+                <li class="nav-item ">
+                    <a class="nav-link" href="/static/imprint">Imprint</a>
+                </li>
+                
+            </ul>
+        </div>
+        
+    </div>
+</nav>
+
+
+        <div class="site-content">   
+            <div class="container">
+<div class="mainheading">
+    <h1 class="sitetitle">DreamAsHourse</h1>
+    <p class="lead">
+         以梦为马🏇
+    </p>
+</div><div class="main-content">
+        
+        <div class="container">
+            <div class="row">
+                
+                <div class="col-md-2 pl-0"><div class="share sticky-top sticky-top-offset">
+    <p>Share</p>
+    <ul>
+        <li class="ml-1 mr-1">
+        <a target="_blank" href="https://twitter.com/intent/tweet?text=Spring%20%40Transactional%e8%af%b4%e6%98%8e&url=https%3a%2f%2fmagicletters.github.io%2fposts%2fjava%2fspring-transactional%25E8%25AF%25B4%25E6%2598%258E%2f" onclick="window.open(this.href, 'twitter-share', 'width=550,height=435');return false;">
+        <i class="fab fa-twitter"></i>
+        </a>
+        </li>
+        
+        <li class="ml-1 mr-1">
+        <a target="_blank" href="https://facebook.com/sharer.php?u=https%3a%2f%2fmagicletters.github.io%2fposts%2fjava%2fspring-transactional%25E8%25AF%25B4%25E6%2598%258E%2f" onclick="window.open(this.href, 'facebook-share', 'width=550,height=435');return false;">
+        <i class="fab fa-facebook-f"></i>
+        </a>
+        </li>
+
+        <li class="ml-1 mr-1">
+        <a target="_blank" href="https://www.xing.com/spi/shares/new?url=https%3a%2f%2fmagicletters.github.io%2fposts%2fjava%2fspring-transactional%25E8%25AF%25B4%25E6%2598%258E%2f" onclick="window.open(this.href, 'xing-share', 'width=550,height=435');return false;">
+        <i class="fab fa-xing"></i>
+        </a>
+        </li>        
+    </ul>
+
+    
+</div>
+</div>
+                                
+                <div class="col-md-9 flex-first flex-md-unordered">
+                    <div class="mainheading">
+                        	
+                        
+                        
+                        
+                        <div class="row post-top-meta">
+                            <div class="col-xs-12 col-md-3 col-lg-2 text-center text-md-left mb-4 mb-md-0 md-nopad-right">
+                                <img class="author-thumb" src="/static/images/author.png" alt="Zhu Jia">
+                            </div>
+                            <div class="col-xs-12 col-md-9 col-lg-10 text-center text-md-left md-nopad-left">
+                                <a target="_blank" class="link-dark">Zhu Jia</a><br>
+                                <span class="author-description">
+                                    以梦为马<br>
+                                    <i class="far fa-star"></i>
+                                    May 15, 2020
+                                    <i class="far fa-clock clock"></i>
+                                    1 min read
+                                </span>					
+                            </div>
+                        </div>			
+                        	
+                        
+                                                
+                        
+                        <h1 class="posttitle">Spring @Transactional说明</h1> 
+                    </div>
+
+                    
+                    
+                    
+                    
+
+                    
+                    <div class="article-post">
+                        <div class="sect1">
+<h2 id="_transactional注解生效的几种情况">@Transactional注解生效的几种情况</h2>
+<div class="sectionbody">
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>当在一个@Transactional方法中调用没有@Transactional的方法时，调用者的事务会持续到被调用的方法中；调用者和被调用者都使用同一个连接，调用方法中的任何异常都将触发@Transactional配置的事务回滚。</p>
+</li>
+<li>
+<p>当同一个实例中的@Transactional方法调用另一个@Transactional方法时，被调用者的@Transactional对事务没有任何影响。但是当两个方法不再同一个实例中时，被调用者的@Transactional将根据配置生效。</p>
+</li>
+<li>
+<p>Spring的声明式事务使用AOP代理，AOP代理只有在方法从实例外部被调用的时候才会被激活，所以在同一个类的方法之间调用中，如果A方法调用了B方法，不管A方法有没有开启事务， B方法的事务是无效的。</p>
+</li>
+<li>
+<p>@Trasactional只能加在public修饰的方法上事务才起效。如果加在protect、private等非public修饰的方法上，事务将失效。</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+
+                    </div>
+                    
+                    
+                    <div class="after-post-tags">
+                        <ul class="tags">
+                        
+                        <li>
+                        <a href="/tags/spring">Spring</a>
+                        </li>
+                        
+                        </ul>
+                    </div>
+                    
+                    
+                    
+                    <div class="row PageNavigation d-flex justify-content-between font-weight-bold">
+                    
+                        <a class="d-block col-md-6" href="https://magicletters.github.io/posts/golang/why-you-should-use-a-go-module-proxy/"> &laquo; Why you should use a Go module proxy</a>
+                    
+                    
+                        <a class="d-block col-md-6 text-lg-right" href="https://magicletters.github.io/posts/linux/git%E8%BE%93%E5%87%BA%E9%A2%9C%E8%89%B2/">git输出颜色 &raquo;</a>
+                    
+                    <div class="clearfix"></div>
+                    </div>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+    </div>
+
+
+            </div>
+<div class="jumbotron fortags">
+	<div class="d-md-flex h-100">
+		<div class="col-md-4 transpdark align-self-center text-center h-100">
+			<div class="d-md-flex align-items-center justify-content-center h-100">
+				<h2 class="d-md-block d-none align-self-center py-1 font-weight-light">Explore <span class="d-none d-md-inline">→</span></h2>
+			</div>
+		</div>
+		<div class="col-md-8 p-5 align-self-center text-center">
+			
+			<a class="mt-1 mb-1" href="/tags/adoc">adoc</a>
+			
+			<a class="mt-1 mb-1" href="/tags/arm">arm</a>
+			
+			<a class="mt-1 mb-1" href="/tags/clion">clion</a>
+			
+			<a class="mt-1 mb-1" href="/tags/cpp">cpp</a>
+			
+			<a class="mt-1 mb-1" href="/tags/docker">docker</a>
+			
+			<a class="mt-1 mb-1" href="/tags/golang">golang</a>
+			
+			<a class="mt-1 mb-1" href="/tags/ide">ide</a>
+			
+			<a class="mt-1 mb-1" href="/tags/java">java</a>
+			
+			<a class="mt-1 mb-1" href="/tags/k8s">k8s</a>
+			
+			<a class="mt-1 mb-1" href="/tags/raft">raft</a>
+			
+			<a class="mt-1 mb-1" href="/tags/shell">shell</a>
+			
+			<a class="mt-1 mb-1" href="/tags/spring">spring</a>
+			
+			<a class="mt-1 mb-1" href="/tags/%E5%88%86%E5%B8%83%E5%BC%8F%E5%AD%98%E5%82%A8">分布式存储</a>
+			
+		</div>
+	</div>
+</div>
+
+<footer class="footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-sm-6 text-center text-lg-left">
+                &copy; Copyright Zhu Jia - All rights reserved
+            </div>
+            <div class="col-md-6 col-sm-6 text-center text-lg-right">    
+                <a target="_blank" rel="noopener" href="https://www.wowthemes.net">Mediumish Theme</a> by WowThemes.net
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+        </div>
+
+
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+<script src="/js/mediumish.js"></script>
+
+    </body>
+</html>

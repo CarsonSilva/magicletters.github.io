@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en-us"><head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="generator" content="Hugo 0.74.3" />
+	
+	<link rel="icon" href="/static/images/logo.png">
+	
+	<title>kubernetes dashboard部署 | DreamAsHourse</title>
+	
+	
+
+	<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="kubernetes dashboard部署"/>
+<meta name="twitter:description" content="Step#1 下载yaml文件  wget https://raw."/>
+
+	<meta property="og:title" content="kubernetes dashboard部署" />
+<meta property="og:description" content="Step#1 下载yaml文件  wget https://raw." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://magicletters.github.io/posts/k8sdocker/kubernetes-dashboard%E9%83%A8%E7%BD%B2/" />
+<meta property="article:published_time" content="2019-09-07T20:27:35+00:00" />
+<meta property="article:modified_time" content="2019-09-07T20:27:35+00:00" />
+
+
+	<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
+	 crossorigin="anonymous">
+	<link href="https://fonts.googleapis.com/css?family=Righteous%7CMerriweather:300,300i,400,400i,700,700i" rel="stylesheet">
+	<link href="/css/medium.css" rel="stylesheet">
+	<link href="/css/additional.css" rel="stylesheet">
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top mediumnavigation nav-down">
+    <div class="container pr-0">
+        
+        <a class="navbar-brand" href="https://magicletters.github.io//">
+
+            
+            <img src="/static/images/logo.png" alt="logo">
+            
+        </a>
+        
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarMediumish" aria-controls="navbarSupportedContent"
+            aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        
+        <div class="collapse navbar-collapse" id="navbarMediumish">
+            
+            <ul class="navbar-nav ml-auto">
+                 
+                <li class="nav-item ">
+                    <a class="nav-link" href="/posts">Posts</a>
+                </li>
+                 
+                <li class="nav-item ">
+                    <a class="nav-link" href="/categories">Categories</a>
+                </li>
+                 
+                <li class="nav-item ">
+                    <a class="nav-link" href="/tags">Tags</a>
+                </li>
+                 
+                <li class="nav-item ">
+                    <a class="nav-link" href="/">About Me</a>
+                </li>
+                 
+                <li class="nav-item ">
+                    <a class="nav-link" href="/static/imprint">Imprint</a>
+                </li>
+                
+            </ul>
+        </div>
+        
+    </div>
+</nav>
+
+
+        <div class="site-content">   
+            <div class="container">
+<div class="mainheading">
+    <h1 class="sitetitle">DreamAsHourse</h1>
+    <p class="lead">
+         以梦为马🏇
+    </p>
+</div><div class="main-content">
+        
+        <div class="container">
+            <div class="row">
+                
+                <div class="col-md-2 pl-0"><div class="share sticky-top sticky-top-offset">
+    <p>Share</p>
+    <ul>
+        <li class="ml-1 mr-1">
+        <a target="_blank" href="https://twitter.com/intent/tweet?text=kubernetes%20dashboard%e9%83%a8%e7%bd%b2&url=https%3a%2f%2fmagicletters.github.io%2fposts%2fk8sdocker%2fkubernetes-dashboard%25E9%2583%25A8%25E7%25BD%25B2%2f" onclick="window.open(this.href, 'twitter-share', 'width=550,height=435');return false;">
+        <i class="fab fa-twitter"></i>
+        </a>
+        </li>
+        
+        <li class="ml-1 mr-1">
+        <a target="_blank" href="https://facebook.com/sharer.php?u=https%3a%2f%2fmagicletters.github.io%2fposts%2fk8sdocker%2fkubernetes-dashboard%25E9%2583%25A8%25E7%25BD%25B2%2f" onclick="window.open(this.href, 'facebook-share', 'width=550,height=435');return false;">
+        <i class="fab fa-facebook-f"></i>
+        </a>
+        </li>
+
+        <li class="ml-1 mr-1">
+        <a target="_blank" href="https://www.xing.com/spi/shares/new?url=https%3a%2f%2fmagicletters.github.io%2fposts%2fk8sdocker%2fkubernetes-dashboard%25E9%2583%25A8%25E7%25BD%25B2%2f" onclick="window.open(this.href, 'xing-share', 'width=550,height=435');return false;">
+        <i class="fab fa-xing"></i>
+        </a>
+        </li>        
+    </ul>
+
+    
+</div>
+</div>
+                                
+                <div class="col-md-9 flex-first flex-md-unordered">
+                    <div class="mainheading">
+                        	
+                        
+                        
+                        
+                        <div class="row post-top-meta">
+                            <div class="col-xs-12 col-md-3 col-lg-2 text-center text-md-left mb-4 mb-md-0 md-nopad-right">
+                                <img class="author-thumb" src="/static/images/author.png" alt="Zhu Jia">
+                            </div>
+                            <div class="col-xs-12 col-md-9 col-lg-10 text-center text-md-left md-nopad-left">
+                                <a target="_blank" class="link-dark">Zhu Jia</a><br>
+                                <span class="author-description">
+                                    以梦为马<br>
+                                    <i class="far fa-star"></i>
+                                    Sep 7, 2019
+                                    <i class="far fa-clock clock"></i>
+                                    1 min read
+                                </span>					
+                            </div>
+                        </div>			
+                        	
+                        
+                                                
+                        
+                        <h1 class="posttitle">kubernetes dashboard部署</h1> 
+                    </div>
+
+                    
+                    
+                    
+                    
+
+                    
+                    <div class="article-post">
+                        <h2 id="step1-下载yaml文件">Step#1 下载yaml文件</h2>
+<blockquote>
+<p>wget <a href="https://raw.githubusercontent.com/kubernetes/dashboard/v1.10.1/src/deploy/recommended/kubernetes-dashboard.yaml">https://raw.githubusercontent.com/kubernetes/dashboard/v1.10.1/src/deploy/recommended/kubernetes-dashboard.yaml</a></p>
+</blockquote>
+<h2 id="step2-修改image地址">Step#2 修改image地址</h2>
+<pre><code>kind: Deployment
+apiVersion: apps/v1
+metadata:
+  labels:
+    k8s-app: kubernetes-dashboard
+  name: kubernetes-dashboard
+  namespace: kube-system
+spec:
+  replicas: 1
+  revisionHistoryLimit: 10
+  selector:
+    matchLabels:
+      k8s-app: kubernetes-dashboard
+  template:
+    metadata:
+      labels:
+        k8s-app: kubernetes-dashboard
+    spec:
+      containers:
+      - name: kubernetes-dashboard
+        image: k8s.gcr.io/kubernetes-dashboard-amd64:v1.10.1
+</code></pre><p>把image中的k8s.gcr.io 改成 registry.cn-hangzhou.aliyuncs.com/google_containers</p>
+<h2 id="step3-添加主机映射端口">Step#3 添加主机映射端口</h2>
+<p>原内容：</p>
+<pre><code>kind: Service
+apiVersion: v1
+metadata:
+  labels:
+    k8s-app: kubernetes-dashboard
+  name: kubernetes-dashboard
+  namespace: kube-system
+spec:
+  ports:
+    - port: 443
+      targetPort: 8443
+  selector:
+    k8s-app: kubernetes-dashboard
+</code></pre><p>改为：</p>
+<pre><code>kind: Service
+apiVersion: v1
+metadata:
+  labels:
+    k8s-app: kubernetes-dashboard
+  name: kubernetes-dashboard
+  namespace: kube-system
+spec:
+  type: NodePort
+  ports:
+    - port: 443
+      targetPort: 8443
+      nodePort: 30003
+  selector:
+    k8s-app: kubernetes-dashboard
+</code></pre><h2 id="step4-部署">Step#4 部署</h2>
+<blockquote>
+<p>kubectl apply -f kubernetes-dashboard.yaml</p>
+</blockquote>
+<h2 id="step5-创建登录令牌">Step#5 创建登录令牌</h2>
+<pre><code># 创建dashboard管理用户
+kubectl create serviceaccount dashboard-admin -n kube-system
+
+# 绑定用户为集群管理用户
+kubectl create clusterrolebinding dashboard-cluster-admin --clusterrole=cluster-admin --serviceaccount=kube-system:dashboard-admin
+
+# 生成tocken
+kubectl describe secret -n kube-system dashboard-admin-token
+# --- 输出如下 ---
+Name:         dashboard-admin-token-h8thm
+Namespace:    kube-system
+Labels:       &lt;none&gt;
+Annotations:  kubernetes.io/service-account.name: dashboard-admin
+              kubernetes.io/service-account.uid: 4aec6906-204a-4adb-b88b-9fdc05756029
+
+Type:  kubernetes.io/service-account-token
+
+Data
+====
+ca.crt:     1025 bytes
+namespace:  11 bytes
+token:      eyJhbGciOiJSUzI1NiIsImtpZCI6IiJ9.eyJpc3MiOiJrdWJlcm5ldGVzL3NlcnZpY2VhY2NvdW50Iiwia3ViZXJuZXRlcy5pby9zZXJ2aWNlYWNjb3VudC9uYW1lc3BhY2UiOiJrdWJlLXN5c3RlbSIsImt1YmVybmV0ZXMuaW8vc2VydmljZWFjY291bnQvc2VjcmV0Lm5hbWUiOiJkYXNoYm9hcmQtYWRtaW4tdG9rZW4taDh0aG0iLCJrdWJlcm5ldGVzLmlvL3NlcnZpY2VhY2NvdW50L3NlcnZpY2UtYWNjb3VudC5uYW1lIjoiZGFzaGJvYXJkLWFkbWluIiwia3ViZXJuZXRlcy5pby9zZXJ2aWNlYWNjb3VudC9zZXJ2aWNlLWFjY291bnQudWlkIjoiNGFlYzY5MDYtMjA0YS00YWRiLWI4OGItOWZkYzA1NzU2MDI5Iiwic3ViIjoic3lzdGVtOnNlcnZpY2VhY2NvdW50Omt1YmUtc3lzdGVtOmRhc2hib2FyZC1hZG1pbiJ9.yvJUfwA3Xvf9rviYRWfojDH4gRIuDi5X6yTcvkExtor03eg7woxk7Dt73K9thCfOkKhiv1YdCs7irItIpJZ4vflEGY0RgTWhFLbYyGQMuib5MrGS8-XDeJ5Myklu41NbDxlc43N3Io0QYKpGcEI6hx1uOMFV7LwxXIaOAObenU_3peYUWv5nyfy2avj3Wen8rdoGTeuPkyRdd-Uxa2VD4jIamJvdfzQiZCVAE4gWWYriFtGSn5nPHSK1ZqTfezXiSHuEPsPNHhxjBEwtKs0zXnp8xdLScH1FshUCzuSiv2VP4OsWS0wquW31w7A-csQMR2ZJrwhE2TvMEwgeBtQhVg
+</code></pre>
+                    </div>
+                    
+                    
+                    <div class="after-post-tags">
+                        <ul class="tags">
+                        
+                        <li>
+                        <a href="/tags/k8s">k8s</a>
+                        </li>
+                        
+                        </ul>
+                    </div>
+                    
+                    
+                    
+                    <div class="row PageNavigation d-flex justify-content-between font-weight-bold">
+                    
+                        <a class="d-block col-md-6" href="https://magicletters.github.io/posts/k8sdocker/k8s%E4%BB%8E%E9%9C%80%E8%A6%81%E8%AE%A4%E8%AF%81%E7%9A%84registry%E8%8E%B7%E5%8F%96images/"> &laquo; k8s从需要认证的registry获取images</a>
+                    
+                    
+                        <a class="d-block col-md-6 text-lg-right" href="https://magicletters.github.io/posts/k8sdocker/k8s%E6%9C%AC%E5%9C%B0%E8%AE%BF%E9%97%AEpod%E5%BA%94%E7%94%A8/">k8s本地访问pod应用 &raquo;</a>
+                    
+                    <div class="clearfix"></div>
+                    </div>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+    </div>
+
+
+            </div>
+<div class="jumbotron fortags">
+	<div class="d-md-flex h-100">
+		<div class="col-md-4 transpdark align-self-center text-center h-100">
+			<div class="d-md-flex align-items-center justify-content-center h-100">
+				<h2 class="d-md-block d-none align-self-center py-1 font-weight-light">Explore <span class="d-none d-md-inline">→</span></h2>
+			</div>
+		</div>
+		<div class="col-md-8 p-5 align-self-center text-center">
+			
+			<a class="mt-1 mb-1" href="/tags/adoc">adoc</a>
+			
+			<a class="mt-1 mb-1" href="/tags/arm">arm</a>
+			
+			<a class="mt-1 mb-1" href="/tags/clion">clion</a>
+			
+			<a class="mt-1 mb-1" href="/tags/cpp">cpp</a>
+			
+			<a class="mt-1 mb-1" href="/tags/docker">docker</a>
+			
+			<a class="mt-1 mb-1" href="/tags/golang">golang</a>
+			
+			<a class="mt-1 mb-1" href="/tags/ide">ide</a>
+			
+			<a class="mt-1 mb-1" href="/tags/java">java</a>
+			
+			<a class="mt-1 mb-1" href="/tags/k8s">k8s</a>
+			
+			<a class="mt-1 mb-1" href="/tags/raft">raft</a>
+			
+			<a class="mt-1 mb-1" href="/tags/shell">shell</a>
+			
+			<a class="mt-1 mb-1" href="/tags/spring">spring</a>
+			
+			<a class="mt-1 mb-1" href="/tags/%E5%88%86%E5%B8%83%E5%BC%8F%E5%AD%98%E5%82%A8">分布式存储</a>
+			
+		</div>
+	</div>
+</div>
+
+<footer class="footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-sm-6 text-center text-lg-left">
+                &copy; Copyright Zhu Jia - All rights reserved
+            </div>
+            <div class="col-md-6 col-sm-6 text-center text-lg-right">    
+                <a target="_blank" rel="noopener" href="https://www.wowthemes.net">Mediumish Theme</a> by WowThemes.net
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+        </div>
+
+
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+<script src="/js/mediumish.js"></script>
+
+    </body>
+</html>

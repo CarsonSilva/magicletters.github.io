@@ -1,0 +1,1352 @@
+<!DOCTYPE html>
+<html lang="en-us"><head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="generator" content="Hugo 0.74.3" />
+	
+	<link rel="icon" href="/static/images/logo.png">
+	
+	<title>asciidoctor常用指令 | DreamAsHourse</title>
+	
+	
+
+	<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="asciidoctor常用指令"/>
+<meta name="twitter:description" content="asciidoctor参考手册"/>
+
+	<meta property="og:title" content="asciidoctor常用指令" />
+<meta property="og:description" content="asciidoctor参考手册" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://magicletters.github.io/posts/adoc/asciidoctor%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A4/" />
+<meta property="article:published_time" content="2020-07-26T10:00:00+00:00" />
+<meta property="article:modified_time" content="2020-07-26T10:00:00+00:00" />
+
+
+	<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
+	 crossorigin="anonymous">
+	<link href="https://fonts.googleapis.com/css?family=Righteous%7CMerriweather:300,300i,400,400i,700,700i" rel="stylesheet">
+	<link href="/css/medium.css" rel="stylesheet">
+	<link href="/css/additional.css" rel="stylesheet">
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top mediumnavigation nav-down">
+    <div class="container pr-0">
+        
+        <a class="navbar-brand" href="https://magicletters.github.io//">
+
+            
+            <img src="/static/images/logo.png" alt="logo">
+            
+        </a>
+        
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarMediumish" aria-controls="navbarSupportedContent"
+            aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        
+        <div class="collapse navbar-collapse" id="navbarMediumish">
+            
+            <ul class="navbar-nav ml-auto">
+                 
+                <li class="nav-item ">
+                    <a class="nav-link" href="/posts">Posts</a>
+                </li>
+                 
+                <li class="nav-item ">
+                    <a class="nav-link" href="/categories">Categories</a>
+                </li>
+                 
+                <li class="nav-item ">
+                    <a class="nav-link" href="/tags">Tags</a>
+                </li>
+                 
+                <li class="nav-item ">
+                    <a class="nav-link" href="/">About Me</a>
+                </li>
+                 
+                <li class="nav-item ">
+                    <a class="nav-link" href="/static/imprint">Imprint</a>
+                </li>
+                
+            </ul>
+        </div>
+        
+    </div>
+</nav>
+
+
+        <div class="site-content">   
+            <div class="container">
+<div class="mainheading">
+    <h1 class="sitetitle">DreamAsHourse</h1>
+    <p class="lead">
+         以梦为马🏇
+    </p>
+</div><div class="main-content">
+        
+        <div class="container">
+            <div class="row">
+                
+                <div class="col-md-2 pl-0"><div class="share sticky-top sticky-top-offset">
+    <p>Share</p>
+    <ul>
+        <li class="ml-1 mr-1">
+        <a target="_blank" href="https://twitter.com/intent/tweet?text=asciidoctor%e5%b8%b8%e7%94%a8%e6%8c%87%e4%bb%a4&url=https%3a%2f%2fmagicletters.github.io%2fposts%2fadoc%2fasciidoctor%25E5%25B8%25B8%25E7%2594%25A8%25E6%258C%2587%25E4%25BB%25A4%2f" onclick="window.open(this.href, 'twitter-share', 'width=550,height=435');return false;">
+        <i class="fab fa-twitter"></i>
+        </a>
+        </li>
+        
+        <li class="ml-1 mr-1">
+        <a target="_blank" href="https://facebook.com/sharer.php?u=https%3a%2f%2fmagicletters.github.io%2fposts%2fadoc%2fasciidoctor%25E5%25B8%25B8%25E7%2594%25A8%25E6%258C%2587%25E4%25BB%25A4%2f" onclick="window.open(this.href, 'facebook-share', 'width=550,height=435');return false;">
+        <i class="fab fa-facebook-f"></i>
+        </a>
+        </li>
+
+        <li class="ml-1 mr-1">
+        <a target="_blank" href="https://www.xing.com/spi/shares/new?url=https%3a%2f%2fmagicletters.github.io%2fposts%2fadoc%2fasciidoctor%25E5%25B8%25B8%25E7%2594%25A8%25E6%258C%2587%25E4%25BB%25A4%2f" onclick="window.open(this.href, 'xing-share', 'width=550,height=435');return false;">
+        <i class="fab fa-xing"></i>
+        </a>
+        </li>        
+    </ul>
+
+    
+</div>
+</div>
+                                
+                <div class="col-md-9 flex-first flex-md-unordered">
+                    <div class="mainheading">
+                        	
+                        
+                        
+                        
+                        <div class="row post-top-meta">
+                            <div class="col-xs-12 col-md-3 col-lg-2 text-center text-md-left mb-4 mb-md-0 md-nopad-right">
+                                <img class="author-thumb" src="/static/images/author.png" alt="Zhu Jia">
+                            </div>
+                            <div class="col-xs-12 col-md-9 col-lg-10 text-center text-md-left md-nopad-left">
+                                <a target="_blank" class="link-dark">Zhu Jia</a><br>
+                                <span class="author-description">
+                                    以梦为马<br>
+                                    <i class="far fa-star"></i>
+                                    Jul 26, 2020
+                                    <i class="far fa-clock clock"></i>
+                                    4 min read
+                                </span>					
+                            </div>
+                        </div>			
+                        	
+                        
+                                                
+                        
+                        <h1 class="posttitle">asciidoctor常用指令</h1> 
+                    </div>
+
+                    
+                    
+                    
+                    
+
+                    
+                    <div class="article-post">
+                        <div class="paragraph">
+<p><a href="https://asciidoctor.org/docs/user-manual/">asciidoctor参考手册</a></p>
+</div>
+<div class="sect1">
+<h2 id="_段落">段落</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_普通段落">普通段落</h3>
+<div class="paragraph">
+<p>段落之间是以空行划分的，编辑的时候简单的使用回车换行并不会生成一个新的段落。例如：</p>
+</div>
+<div class="listingblock">
+<div class="title">adoc书写内容</div>
+<div class="content">
+<pre>这是第一段，
+回车换行并不会另起一段。
+
+这是第二段</pre>
+</div>
+</div>
+<div class="exampleblock">
+<div class="title">Example 1. 显示结果</div>
+<div class="content">
+<div class="paragraph">
+<p>这是第一段，
+回车换行并不会另起一段。</p>
+</div>
+<div class="paragraph">
+<p>这是第二段</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_换行">换行</h3>
+<div class="paragraph">
+<p>asciidoctor中换行的书写就是在行尾加上空格和+，例如：</p>
+</div>
+<div class="listingblock">
+<div class="title">adoc书写内容</div>
+<div class="content">
+<pre>这是第一段， +
+回车换行并不会另起一段，但是通过空格加+号可以换行。
+
+这是第二段</pre>
+</div>
+</div>
+<div class="exampleblock">
+<div class="title">Example 2. 显示结果</div>
+<div class="content">
+<div class="paragraph">
+<p>这是第一段，<br>
+回车换行并不会另起一段，但是通过空格加+号可以换行。</p>
+</div>
+<div class="paragraph">
+<p>这是第二段</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_文字段落">文字段落</h3>
+<div class="listingblock">
+<div class="title">adoc书写内容</div>
+<div class="content">
+<pre>普通段落。
+
+  以至少一个空格开头的一系列行是文字段落。
+  文字段落被视为预格式化的文本。
+  文本以固定宽度的字体显示
+  并且保留了终点线。
+
+另一个正常段落。</pre>
+</div>
+</div>
+<div class="exampleblock">
+<div class="title">Example 3. 显示结果</div>
+<div class="content">
+<div class="paragraph">
+<p>普通段落。</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>以至少一个空格开头的一系列行是文字段落。
+文字段落被视为预格式化的文本。
+文本以固定宽度的字体显示
+并且保留了终点线。</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>另一个正常段落。</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_警告">警告</h3>
+<div class="paragraph">
+<p>警告的书写是在段落的行首增加一个标签，Asciidoctor可以使用 Font Awesome和CSS“描绘”图标。将文档属性icons的值设置为font来启用该特性。Asciidoctor会在文档中添加HTML标记，通过这些标记来从Font Awesome字体为每一个警告块选择一个合适的字符来展示。图标还可以使用inline和styled。Asciidoctor内置的几种标签类型：NOTE、TIP、IMPORTANT、WARNING、CAUTION。例如：</p>
+</div>
+<div class="listingblock">
+<div class="title">adoc书写内容</div>
+<div class="content">
+<pre>NOTE: 这是一个提醒段落，NOTE必须用全大写，否则不起作用。</pre>
+</div>
+</div>
+<div class="exampleblock">
+<div class="title">Example 4. 显示结果</div>
+<div class="content">
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">
+这是一个提醒段落，NOTE必须用全大写同时还要注意冒号与空格，否则不起作用。
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>还有一种写法是创建警示块，例如：</p>
+</div>
+<div class="listingblock">
+<div class="title">adoc书写内容</div>
+<div class="content">
+<pre>[NOTE]
+====
+普通警示是只是针对一个段落，警示块可以包含复杂的内容。
+
+.列表
+- one
+- two
+- three
+
+另一个段落。
+====</pre>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">
+<div class="title">显示结果</div>
+<div class="paragraph">
+<p>普通警示是只是针对一个段落，警示块可以包含复杂的内容。</p>
+</div>
+<div class="ulist">
+<div class="title">列表</div>
+<ul>
+<li>
+<p>one</p>
+</li>
+<li>
+<p>two</p>
+</li>
+<li>
+<p>three</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>另一个段落。</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_概要段落">概要段落</h3>
+<div class="paragraph">
+<p>默认的Asciidoctor样式会自动将序文的第一段作为摘要段落。</p>
+</div>
+<div class="listingblock">
+<div class="title">adoc书写内容</div>
+<div class="content">
+<pre>[.lead]
+这段文字将作为一个概要，[.lead]是概要段落的指令。</pre>
+</div>
+</div>
+<div class="exampleblock">
+<div class="title">Example 5. 显示结果</div>
+<div class="content">
+<div class="paragraph lead">
+<p>这段文字将作为一个概要，[.lead]是概要段落的指令。</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_格式化文本">格式化文本</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>仅列举一些常见的加粗、斜体等。</p>
+</div>
+<div class="listingblock">
+<div class="title">adoc书写内容</div>
+<div class="content">
+<pre>_斜体的文字前后加上下划线_
+
+如果一句话中只需要部分内容是斜体，则需要在__斜体__内容的前后加上两个下划线
+
+*粗体与斜体类似，只是粗体的标记是星号*
+
+如果一句话中只需要部分内容是粗体，则需要在**粗体**内容的前后加上两个星号
+
+*_粗体加斜体必须粗体在外斜体在内，否则不生效_*
+
+**__个别__**字的**__粗体加斜体__**与前面的个别粗体或斜体类似</pre>
+</div>
+</div>
+<div class="exampleblock">
+<div class="title">Example 6. 显示结果</div>
+<div class="content">
+<div class="paragraph">
+<p><em>斜体的文字前后加上下划线</em></p>
+</div>
+<div class="paragraph">
+<p>如果一句话中只需要部分内容是斜体，则需要在<em>斜体</em>内容的前后加上两个下划线</p>
+</div>
+<div class="paragraph">
+<p><strong>粗体与斜体类似，只是粗体的标记是星号</strong></p>
+</div>
+<div class="paragraph">
+<p>如果一句话中只需要部分内容是粗体，则需要在<strong>粗体</strong>内容的前后加上两个星号</p>
+</div>
+<div class="paragraph">
+<p><strong><em>粗体加斜体必须粗体在外斜体在内，否则不生效</em></strong></p>
+</div>
+<div class="paragraph">
+<p><strong><em>个别</em></strong>字的<strong><em>粗体加斜体</em></strong>与前面的个别粗体或斜体类似</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_上标和脚注">上标和脚注</h3>
+<div class="listingblock">
+<div class="title">adoc书写内容</div>
+<div class="content">
+<pre>上标^符号^
+
+下标~符号~</pre>
+</div>
+</div>
+<div class="exampleblock">
+<div class="title">Example 7. 显示结果</div>
+<div class="content">
+<div class="paragraph">
+<p>上标<sup>符号</sup></p>
+</div>
+<div class="paragraph">
+<p>下标<sub>符号</sub></p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_文本颜色">文本颜色</h3>
+<div class="listingblock">
+<div class="title">adoc书写内容</div>
+<div class="content">
+<pre>[red]#字体颜色# and [big red yellow-background]*大号字体颜色加背景*.
+
+[underline]#下划线#, [overline]#上划线#，
+[blue line-through]*带颜色的中划线*.
+
+颜色可以是下面16中的任何一种：
+
+* [white]#白色：white#
+* [silver]#银色：silver#
+* [gray]#灰色：gray#
+* [black]#黑色：black#
+* [red]#红色：red#
+* [maroon]#暗红色：maroon#
+* [yellow]#黄色：yellow#
+* [olive]#橄榄色：olive#
+* [lime]#亮绿色：lime#
+* [green]#绿色：green#
+* [aqua]#浅绿色：aqua#
+* [teal]#蓝绿色：teal#
+* [blue]#蓝色：blue#
+* [navy]#深蓝色：navy#
+* [fuchsia]#紫红色：fuchsia#
+* [purple]#紫色：purple#</pre>
+</div>
+</div>
+<div class="exampleblock">
+<div class="title">Example 8. 显示结果</div>
+<div class="content">
+<div class="paragraph">
+<p><span class="red">字体颜色</span> and <strong class="big red yellow-background">大号字体颜色加背景</strong>.</p>
+</div>
+<div class="paragraph">
+<p><span class="underline">下划线</span>, <span class="overline">上划线</span>，
+<strong class="blue line-through">带颜色的中划线</strong>.</p>
+</div>
+<div class="paragraph">
+<p>颜色可以是下面16中的任何一种：</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><span class="white">白色：white</span></p>
+</li>
+<li>
+<p><span class="silver">银色：silver</span></p>
+</li>
+<li>
+<p><span class="gray">灰色：gray</span></p>
+</li>
+<li>
+<p><span class="black">黑色：black</span></p>
+</li>
+<li>
+<p><span class="red">红色：red</span></p>
+</li>
+<li>
+<p><span class="maroon">暗红色：maroon</span></p>
+</li>
+<li>
+<p><span class="yellow">黄色：yellow</span></p>
+</li>
+<li>
+<p><span class="olive">橄榄色：olive</span></p>
+</li>
+<li>
+<p><span class="lime">亮绿色：lime</span></p>
+</li>
+<li>
+<p><span class="green">绿色：green</span></p>
+</li>
+<li>
+<p><span class="aqua">浅绿色：aqua</span></p>
+</li>
+<li>
+<p><span class="teal">蓝绿色：teal</span></p>
+</li>
+<li>
+<p><span class="blue">蓝色：blue</span></p>
+</li>
+<li>
+<p><span class="navy">深蓝色：navy</span></p>
+</li>
+<li>
+<p><span class="fuchsia">紫红色：fuchsia</span></p>
+</li>
+<li>
+<p><span class="purple">紫色：purple</span></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_文档标题">文档标题</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>标题是可选的。标题不能包含空号，并且下面必须紧跟至少一个空行。</p>
+</div>
+<div class="sect2">
+<h3 id="_标题">标题</h3>
+<div class="listingblock">
+<div class="title">adoc书写内容</div>
+<div class="content">
+<pre>= 文档标题
+
+文档内容……</pre>
+</div>
+</div>
+<div class="exampleblock">
+<div class="title">Example 9. 显示结果</div>
+<div class="content">
+<div class="paragraph">
+<p>= 文档标题</p>
+</div>
+<div class="paragraph">
+<p>文档内容……</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_标题以及作者行">标题以及作者行</h3>
+<div class="paragraph">
+<p>Asciidoctor允许在作者行中出现多位作者，使用分号来分割开来。</p>
+</div>
+<div class="listingblock">
+<div class="title">adoc书写内容</div>
+<div class="content">
+<pre>= 文档标题
+张三&lt;mail@www.com&gt;
+
+文档内容……</pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_标题作者行以及版本行">标题、作者行以及版本行</h3>
+<div class="paragraph">
+<p>不能只写版本行而不写作者行！</p>
+</div>
+<div class="listingblock">
+<div class="title">adoc书写内容</div>
+<div class="content">
+<pre>= 文档标题
+张三&lt;mail@www.com&gt;
+v1.0, 2020-10-10
+
+文档内容……</pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_带属性的文档标题">带属性的文档标题</h3>
+<div class="listingblock">
+<div class="title">adoc书写内容</div>
+<div class="content">
+<pre>= 文档标题
+张三&lt;mail@www.com&gt;
+v1.0, 2020-10-10
+:toc:
+:imagesdir: assets/images
+:homepage: https://magicletters.github.io
+
+文档内容……</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_章节标题">章节标题</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>当使用文章标题类型时，默认只能有一个级别为0的文章标题（也就是文档标题），并且必须在文档头部。书籍标题类型与文章标题类型类似，不过允许出现多个0级标题。</p>
+</div>
+<div class="listingblock">
+<div class="title">adoc书写内容</div>
+<div class="content">
+<pre>= 最高级别标题
+
+== 一级
+
+=== 二级
+
+==== 三级
+
+===== 四级
+
+====== 五级
+
+== 另一个一级</pre>
+</div>
+</div>
+<div class="exampleblock">
+<div class="title">Example 10. 显示结果</div>
+<div class="content">
+<div class="paragraph">
+<p>= 最高级别标题</p>
+</div>
+<div class="paragraph">
+<p>== 一级</p>
+</div>
+<div class="paragraph">
+<p>=== 二级</p>
+</div>
+<div class="paragraph">
+<p>==== 三级</p>
+</div>
+<div class="paragraph">
+<p>===== 四级</p>
+</div>
+<div class="paragraph">
+<p>====== 五级</p>
+</div>
+<div class="paragraph">
+<p>== 另一个一级</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_水平线和分页符">水平线和分页符</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_水平线">水平线</h3>
+<div class="listingblock">
+<div class="title">adoc书写内容</div>
+<div class="content">
+<pre>'''</pre>
+</div>
+</div>
+<div class="exampleblock">
+<div class="title">Example 11. 显示结果</div>
+<div class="content">
+<hr>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_分页符">分页符</h3>
+<div class="listingblock">
+<div class="title">adoc书写内容</div>
+<div class="content">
+<pre>&lt;&lt;&lt;</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_列表">列表</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>列表前后的空行是必须的。</p>
+</div>
+<div class="sect2">
+<h3 id="_无序列表">无序列表</h3>
+<div class="listingblock">
+<div class="title">adoc书写内容</div>
+<div class="content">
+<pre>* 张三
+* 李四
+* 王五</pre>
+</div>
+</div>
+<div class="exampleblock">
+<div class="title">Example 12. 显示结果</div>
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>张三</p>
+</li>
+<li>
+<p>李四</p>
+</li>
+<li>
+<p>王五</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_无序嵌套列表">无序嵌套列表</h3>
+<div class="listingblock">
+<div class="title">adoc书写内容</div>
+<div class="content">
+<pre>* level 1
+** level 2
+*** level 3
+**** level 4
+***** level 5
+* level 1</pre>
+</div>
+</div>
+<div class="exampleblock">
+<div class="title">Example 13. 显示结果</div>
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>level 1</p>
+<div class="ulist">
+<ul>
+<li>
+<p>level 2</p>
+<div class="ulist">
+<ul>
+<li>
+<p>level 3</p>
+<div class="ulist">
+<ul>
+<li>
+<p>level 4</p>
+<div class="ulist">
+<ul>
+<li>
+<p>level 5</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>level 1</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_清单">清单</h3>
+<div class="listingblock">
+<div class="title">adoc书写内容</div>
+<div class="content">
+<pre>- [*] checked
+- [x] also checked
+- [ ] not checked
+- normal list item</pre>
+</div>
+</div>
+<div class="exampleblock">
+<div class="title">Example 14. 显示结果</div>
+<div class="content">
+<div class="ulist checklist">
+<ul class="checklist">
+<li>
+<p>&#10003; checked</p>
+</li>
+<li>
+<p>&#10003; also checked</p>
+</li>
+<li>
+<p>&#10063; not checked</p>
+</li>
+<li>
+<p>normal list item</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_有序列表">有序列表</h3>
+<div class="listingblock">
+<div class="title">adoc书写内容</div>
+<div class="content">
+<pre>. Step 1
+. Step 2
+. Step 3</pre>
+</div>
+</div>
+<div class="exampleblock">
+<div class="title">Example 15. 显示结果</div>
+<div class="content">
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Step 1</p>
+</li>
+<li>
+<p>Step 2</p>
+</li>
+<li>
+<p>Step 3</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_有序最大嵌套列表">有序最大嵌套列表</h3>
+<div class="listingblock">
+<div class="title">adoc书写内容</div>
+<div class="content">
+<pre>. level 1
+.. level 2
+... level 3
+.... level 4
+..... level 5
+. level 1</pre>
+</div>
+</div>
+<div class="exampleblock">
+<div class="title">Example 16. 显示结果</div>
+<div class="content">
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>level 1</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>level 2</p>
+<div class="olist lowerroman">
+<ol class="lowerroman" type="i">
+<li>
+<p>level 3</p>
+<div class="olist upperalpha">
+<ol class="upperalpha" type="A">
+<li>
+<p>level 4</p>
+<div class="olist upperroman">
+<ol class="upperroman" type="I">
+<li>
+<p>level 5</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>level 1</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_标签列表">标签列表</h3>
+<div class="listingblock">
+<div class="title">adoc书写内容</div>
+<div class="content">
+<pre>第一条:: 第一条的解释 +
+回车换行
+第二条::
+标签列表的第二种写法</pre>
+</div>
+</div>
+<div class="exampleblock">
+<div class="title">Example 17. 显示结果</div>
+<div class="content">
+<div class="dlist">
+<dl>
+<dt class="hdlist1">第一条</dt>
+<dd>
+<p>第一条的解释<br>
+回车换行</p>
+</dd>
+<dt class="hdlist1">第二条</dt>
+<dd>
+<p>标签列表的第二种写法</p>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_常见问题以及解答">常见问题以及解答</h3>
+<div class="listingblock">
+<div class="title">adoc书写内容</div>
+<div class="content">
+<pre>[qanda]
+Asciidoctor是什么::
+用Ruby实现的AsciiDoc的处理器。
+QA是否有另一种写法:: 是的，这就是另一种写法。</pre>
+</div>
+</div>
+<div class="exampleblock">
+<div class="title">Example 18. 显示结果</div>
+<div class="content">
+<div class="qlist qanda">
+<ol>
+<li>
+<p><em>Asciidoctor是什么？</em></p>
+<p>用Ruby实现的AsciiDoc的处理器。</p>
+</li>
+<li>
+<p><em>QA是否有另一种写法？</em></p>
+<p>是的，这就是另一种写法。</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_混合样式列表">混合样式列表</h3>
+<div class="listingblock">
+<div class="title">adoc书写内容</div>
+<div class="content">
+<pre>Operating Systems::
+  Linux:::
+    . Fedora
+      * Desktop
+    . Ubuntu
+      * Desktop
+      * Server
+  BSD:::
+    . FreeBSD
+    . NetBSD
+
+Cloud Providers::
+  PaaS:::
+    . OpenShift
+    . CloudBees
+  IaaS:::
+    . Amazon EC2
+    . Rackspace</pre>
+</div>
+</div>
+<div class="exampleblock">
+<div class="title">Example 19. 显示结果</div>
+<div class="content">
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Operating Systems</dt>
+<dd>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Linux</dt>
+<dd>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Fedora</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Desktop</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Ubuntu</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Desktop</p>
+</li>
+<li>
+<p>Server</p>
+</li>
+</ul>
+</div>
+</li>
+</ol>
+</div>
+</dd>
+<dt class="hdlist1">BSD</dt>
+<dd>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>FreeBSD</p>
+</li>
+<li>
+<p>NetBSD</p>
+</li>
+</ol>
+</div>
+</dd>
+</dl>
+</div>
+</dd>
+<dt class="hdlist1">Cloud Providers</dt>
+<dd>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">PaaS</dt>
+<dd>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>OpenShift</p>
+</li>
+<li>
+<p>CloudBees</p>
+</li>
+</ol>
+</div>
+</dd>
+<dt class="hdlist1">IaaS</dt>
+<dd>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Amazon EC2</p>
+</li>
+<li>
+<p>Rackspace</p>
+</li>
+</ol>
+</div>
+</dd>
+</dl>
+</div>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_混合样式列表_2">混合样式列表</h3>
+<div class="listingblock">
+<div class="title">adoc书写内容</div>
+<div class="content">
+<pre>* Every list item has at least one paragraph of content,
+  which may be wrapped, even using a hanging indent.
++
+Additional paragraphs or blocks are adjoined by putting
+a list continuation on a line adjacent to both blocks.
++
+list continuation:: a plus sign (`{plus}`) on a line by itself
+
+* A literal paragraph does not require a list continuation.
+
+ $ gem install asciidoctor
+
+* AsciiDoc lists may contain any complex content.
++
+[cols="2", options="header"]
+|===
+|Application
+|Language
+
+|AsciiDoc
+|Python
+
+|Asciidoctor
+|Ruby
+|===</pre>
+</div>
+</div>
+<div class="exampleblock">
+<div class="title">Example 20. 显示结果</div>
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Every list item has at least one paragraph of content,
+which may be wrapped, even using a hanging indent.</p>
+<div class="paragraph">
+<p>Additional paragraphs or blocks are adjoined by putting
+a list continuation on a line adjacent to both blocks.</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">list continuation</dt>
+<dd>
+<p>a plus sign (<code>&#43;</code>) on a line by itself</p>
+</dd>
+</dl>
+</div>
+</li>
+<li>
+<p>A literal paragraph does not require a list continuation.</p>
+<div class="literalblock">
+<div class="content">
+<pre>$ gem install asciidoctor</pre>
+</div>
+</div>
+</li>
+<li>
+<p>AsciiDoc lists may contain any complex content.</p>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Application</th>
+<th class="tableblock halign-left valign-top">Language</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">AsciiDoc</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Python</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Asciidoctor</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Ruby</p></td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_链接">链接</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_外部链接">外部链接</h3>
+<div class="listingblock">
+<div class="title">adoc书写内容</div>
+<div class="content">
+<pre>http://asciidoctor.org - automatic!
+
+http://asciidoctor.org[Asciidoctor]
+
+https://github.com/asciidoctor[Asciidoctor @ *GitHub*]</pre>
+</div>
+</div>
+<div class="exampleblock">
+<div class="title">Example 21. 显示结果</div>
+<div class="content">
+<div class="paragraph">
+<p><a href="http://asciidoctor.org" class="bare">http://asciidoctor.org</a> - automatic!</p>
+</div>
+<div class="paragraph">
+<p><a href="http://asciidoctor.org">Asciidoctor</a></p>
+</div>
+<div class="paragraph">
+<p><a href="https://github.com/asciidoctor">Asciidoctor @ <strong>GitHub</strong></a></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_图片">图片</h2>
+<div class="sectionbody">
+<div class="listingblock">
+<div class="title">adoc书写内容</div>
+<div class="content">
+<pre>image::sunset.jpg[]
+
+image::sunset.jpg[Sunset]
+
+[[img-sunset]]
+image::sunset.jpg[caption="Figure 1: ", title="A mountain sunset", alt="Sunset", width="300", height="200", link="http://www.flickr.com/photos/javh/5448336655"]
+
+image::http://asciidoctor.org/images/octocat.jpg[GitHub mascot]
+
+image:sunset.jpg[Sunset,150,150,role="right"] What a beautiful sunset!</pre>
+</div>
+</div>
+<div class="exampleblock">
+<div class="title">Example 22. 显示结果</div>
+<div class="content">
+<div class="imageblock">
+<div class="content">
+<img src="sunset.jpg" alt="sunset">
+</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="sunset.jpg" alt="Sunset">
+</div>
+</div>
+<div id="img-sunset" class="imageblock">
+<div class="content">
+<a class="image" href="http://www.flickr.com/photos/javh/5448336655"><img src="sunset.jpg" alt="Sunset" width="300" height="200"></a>
+</div>
+<div class="title">Figure 1: A mountain sunset</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="http://asciidoctor.org/images/octocat.jpg" alt="GitHub mascot">
+</div>
+</div>
+<div class="paragraph">
+<p><span class="image right"><img src="sunset.jpg" alt="Sunset" width="150" height="150"></span> What a beautiful sunset!</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_源代码">源代码</h2>
+<div class="sectionbody">
+
+</div>
+</div>
+<div class="sect1">
+<h2 id="_表格">表格</h2>
+<div class="sectionbody">
+
+</div>
+</div>
+
+                    </div>
+                    
+                    
+                    <div class="after-post-tags">
+                        <ul class="tags">
+                        
+                        <li>
+                        <a href="/tags/adoc">adoc</a>
+                        </li>
+                        
+                        </ul>
+                    </div>
+                    
+                    
+                    
+                    <div class="row PageNavigation d-flex justify-content-between font-weight-bold">
+                    
+                        <a class="d-block col-md-6" href="https://magicletters.github.io/posts/adoc/pdf-theming-guide/"> &laquo; Asciidoctor PDF Theming Guide</a>
+                    
+                    
+                        <a class="d-block col-md-6 text-lg-right" href="https://magicletters.github.io/posts/algorithm/raft%E7%AE%97%E6%B3%95/">Raft算法 &raquo;</a>
+                    
+                    <div class="clearfix"></div>
+                    </div>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+    </div>
+
+
+            </div>
+<div class="jumbotron fortags">
+	<div class="d-md-flex h-100">
+		<div class="col-md-4 transpdark align-self-center text-center h-100">
+			<div class="d-md-flex align-items-center justify-content-center h-100">
+				<h2 class="d-md-block d-none align-self-center py-1 font-weight-light">Explore <span class="d-none d-md-inline">→</span></h2>
+			</div>
+		</div>
+		<div class="col-md-8 p-5 align-self-center text-center">
+			
+			<a class="mt-1 mb-1" href="/tags/adoc">adoc</a>
+			
+			<a class="mt-1 mb-1" href="/tags/arm">arm</a>
+			
+			<a class="mt-1 mb-1" href="/tags/clion">clion</a>
+			
+			<a class="mt-1 mb-1" href="/tags/cpp">cpp</a>
+			
+			<a class="mt-1 mb-1" href="/tags/docker">docker</a>
+			
+			<a class="mt-1 mb-1" href="/tags/golang">golang</a>
+			
+			<a class="mt-1 mb-1" href="/tags/ide">ide</a>
+			
+			<a class="mt-1 mb-1" href="/tags/java">java</a>
+			
+			<a class="mt-1 mb-1" href="/tags/k8s">k8s</a>
+			
+			<a class="mt-1 mb-1" href="/tags/raft">raft</a>
+			
+			<a class="mt-1 mb-1" href="/tags/shell">shell</a>
+			
+			<a class="mt-1 mb-1" href="/tags/spring">spring</a>
+			
+			<a class="mt-1 mb-1" href="/tags/%E5%88%86%E5%B8%83%E5%BC%8F%E5%AD%98%E5%82%A8">分布式存储</a>
+			
+		</div>
+	</div>
+</div>
+
+<footer class="footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-sm-6 text-center text-lg-left">
+                &copy; Copyright Zhu Jia - All rights reserved
+            </div>
+            <div class="col-md-6 col-sm-6 text-center text-lg-right">    
+                <a target="_blank" rel="noopener" href="https://www.wowthemes.net">Mediumish Theme</a> by WowThemes.net
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+        </div>
+
+
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+<script src="/js/mediumish.js"></script>
+
+    </body>
+</html>

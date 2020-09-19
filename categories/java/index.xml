@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Java on DreamAsHourse</title>
+    <link>https://magicletters.github.io/categories/java/</link>
+    <description>Recent content in Java on DreamAsHourse</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>Zhu Jia - All rights reserved</copyright>
+    <lastBuildDate>Fri, 15 May 2020 10:35:48 +0000</lastBuildDate>
+    
+	<atom:link href="https://magicletters.github.io/categories/java/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Spring @Transactional说明</title>
+      <link>https://magicletters.github.io/posts/java/spring-transactional%E8%AF%B4%E6%98%8E/</link>
+      <pubDate>Fri, 15 May 2020 10:35:48 +0000</pubDate>
+      
+      <guid>https://magicletters.github.io/posts/java/spring-transactional%E8%AF%B4%E6%98%8E/</guid>
+      <description>@Transactional注解生效的几种情况  当在一个@Transactional方法中调用没有@Transactional的方法时，调用者的事务会持续到被调用的方法中；调用者和被调用者都使用同一个连接，调用方法中的任何异常都将触发@Transactional配置的事务回滚。</description>
+    </item>
+    
+    <item>
+      <title>Java lambda修改本地变量</title>
+      <link>https://magicletters.github.io/posts/java/java-lambda%E4%BF%AE%E6%94%B9%E6%9C%AC%E5%9C%B0%E5%8F%98%E9%87%8F/</link>
+      <pubDate>Sat, 07 Sep 2019 20:17:42 +0000</pubDate>
+      
+      <guid>https://magicletters.github.io/posts/java/java-lambda%E4%BF%AE%E6%94%B9%E6%9C%AC%E5%9C%B0%E5%8F%98%E9%87%8F/</guid>
+      <description>Use a wrapper Any kind of wrapper is good.</description>
+    </item>
+    
+  </channel>
+</rss>

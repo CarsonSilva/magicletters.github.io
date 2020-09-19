@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Linux on DreamAsHourse</title>
+    <link>https://magicletters.github.io/categories/linux/</link>
+    <description>Recent content in Linux on DreamAsHourse</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>Zhu Jia - All rights reserved</copyright>
+    <lastBuildDate>Sat, 19 Sep 2020 13:17:04 +0800</lastBuildDate>
+    
+	<atom:link href="https://magicletters.github.io/categories/linux/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Bash获取当前脚本的绝对路径</title>
+      <link>https://magicletters.github.io/posts/linux/bash%E8%8E%B7%E5%8F%96%E5%BD%93%E5%89%8D%E8%84%9A%E6%9C%AC%E7%9A%84%E7%BB%9D%E5%AF%B9%E8%B7%AF%E5%BE%84/</link>
+      <pubDate>Sat, 19 Sep 2020 13:17:04 +0800</pubDate>
+      
+      <guid>https://magicletters.github.io/posts/linux/bash%E8%8E%B7%E5%8F%96%E5%BD%93%E5%89%8D%E8%84%9A%E6%9C%AC%E7%9A%84%E7%BB%9D%E5%AF%B9%E8%B7%AF%E5%BE%84/</guid>
+      <description>在某些情况下，我们需要获取当前运行脚本的绝对路径，Linux提供了一个realpath的命令来获取给定路径的绝对路径，让我们演示一下它是如何工作的：</description>
+    </item>
+    
+    <item>
+      <title>清除Linux内存缓存，缓冲区和交换空间</title>
+      <link>https://magicletters.github.io/posts/linux/%E6%B8%85%E9%99%A4linux%E5%86%85%E5%AD%98%E7%BC%93%E5%AD%98/</link>
+      <pubDate>Mon, 17 Aug 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://magicletters.github.io/posts/linux/%E6%B8%85%E9%99%A4linux%E5%86%85%E5%AD%98%E7%BC%93%E5%AD%98/</guid>
+      <description>如何清除缓存 每个Linux系统都有三个清除缓存的选项，而不会中断任何进程或服务。</description>
+    </item>
+    
+    <item>
+      <title>clion基于docker的开发环境配置</title>
+      <link>https://magicletters.github.io/posts/linux/clion%E5%9F%BA%E4%BA%8Edocker%E7%9A%84%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/</link>
+      <pubDate>Fri, 24 Jul 2020 14:12:10 +0000</pubDate>
+      
+      <guid>https://magicletters.github.io/posts/linux/clion%E5%9F%BA%E4%BA%8Edocker%E7%9A%84%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/</guid>
+      <description>构建开发环境容器镜像 Dockerfile FROM i386/ubuntu:18.</description>
+    </item>
+    
+    <item>
+      <title>使用SSH反向隧道进行内网穿透</title>
+      <link>https://magicletters.github.io/posts/linux/%E4%BD%BF%E7%94%A8ssh%E5%8F%8D%E5%90%91%E9%9A%A7%E9%81%93%E8%BF%9B%E8%A1%8C%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/</link>
+      <pubDate>Thu, 28 May 2020 13:45:01 +0000</pubDate>
+      
+      <guid>https://magicletters.github.io/posts/linux/%E4%BD%BF%E7%94%A8ssh%E5%8F%8D%E5%90%91%E9%9A%A7%E9%81%93%E8%BF%9B%E8%A1%8C%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/</guid>
+      <description>机器代号 机器位置 地址 账户 ssh/sshd端口     A 公网 zhujia.</description>
+    </item>
+    
+    <item>
+      <title>git输出颜色</title>
+      <link>https://magicletters.github.io/posts/linux/git%E8%BE%93%E5%87%BA%E9%A2%9C%E8%89%B2/</link>
+      <pubDate>Thu, 28 Nov 2019 14:12:10 +0000</pubDate>
+      
+      <guid>https://magicletters.github.io/posts/linux/git%E8%BE%93%E5%87%BA%E9%A2%9C%E8%89%B2/</guid>
+      <description>在~/.gitconfig文件中添加[color]部分：</description>
+    </item>
+    
+    <item>
+      <title>Ubuntu命令行连接WiFi</title>
+      <link>https://magicletters.github.io/posts/linux/ubuntu%E5%91%BD%E4%BB%A4%E8%A1%8C%E8%BF%9E%E6%8E%A5wifi/</link>
+      <pubDate>Sat, 07 Sep 2019 12:52:24 +0000</pubDate>
+      
+      <guid>https://magicletters.github.io/posts/linux/ubuntu%E5%91%BD%E4%BB%A4%E8%A1%8C%E8%BF%9E%E6%8E%A5wifi/</guid>
+      <description>Show available wlan access points:   nmcli dev wifi</description>
+    </item>
+    
+  </channel>
+</rss>

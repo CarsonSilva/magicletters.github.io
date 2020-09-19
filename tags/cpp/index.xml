@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Cpp on DreamAsHourse</title>
+    <link>https://magicletters.github.io/tags/cpp/</link>
+    <description>Recent content in Cpp on DreamAsHourse</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>Zhu Jia - All rights reserved</copyright>
+    <lastBuildDate>Tue, 17 Apr 2018 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://magicletters.github.io/tags/cpp/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>通过clang了解C&#43;&#43;对象的内存布局</title>
+      <link>https://magicletters.github.io/posts/ccpp/%E9%80%9A%E8%BF%87clang%E4%BA%86%E8%A7%A3c&#43;&#43;%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%86%85%E5%AD%98%E5%B8%83%E5%B1%80/</link>
+      <pubDate>Tue, 17 Apr 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://magicletters.github.io/posts/ccpp/%E9%80%9A%E8%BF%87clang%E4%BA%86%E8%A7%A3c&#43;&#43;%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%86%85%E5%AD%98%E5%B8%83%E5%B1%80/</guid>
+      <description>内存布局示例 class Base { public: int method(int p); protected: int foo; private: int pbfoo; }; struct Point { double cx, cy; }; class Derived : public Base { public: int method(int p); protected: int bar, baz; Point a_point; char c; }; int main(int argc, char** argv) { return sizeof(Derived); }   要查看布局，请运行clang -cc1 -fdump-record-layouts myfile.</description>
+    </item>
+    
+    <item>
+      <title>深入理解C&#43;&#43;对象模型</title>
+      <link>https://magicletters.github.io/posts/ccpp/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3c&#43;&#43;%E5%AF%B9%E8%B1%A1%E6%A8%A1%E5%9E%8B/</link>
+      <pubDate>Thu, 12 Apr 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://magicletters.github.io/posts/ccpp/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3c&#43;&#43;%E5%AF%B9%E8%B1%A1%E6%A8%A1%E5%9E%8B/</guid>
+      <description>理解C的对象模型及在内存中的布局有利于更深入的理解C语言，更有利于出问题的时候进行Debug。</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en-us"><head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="generator" content="Hugo 0.74.3" />
+	
+	<link rel="icon" href="/static/images/logo.png">
+	
+	<title>何时在golang中使用指针 | DreamAsHourse</title>
+	
+	
+
+	<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="何时在golang中使用指针"/>
+<meta name="twitter:description" content="一个普遍的观点是，当我们在使用指针时，我们的应用程序会更快，因为我们将避免一直复制数据。"/>
+
+	<meta property="og:title" content="何时在golang中使用指针" />
+<meta property="og:description" content="一个普遍的观点是，当我们在使用指针时，我们的应用程序会更快，因为我们将避免一直复制数据。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://magicletters.github.io/posts/golang/%E4%BD%95%E6%97%B6%E5%9C%A8golang%E4%B8%AD%E4%BD%BF%E7%94%A8%E6%8C%87%E9%92%88/" />
+<meta property="article:published_time" content="2020-09-09T13:22:55+08:00" />
+<meta property="article:modified_time" content="2020-09-09T13:22:55+08:00" />
+
+
+	<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
+	 crossorigin="anonymous">
+	<link href="https://fonts.googleapis.com/css?family=Righteous%7CMerriweather:300,300i,400,400i,700,700i" rel="stylesheet">
+	<link href="/css/medium.css" rel="stylesheet">
+	<link href="/css/additional.css" rel="stylesheet">
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top mediumnavigation nav-down">
+    <div class="container pr-0">
+        
+        <a class="navbar-brand" href="https://magicletters.github.io//">
+
+            
+            <img src="/static/images/logo.png" alt="logo">
+            
+        </a>
+        
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarMediumish" aria-controls="navbarSupportedContent"
+            aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        
+        <div class="collapse navbar-collapse" id="navbarMediumish">
+            
+            <ul class="navbar-nav ml-auto">
+                 
+                <li class="nav-item ">
+                    <a class="nav-link" href="/posts">Posts</a>
+                </li>
+                 
+                <li class="nav-item ">
+                    <a class="nav-link" href="/categories">Categories</a>
+                </li>
+                 
+                <li class="nav-item ">
+                    <a class="nav-link" href="/tags">Tags</a>
+                </li>
+                 
+                <li class="nav-item ">
+                    <a class="nav-link" href="/">About Me</a>
+                </li>
+                 
+                <li class="nav-item ">
+                    <a class="nav-link" href="/static/imprint">Imprint</a>
+                </li>
+                
+            </ul>
+        </div>
+        
+    </div>
+</nav>
+
+
+        <div class="site-content">   
+            <div class="container">
+<div class="mainheading">
+    <h1 class="sitetitle">DreamAsHourse</h1>
+    <p class="lead">
+         以梦为马🏇
+    </p>
+</div><div class="main-content">
+        
+        <div class="container">
+            <div class="row">
+                
+                <div class="col-md-2 pl-0"><div class="share sticky-top sticky-top-offset">
+    <p>Share</p>
+    <ul>
+        <li class="ml-1 mr-1">
+        <a target="_blank" href="https://twitter.com/intent/tweet?text=%e4%bd%95%e6%97%b6%e5%9c%a8golang%e4%b8%ad%e4%bd%bf%e7%94%a8%e6%8c%87%e9%92%88&url=https%3a%2f%2fmagicletters.github.io%2fposts%2fgolang%2f%25E4%25BD%2595%25E6%2597%25B6%25E5%259C%25A8golang%25E4%25B8%25AD%25E4%25BD%25BF%25E7%2594%25A8%25E6%258C%2587%25E9%2592%2588%2f" onclick="window.open(this.href, 'twitter-share', 'width=550,height=435');return false;">
+        <i class="fab fa-twitter"></i>
+        </a>
+        </li>
+        
+        <li class="ml-1 mr-1">
+        <a target="_blank" href="https://facebook.com/sharer.php?u=https%3a%2f%2fmagicletters.github.io%2fposts%2fgolang%2f%25E4%25BD%2595%25E6%2597%25B6%25E5%259C%25A8golang%25E4%25B8%25AD%25E4%25BD%25BF%25E7%2594%25A8%25E6%258C%2587%25E9%2592%2588%2f" onclick="window.open(this.href, 'facebook-share', 'width=550,height=435');return false;">
+        <i class="fab fa-facebook-f"></i>
+        </a>
+        </li>
+
+        <li class="ml-1 mr-1">
+        <a target="_blank" href="https://www.xing.com/spi/shares/new?url=https%3a%2f%2fmagicletters.github.io%2fposts%2fgolang%2f%25E4%25BD%2595%25E6%2597%25B6%25E5%259C%25A8golang%25E4%25B8%25AD%25E4%25BD%25BF%25E7%2594%25A8%25E6%258C%2587%25E9%2592%2588%2f" onclick="window.open(this.href, 'xing-share', 'width=550,height=435');return false;">
+        <i class="fab fa-xing"></i>
+        </a>
+        </li>        
+    </ul>
+
+    
+</div>
+</div>
+                                
+                <div class="col-md-9 flex-first flex-md-unordered">
+                    <div class="mainheading">
+                        	
+                        
+                        
+                        
+                        <div class="row post-top-meta">
+                            <div class="col-xs-12 col-md-3 col-lg-2 text-center text-md-left mb-4 mb-md-0 md-nopad-right">
+                                <img class="author-thumb" src="/static/images/author.png" alt="Zhu Jia">
+                            </div>
+                            <div class="col-xs-12 col-md-9 col-lg-10 text-center text-md-left md-nopad-left">
+                                <a target="_blank" class="link-dark">Zhu Jia</a><br>
+                                <span class="author-description">
+                                    以梦为马<br>
+                                    <i class="far fa-star"></i>
+                                    Sep 9, 2020
+                                    <i class="far fa-clock clock"></i>
+                                    1 min read
+                                </span>					
+                            </div>
+                        </div>			
+                        	
+                        
+                                                
+                        
+                        <h1 class="posttitle">何时在golang中使用指针</h1> 
+                    </div>
+
+                    
+                    
+                    
+                    
+
+                    
+                    <div class="article-post">
+                        <div class="paragraph">
+<p>一个普遍的观点是，当我们在使用指针时，我们的应用程序会更快，因为我们将避免一直复制数据。</p>
+</div>
+<div class="paragraph">
+<p>但是，在Go中传递指针通常比传递值要慢。这是Go成为垃圾收集语言的结果。当我们将指针传递给函数时，Go需要执行转义分析以弄清楚该变量是否应存储在堆或堆栈中。这已经增加了一些开销，此外，将变量存储在堆上时，GC运行时也会浪费时间。</p>
+</div>
+<div class="paragraph">
+<p>Go的一项巧妙功能是，我们可以通过运行go build -gcflags =“-m”来检查转义分析的功能。如果运行此命令，Go会告诉我们变量是否会转储到堆中。</p>
+</div>
+<div class="paragraph">
+<p>如果一个变量没有逃逸到堆中，它就存在于堆栈中。而且堆栈不需要垃圾收集器来清理变量，而只是push和pop操作。</p>
+</div>
+<div class="paragraph">
+<p>如果仅按值传递所有内容，则始终在堆栈上运行，而不必承担垃圾收集的开销。（默认情况下，GC仍将运行。但是堆上的内存越少，GC要做的工作就越少）。</p>
+</div>
+<div class="paragraph">
+<p>现在我们知道使用指针可能会对性能产生负面影响，但是什么时候要使用指针？</p>
+</div>
+<div class="sect1">
+<h2 id="_复制大型struct">复制大型struct</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>当我们的struct中包含大量数据时，指针可能会有所帮助，垃圾收集器的开销可能会被复制大量数据时获得的开销所抵消。</p>
+</div>
+<div class="paragraph">
+<p>但是struct应该达到多大才算大呢？这个没有一个具体的数字，但是我们可以使用Go内置的基准测试工具来获得一个合理的值。</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_易变的变量">易变的变量</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>更改传递给函数的变量的唯一方法是传递指针。默认情况下，按值传递表示我们所做的更改位于正在处理的副本上。 因此，它们不会反映在调用函数中。</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_api一致性">API一致性</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>如果需要至少一个指针接收器，则最好在各处都使用指针接受其。即使不是所有的方法都可能使我们的struct，这将使我们的API保持一致。</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_区分零值和未设置值">区分零值和未设置值</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>如果我们使用的是值，则始终会得到默认的零值。在某些情况下，我们可能想真正知道是否缺少或已填写完毕。 通过使用指针，默认零值是nil指针，可用于表示不存在值。</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_note">Note</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>另外，切片、字符串和映射等许多类型都包含指向基础数据的指针，而将指针传递给这些类型几乎是没有道理的。</p>
+</div>
+</div>
+</div>
+
+                    </div>
+                    
+                    
+                    <div class="after-post-tags">
+                        <ul class="tags">
+                        
+                        <li>
+                        <a href="/tags/golang">golang</a>
+                        </li>
+                        
+                        </ul>
+                    </div>
+                    
+                    
+                    
+                    <div class="row PageNavigation d-flex justify-content-between font-weight-bold">
+                    
+                        <a class="d-block col-md-6" href="https://magicletters.github.io/posts/golang/goroutine%E7%AE%80%E4%BB%8B/"> &laquo; Goroutine简介</a>
+                    
+                    
+                        <a class="d-block col-md-6 text-lg-right" href="https://magicletters.github.io/posts/k8sdocker/node%E8%8A%82%E7%82%B9%E6%97%A0%E6%B3%95%E5%90%AF%E5%8A%A8pod/">node节点无法启动pod &raquo;</a>
+                    
+                    <div class="clearfix"></div>
+                    </div>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+    </div>
+
+
+            </div>
+<div class="jumbotron fortags">
+	<div class="d-md-flex h-100">
+		<div class="col-md-4 transpdark align-self-center text-center h-100">
+			<div class="d-md-flex align-items-center justify-content-center h-100">
+				<h2 class="d-md-block d-none align-self-center py-1 font-weight-light">Explore <span class="d-none d-md-inline">→</span></h2>
+			</div>
+		</div>
+		<div class="col-md-8 p-5 align-self-center text-center">
+			
+			<a class="mt-1 mb-1" href="/tags/adoc">adoc</a>
+			
+			<a class="mt-1 mb-1" href="/tags/arm">arm</a>
+			
+			<a class="mt-1 mb-1" href="/tags/clion">clion</a>
+			
+			<a class="mt-1 mb-1" href="/tags/cpp">cpp</a>
+			
+			<a class="mt-1 mb-1" href="/tags/docker">docker</a>
+			
+			<a class="mt-1 mb-1" href="/tags/golang">golang</a>
+			
+			<a class="mt-1 mb-1" href="/tags/ide">ide</a>
+			
+			<a class="mt-1 mb-1" href="/tags/java">java</a>
+			
+			<a class="mt-1 mb-1" href="/tags/k8s">k8s</a>
+			
+			<a class="mt-1 mb-1" href="/tags/raft">raft</a>
+			
+			<a class="mt-1 mb-1" href="/tags/shell">shell</a>
+			
+			<a class="mt-1 mb-1" href="/tags/spring">spring</a>
+			
+			<a class="mt-1 mb-1" href="/tags/%E5%88%86%E5%B8%83%E5%BC%8F%E5%AD%98%E5%82%A8">分布式存储</a>
+			
+		</div>
+	</div>
+</div>
+
+<footer class="footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-sm-6 text-center text-lg-left">
+                &copy; Copyright Zhu Jia - All rights reserved
+            </div>
+            <div class="col-md-6 col-sm-6 text-center text-lg-right">    
+                <a target="_blank" rel="noopener" href="https://www.wowthemes.net">Mediumish Theme</a> by WowThemes.net
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+        </div>
+
+
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+<script src="/js/mediumish.js"></script>
+
+    </body>
+</html>

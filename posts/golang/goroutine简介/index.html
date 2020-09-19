@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en-us"><head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="generator" content="Hugo 0.74.3" />
+	
+	<link rel="icon" href="/static/images/logo.png">
+	
+	<title>Goroutine简介 | DreamAsHourse</title>
+	
+	
+
+	<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Goroutine简介"/>
+<meta name="twitter:description" content="什么是Goroutine？ Goroutine是在Golang中同时执行任务的一种方式。它使我们能够廉价地在同一地址空间中同时创建和运行多个方法或函数。Goroutine的想法是受协程启发的。"/>
+
+	<meta property="og:title" content="Goroutine简介" />
+<meta property="og:description" content="什么是Goroutine？ Goroutine是在Golang中同时执行任务的一种方式。它使我们能够廉价地在同一地址空间中同时创建和运行多个方法或函数。Goroutine的想法是受协程启发的。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://magicletters.github.io/posts/golang/goroutine%E7%AE%80%E4%BB%8B/" />
+<meta property="article:published_time" content="2020-09-11T16:28:03+08:00" />
+<meta property="article:modified_time" content="2020-09-11T16:28:03+08:00" />
+
+
+	<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
+	 crossorigin="anonymous">
+	<link href="https://fonts.googleapis.com/css?family=Righteous%7CMerriweather:300,300i,400,400i,700,700i" rel="stylesheet">
+	<link href="/css/medium.css" rel="stylesheet">
+	<link href="/css/additional.css" rel="stylesheet">
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top mediumnavigation nav-down">
+    <div class="container pr-0">
+        
+        <a class="navbar-brand" href="https://magicletters.github.io//">
+
+            
+            <img src="/static/images/logo.png" alt="logo">
+            
+        </a>
+        
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarMediumish" aria-controls="navbarSupportedContent"
+            aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        
+        <div class="collapse navbar-collapse" id="navbarMediumish">
+            
+            <ul class="navbar-nav ml-auto">
+                 
+                <li class="nav-item ">
+                    <a class="nav-link" href="/posts">Posts</a>
+                </li>
+                 
+                <li class="nav-item ">
+                    <a class="nav-link" href="/categories">Categories</a>
+                </li>
+                 
+                <li class="nav-item ">
+                    <a class="nav-link" href="/tags">Tags</a>
+                </li>
+                 
+                <li class="nav-item ">
+                    <a class="nav-link" href="/">About Me</a>
+                </li>
+                 
+                <li class="nav-item ">
+                    <a class="nav-link" href="/static/imprint">Imprint</a>
+                </li>
+                
+            </ul>
+        </div>
+        
+    </div>
+</nav>
+
+
+        <div class="site-content">   
+            <div class="container">
+<div class="mainheading">
+    <h1 class="sitetitle">DreamAsHourse</h1>
+    <p class="lead">
+         以梦为马🏇
+    </p>
+</div><div class="main-content">
+        
+        <div class="container">
+            <div class="row">
+                
+                <div class="col-md-2 pl-0"><div class="share sticky-top sticky-top-offset">
+    <p>Share</p>
+    <ul>
+        <li class="ml-1 mr-1">
+        <a target="_blank" href="https://twitter.com/intent/tweet?text=Goroutine%e7%ae%80%e4%bb%8b&url=https%3a%2f%2fmagicletters.github.io%2fposts%2fgolang%2fgoroutine%25E7%25AE%2580%25E4%25BB%258B%2f" onclick="window.open(this.href, 'twitter-share', 'width=550,height=435');return false;">
+        <i class="fab fa-twitter"></i>
+        </a>
+        </li>
+        
+        <li class="ml-1 mr-1">
+        <a target="_blank" href="https://facebook.com/sharer.php?u=https%3a%2f%2fmagicletters.github.io%2fposts%2fgolang%2fgoroutine%25E7%25AE%2580%25E4%25BB%258B%2f" onclick="window.open(this.href, 'facebook-share', 'width=550,height=435');return false;">
+        <i class="fab fa-facebook-f"></i>
+        </a>
+        </li>
+
+        <li class="ml-1 mr-1">
+        <a target="_blank" href="https://www.xing.com/spi/shares/new?url=https%3a%2f%2fmagicletters.github.io%2fposts%2fgolang%2fgoroutine%25E7%25AE%2580%25E4%25BB%258B%2f" onclick="window.open(this.href, 'xing-share', 'width=550,height=435');return false;">
+        <i class="fab fa-xing"></i>
+        </a>
+        </li>        
+    </ul>
+
+    
+</div>
+</div>
+                                
+                <div class="col-md-9 flex-first flex-md-unordered">
+                    <div class="mainheading">
+                        	
+                        
+                        
+                        
+                        <div class="row post-top-meta">
+                            <div class="col-xs-12 col-md-3 col-lg-2 text-center text-md-left mb-4 mb-md-0 md-nopad-right">
+                                <img class="author-thumb" src="/static/images/author.png" alt="Zhu Jia">
+                            </div>
+                            <div class="col-xs-12 col-md-9 col-lg-10 text-center text-md-left md-nopad-left">
+                                <a target="_blank" class="link-dark">Zhu Jia</a><br>
+                                <span class="author-description">
+                                    以梦为马<br>
+                                    <i class="far fa-star"></i>
+                                    Sep 11, 2020
+                                    <i class="far fa-clock clock"></i>
+                                    1 min read
+                                </span>					
+                            </div>
+                        </div>			
+                        	
+                        
+                                                
+                        
+                        <h1 class="posttitle">Goroutine简介</h1> 
+                    </div>
+
+                    
+                    
+                    
+                    
+
+                    
+                    <div class="article-post">
+                        <div class="sect1">
+<h2 id="_什么是goroutine">什么是Goroutine？</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Goroutine是在Golang中同时执行任务的一种方式。它使我们能够廉价地在同一地址空间中同时创建和运行多个方法或函数。Goroutine的想法是受协程启发的。</p>
+</div>
+<div class="paragraph">
+<p>Goroutine是线程上的轻量级抽象，因为与线程相比，Goroutine的创建和销毁非常便宜，并且它们是在OS线程上调度的。在后台执行方法只需要在函数调用前加上go这个关键字。这是一个简单的例子：</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-go" data-lang="go">package main
+
+import (
+    "fmt"
+    "time"
+)
+
+func learning() {
+    fmt.Println("My first goroutine")
+}
+func main() {
+    go learning()
+    /* we are using time sleep so that the main program does not terminate before the execution of goroutine.*/
+    time.Sleep(1 * time.Second)
+    fmt.Println("main function")
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>上面程序的输出将是：</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>My first goroutine
+main function</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>删除time.sleep并再次运行该程序。将会到以下输出：</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>main function</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>为了理解这一点，我们需要知道Goroutine是如何执行的。与普通函数调用不同，在使用go调用函数后并不会等待Goroutine完成执行。调用Goroutine之后，会立即返回到代码的下一行。只有主Goroutine（main函数也是一个Goroutine）正在运行时，其他Goroutine才能运行。如果主Goroutine终止，则该程序将终止，并且其他Goroutine将不会运行。</p>
+</div>
+<div class="paragraph">
+<p>因此，当我们不使用time.Sleep()时，在Goroutine调用之后立即执行fmt.Println("main function")这一行行。此后，主程序被终止，所以我们没有在终端上获得Goroutine的输出。</p>
+</div>
+<div class="paragraph">
+<p>在主Goroutine中使用睡眠是一种技巧，我们只是为了了解Goroutine是如何工作的。我们主要还是使用Channel来阻塞主Goroutine，直到所有其他Goroutine完成执行。</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_goroutine与线程有何不同">Goroutine与线程有何不同？</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>许多人认为Goroutine比线程快。这并不完全正确。它并没有更快，但是它允许我们同时执行操作。在多核处理器上，运行时还将把工作分散到多个处理器上，从而获得并行性。如果任务A在某件事上被阻塞（比如，正在等待I/O），则调度程序会在等待I/O返回的同时执行另一个准备运行的Goroutine。</p>
+</div>
+<div class="paragraph">
+<p>Goroutine在以下几点上优于线程：</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">内存消耗</dt>
+<dd>
+<p>与线程相比，创建Goroutine所需的内存要少得多。Goroutine需要2kb的内存，而线程则需要1Mb（是Goroutine的500倍）。Goroutine的设计方式使得Goroutine的堆栈大小可以根据应用程序的需要而增加和缩小。程序中可能只有一个线程和成千上万个Goroutine。</p>
+</dd>
+<dt class="hdlist1">设置和拆卸成本</dt>
+<dd>
+<p>线程需要大量的设置和拆卸成本，因为线程必须从操作系统请求资源，并在完成后返回资源。虽然goroutine是由go运行时（它管理goroutine的调度，垃圾回收和运行时环境）创建和销毁的，但这些操作非常便宜。</p>
+</dd>
+</dl>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/scheduler-001.drawio.svg" alt="Go运行时调度程序分析">
+</div>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">切换成本</dt>
+<dd>
+<p>这种差异主要是由于Goroutine和线程调度方面的差异。线程是抢占式调度的，调度程序需要保存/恢复所有寄存器。<br>
+虽然Goroutine是协作调度的，但它们并不直接与OS内核通信。当执行Goroutine切换时，需要保存/恢复很少的寄存器，如程序计数器和堆栈指针。</p>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_goroutines的调度">Goroutines的调度</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>正如上一段中提到的那样，Goroutine是协作调度的。在协作调度中，没有调度程序时间片的概念。在这种调度中，Goroutine在空闲或逻辑阻塞时会定期放弃控制权，以便同时运行多个Goroutine。Goroutine之间的切换发生在以下几种情况：</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>通道发送和接收操作（如果这些操作将阻塞）。</p>
+</li>
+<li>
+<p>go语句，尽管不能保证会立即安排新的Goroutine。</p>
+</li>
+<li>
+<p>阻塞的系统调用，例如文件和网络操作。</p>
+</li>
+<li>
+<p>被停止进行垃圾收集循环之后。</p>
+</li>
+<li>
+<p>当Goroutine占用时间过长时，调度器会停止当前运行的Goroutine，并给其他可运行的Goroutine运行机会。</p>
+</li>
+</ul>
+</div>
+<div class="sect2">
+<h3 id="_基础调度">基础调度</h3>
+<div class="paragraph">
+<p>现在让我们看看它们内部是如何调度的。Go使用三个实体来解释Goroutine调度。</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Processor（P）</p>
+</li>
+<li>
+<p>OSThread（M）</p>
+</li>
+<li>
+<p>Goroutines（G）</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>P的数量由环境变量中的GOMAXPROCS决定，通常来说它是和核心数对应。每个P都分配有一个M（OSThread），M是一个线程，由操作系统负责管理和执行。</p>
+</div>
+<div class="paragraph">
+<p>Go调度程序中有两个不同的运行队列：全局运行队列（GRQ）和本地运行队列（LRQ）。每个P都有一个LRQ，该LRQ管理分配给在P上下文中执行的Goroutine。这些Goroutine轮流在分配给该P的M上执行（由Go调度程序切换当前执行的Goroutine）。GRQ用于尚未分配给P的Goroutine。</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/scheduler-002.drawio.svg" alt="Goroutines的调度">
+</div>
+</div>
+<div class="paragraph">
+<p>在每一轮调度中，调度程序都会找到一个可运行的G并执行它。在每一轮调度中，搜索均按以下顺序进行：</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-go" data-lang="go">runtime.schedule() {
+    // only 1/61 of the time, check the global runnable queue for a G.
+    // if not found, check the local queue.
+    // if not found,
+    //     try to steal from other Ps.
+    //     if not, check the global runnable queue.
+    //     if not found, poll network.
+}</code></pre>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_异步系统调用">异步系统调用</h4>
+<div class="paragraph">
+<p>当我们正在运行的OS能够异步处理系统调用时，可以使用称为网络轮询器的东西来更有效地处理系统调用。这是通过在各个操作系统中使用kqueue（MacOS），epoll（Linux）或iocp（Windows）来完成的。</p>
+</div>
+<div class="paragraph">
+<p>我们今天使用的许多操作系统都可以异步处理基于网络的系统调用。这是网络轮询器名称的由来，因为它的主要用途是处理网络操作。通过使用网络轮询器进行网络系统调用，调度程序可以防止Goroutine在进行这些系统调用时阻止M。这有助于使M保持可用以执行P的LRQ中的其他Goroutine，而无需创建新的M。这有助于减少OS上的调度负载。</p>
+</div>
+<div class="paragraph">
+<p>了解其工作方式的最佳方法是通过一个示例来运行。</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/scheduler-003.drawio.svg" alt="Goroutines的调度">
+</div>
+</div>
+<div class="paragraph">
+<p>上图显示了我们的基本调度图。Goroutine-1正在M上执行，还有3个Goroutine在LRQ中等待以获取其在M上的时间。网络轮询器闲置无事可做。</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/scheduler-004.drawio.svg" alt="Goroutines的调度">
+</div>
+</div>
+<div class="paragraph">
+<p>在上图中，Goroutine-1希望进行网络系统调用，因此Goroutine-1被移至网络轮询器，并处理了异步网络系统调用。将Goroutine-1移至网络轮询器后，M现在可用于执行与LRQ不同的Goroutine。在这种情况下，Goroutine-2在M上进行了上下文切换。</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/scheduler-005.drawio.svg" alt="Goroutines的调度">
+</div>
+</div>
+<div class="paragraph">
+<p>在上图中，异步网络系统调用由网络轮询器完成，Goroutine-1被移回P的LRQ中。一旦Goroutine-1可以在M上上下文切换回去，它负责的Go相关代码可以再次执行。这里最大的好处是，执行网络系统调用不需要额外的M。网络轮询器具有OS线程，并且正在处理有效的事件循环。</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_同步系统调用">同步系统调用</h4>
+<div class="paragraph">
+<p>当Goroutine想要进行无法异步完成的系统调用时，会发生什么？在这种情况下，将无法使用网络轮询器，并且进行系统调用的Goroutine将会阻塞M。这很不幸，但是无法防止这种情况的发生。一个不能异步进行系统调用的示例是基于文件的系统调用。如果使用的是CGO，则在其他情况下，调用C函数也会阻塞M。</p>
+</div>
+<div class="paragraph">
+<p>让我们逐步了解同步系统调用（例如文件I/O）会导致M阻塞的情况。</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/scheduler-006.drawio.svg" alt="Goroutines的调度">
+</div>
+</div>
+<div class="paragraph">
+<p>上图再次显示了我们的基本调度图，但是这次Goroutine-1将进行将阻塞M1的同步系统调用。</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/scheduler-007.drawio.svg" alt="Goroutines的调度">
+</div>
+</div>
+<div class="paragraph">
+<p>在上图中，调度程序能够识别Goroutine-1导致M阻塞。此时，调度程序将M1与P分离，而阻塞Goroutine-1仍处于连接状态。然后，调度程序会引入一个新的M2来为P服务。这时，可以从LRQ中选择Goroutine-2，并在M2上进行上下文切换。如果由于先前的交换而已存在M，则此过渡比必须创建新的M更快。</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/scheduler-008.drawio.svg" alt="Goroutines的调度">
+</div>
+</div>
+<div class="paragraph">
+<p>在上图中，由Goroutine-1进行的阻塞系统调用完成了。此时，Goroutine-1可以移回LRQ并再次由P服务。如果这种情况需要再次发生，则将M1放在一边以备将来使用。</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_窃取goroutine">窃取Goroutine</h3>
+<div class="paragraph">
+<p>当创建新的G或现有的G成为可运行的G时，它将被推到当前P的可运行goroutine列表中。当P完成执行G时，它将尝试从自己的可运行goroutine列表中弹出一个G。如果列表现在为空，则P选择一个随机的其他处理器（P）并尝试从其队列中窃取一半可运行的goroutine。</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/scheduler-009.drawio.svg" alt="Goroutines的调度">
+</div>
+</div>
+<div class="paragraph">
+<p>在上述情况下，P1无法找到任何可运行的goroutine。因此，它随机选择另一个处理器（P2）并将两个goroutine窃取到其自己的本地队列中。P1将能够运行这些goroutine，并且调度程序的工作将更加公平地分布在多个处理器之间。</p>
+</div>
+</div>
+</div>
+</div>
+
+                    </div>
+                    
+                    
+                    <div class="after-post-tags">
+                        <ul class="tags">
+                        
+                        <li>
+                        <a href="/tags/golang">golang</a>
+                        </li>
+                        
+                        </ul>
+                    </div>
+                    
+                    
+                    
+                    <div class="row PageNavigation d-flex justify-content-between font-weight-bold">
+                    
+                        <a class="d-block col-md-6" href="https://magicletters.github.io/posts/linux/bash%E8%8E%B7%E5%8F%96%E5%BD%93%E5%89%8D%E8%84%9A%E6%9C%AC%E7%9A%84%E7%BB%9D%E5%AF%B9%E8%B7%AF%E5%BE%84/"> &laquo; Bash获取当前脚本的绝对路径</a>
+                    
+                    
+                        <a class="d-block col-md-6 text-lg-right" href="https://magicletters.github.io/posts/golang/%E4%BD%95%E6%97%B6%E5%9C%A8golang%E4%B8%AD%E4%BD%BF%E7%94%A8%E6%8C%87%E9%92%88/">何时在golang中使用指针 &raquo;</a>
+                    
+                    <div class="clearfix"></div>
+                    </div>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+    </div>
+
+
+            </div>
+<div class="jumbotron fortags">
+	<div class="d-md-flex h-100">
+		<div class="col-md-4 transpdark align-self-center text-center h-100">
+			<div class="d-md-flex align-items-center justify-content-center h-100">
+				<h2 class="d-md-block d-none align-self-center py-1 font-weight-light">Explore <span class="d-none d-md-inline">→</span></h2>
+			</div>
+		</div>
+		<div class="col-md-8 p-5 align-self-center text-center">
+			
+			<a class="mt-1 mb-1" href="/tags/adoc">adoc</a>
+			
+			<a class="mt-1 mb-1" href="/tags/arm">arm</a>
+			
+			<a class="mt-1 mb-1" href="/tags/clion">clion</a>
+			
+			<a class="mt-1 mb-1" href="/tags/cpp">cpp</a>
+			
+			<a class="mt-1 mb-1" href="/tags/docker">docker</a>
+			
+			<a class="mt-1 mb-1" href="/tags/golang">golang</a>
+			
+			<a class="mt-1 mb-1" href="/tags/ide">ide</a>
+			
+			<a class="mt-1 mb-1" href="/tags/java">java</a>
+			
+			<a class="mt-1 mb-1" href="/tags/k8s">k8s</a>
+			
+			<a class="mt-1 mb-1" href="/tags/raft">raft</a>
+			
+			<a class="mt-1 mb-1" href="/tags/shell">shell</a>
+			
+			<a class="mt-1 mb-1" href="/tags/spring">spring</a>
+			
+			<a class="mt-1 mb-1" href="/tags/%E5%88%86%E5%B8%83%E5%BC%8F%E5%AD%98%E5%82%A8">分布式存储</a>
+			
+		</div>
+	</div>
+</div>
+
+<footer class="footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-sm-6 text-center text-lg-left">
+                &copy; Copyright Zhu Jia - All rights reserved
+            </div>
+            <div class="col-md-6 col-sm-6 text-center text-lg-right">    
+                <a target="_blank" rel="noopener" href="https://www.wowthemes.net">Mediumish Theme</a> by WowThemes.net
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+        </div>
+
+
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+<script src="/js/mediumish.js"></script>
+
+    </body>
+</html>

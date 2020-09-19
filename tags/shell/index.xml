@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>shell on DreamAsHourse</title>
+    <link>https://magicletters.github.io/tags/shell/</link>
+    <description>Recent content in shell on DreamAsHourse</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>Zhu Jia - All rights reserved</copyright>
+    <lastBuildDate>Sat, 19 Sep 2020 13:17:04 +0800</lastBuildDate>
+    
+	<atom:link href="https://magicletters.github.io/tags/shell/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Bash获取当前脚本的绝对路径</title>
+      <link>https://magicletters.github.io/posts/linux/bash%E8%8E%B7%E5%8F%96%E5%BD%93%E5%89%8D%E8%84%9A%E6%9C%AC%E7%9A%84%E7%BB%9D%E5%AF%B9%E8%B7%AF%E5%BE%84/</link>
+      <pubDate>Sat, 19 Sep 2020 13:17:04 +0800</pubDate>
+      
+      <guid>https://magicletters.github.io/posts/linux/bash%E8%8E%B7%E5%8F%96%E5%BD%93%E5%89%8D%E8%84%9A%E6%9C%AC%E7%9A%84%E7%BB%9D%E5%AF%B9%E8%B7%AF%E5%BE%84/</guid>
+      <description>在某些情况下，我们需要获取当前运行脚本的绝对路径，Linux提供了一个realpath的命令来获取给定路径的绝对路径，让我们演示一下它是如何工作的：</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>golang on DreamAsHourse</title>
+    <link>https://magicletters.github.io/categories/golang/</link>
+    <description>Recent content in golang on DreamAsHourse</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>Zhu Jia - All rights reserved</copyright>
+    <lastBuildDate>Fri, 11 Sep 2020 16:28:03 +0800</lastBuildDate>
+    
+	<atom:link href="https://magicletters.github.io/categories/golang/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Goroutine简介</title>
+      <link>https://magicletters.github.io/posts/golang/goroutine%E7%AE%80%E4%BB%8B/</link>
+      <pubDate>Fri, 11 Sep 2020 16:28:03 +0800</pubDate>
+      
+      <guid>https://magicletters.github.io/posts/golang/goroutine%E7%AE%80%E4%BB%8B/</guid>
+      <description>什么是Goroutine？ Goroutine是在Golang中同时执行任务的一种方式。它使我们能够廉价地在同一地址空间中同时创建和运行多个方法或函数。Goroutine的想法是受协程启发的。</description>
+    </item>
+    
+    <item>
+      <title>何时在golang中使用指针</title>
+      <link>https://magicletters.github.io/posts/golang/%E4%BD%95%E6%97%B6%E5%9C%A8golang%E4%B8%AD%E4%BD%BF%E7%94%A8%E6%8C%87%E9%92%88/</link>
+      <pubDate>Wed, 09 Sep 2020 13:22:55 +0800</pubDate>
+      
+      <guid>https://magicletters.github.io/posts/golang/%E4%BD%95%E6%97%B6%E5%9C%A8golang%E4%B8%AD%E4%BD%BF%E7%94%A8%E6%8C%87%E9%92%88/</guid>
+      <description>一个普遍的观点是，当我们在使用指针时，我们的应用程序会更快，因为我们将避免一直复制数据。</description>
+    </item>
+    
+    <item>
+      <title>Go Modules使用私有git仓库</title>
+      <link>https://magicletters.github.io/posts/golang/go-modules%E4%BD%BF%E7%94%A8%E7%A7%81%E6%9C%89git%E4%BB%93%E5%BA%93/</link>
+      <pubDate>Mon, 17 Aug 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://magicletters.github.io/posts/golang/go-modules%E4%BD%BF%E7%94%A8%E7%A7%81%E6%9C%89git%E4%BB%93%E5%BA%93/</guid>
+      <description>模块极大地改善了Golang的依赖管理过程。正确配置所有内容后，很容易就能够从公共存储库获取特定版本的Go软件包。一个典型的go.mod：</description>
+    </item>
+    
+    <item>
+      <title>Why you should use a Go module proxy</title>
+      <link>https://magicletters.github.io/posts/golang/why-you-should-use-a-go-module-proxy/</link>
+      <pubDate>Wed, 27 May 2020 13:39:02 +0000</pubDate>
+      
+      <guid>https://magicletters.github.io/posts/golang/why-you-should-use-a-go-module-proxy/</guid>
+      <description>use Go module proxy</description>
+    </item>
+    
+  </channel>
+</rss>

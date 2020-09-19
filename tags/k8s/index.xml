@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>k8s on DreamAsHourse</title>
+    <link>https://magicletters.github.io/tags/k8s/</link>
+    <description>Recent content in k8s on DreamAsHourse</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>Zhu Jia - All rights reserved</copyright>
+    <lastBuildDate>Mon, 17 Aug 2020 12:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://magicletters.github.io/tags/k8s/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>node节点无法启动pod</title>
+      <link>https://magicletters.github.io/posts/k8sdocker/node%E8%8A%82%E7%82%B9%E6%97%A0%E6%B3%95%E5%90%AF%E5%8A%A8pod/</link>
+      <pubDate>Mon, 17 Aug 2020 12:00:00 +0000</pubDate>
+      
+      <guid>https://magicletters.github.io/posts/k8sdocker/node%E8%8A%82%E7%82%B9%E6%97%A0%E6%B3%95%E5%90%AF%E5%8A%A8pod/</guid>
+      <description>错误日志  Warning FailedCreatePodSandBox 29s kubelet, k8s-node3 Failed create pod sandbox: rpc error: code = Unknown desc = failed to set up sandbox container &#34;</description>
+    </item>
+    
+    <item>
+      <title>树梅派安装kubernetes</title>
+      <link>https://magicletters.github.io/posts/k8sdocker/%E6%A0%91%E6%A2%85%E6%B4%BE%E5%AE%89%E8%A3%85kubernetes/</link>
+      <pubDate>Fri, 24 Jul 2020 09:00:00 +0000</pubDate>
+      
+      <guid>https://magicletters.github.io/posts/k8sdocker/%E6%A0%91%E6%A2%85%E6%B4%BE%E5%AE%89%E8%A3%85kubernetes/</guid>
+      <description>系统选择 Ubuntu 20.</description>
+    </item>
+    
+    <item>
+      <title>FIXED: Flannel CNI plugin. Error</title>
+      <link>https://magicletters.github.io/posts/k8sdocker/fixed-flannel-cni-plugin-error/</link>
+      <pubDate>Sat, 21 Sep 2019 20:48:07 +0000</pubDate>
+      
+      <guid>https://magicletters.github.io/posts/k8sdocker/fixed-flannel-cni-plugin-error/</guid>
+      <description>Question Flannel CNI plugin.</description>
+    </item>
+    
+    <item>
+      <title>k8s从需要认证的registry获取images</title>
+      <link>https://magicletters.github.io/posts/k8sdocker/k8s%E4%BB%8E%E9%9C%80%E8%A6%81%E8%AE%A4%E8%AF%81%E7%9A%84registry%E8%8E%B7%E5%8F%96images/</link>
+      <pubDate>Sat, 07 Sep 2019 20:29:04 +0000</pubDate>
+      
+      <guid>https://magicletters.github.io/posts/k8sdocker/k8s%E4%BB%8E%E9%9C%80%E8%A6%81%E8%AE%A4%E8%AF%81%E7%9A%84registry%E8%8E%B7%E5%8F%96images/</guid>
+      <description>方法1：</description>
+    </item>
+    
+    <item>
+      <title>kubernetes dashboard部署</title>
+      <link>https://magicletters.github.io/posts/k8sdocker/kubernetes-dashboard%E9%83%A8%E7%BD%B2/</link>
+      <pubDate>Sat, 07 Sep 2019 20:27:35 +0000</pubDate>
+      
+      <guid>https://magicletters.github.io/posts/k8sdocker/kubernetes-dashboard%E9%83%A8%E7%BD%B2/</guid>
+      <description>Step#1 下载yaml文件  wget https://raw.</description>
+    </item>
+    
+    <item>
+      <title>k8s本地访问pod应用</title>
+      <link>https://magicletters.github.io/posts/k8sdocker/k8s%E6%9C%AC%E5%9C%B0%E8%AE%BF%E9%97%AEpod%E5%BA%94%E7%94%A8/</link>
+      <pubDate>Sat, 07 Sep 2019 20:27:10 +0000</pubDate>
+      
+      <guid>https://magicletters.github.io/posts/k8sdocker/k8s%E6%9C%AC%E5%9C%B0%E8%AE%BF%E9%97%AEpod%E5%BA%94%E7%94%A8/</guid>
+      <description>自Kubernetes v1.</description>
+    </item>
+    
+    <item>
+      <title>kubernetes集群</title>
+      <link>https://magicletters.github.io/posts/k8sdocker/kubernetes%E9%9B%86%E7%BE%A4/</link>
+      <pubDate>Sat, 07 Sep 2019 20:26:24 +0000</pubDate>
+      
+      <guid>https://magicletters.github.io/posts/k8sdocker/kubernetes%E9%9B%86%E7%BE%A4/</guid>
+      <description>Step#1 master节点初始化 本步骤中的命令只能在master节点服务器上运行，使用kubeadm命令进行初始化操作：</description>
+    </item>
+    
+    <item>
+      <title>kubernetes安装指南</title>
+      <link>https://magicletters.github.io/posts/k8sdocker/kubernetes%E5%AE%89%E8%A3%85%E6%8C%87%E5%8D%97/</link>
+      <pubDate>Sat, 07 Sep 2019 20:25:22 +0000</pubDate>
+      
+      <guid>https://magicletters.github.io/posts/k8sdocker/kubernetes%E5%AE%89%E8%A3%85%E6%8C%87%E5%8D%97/</guid>
+      <description>Step#1 添加Ubuntu源  cat &amp;laquo;EOF &amp;gt; /etc/apt/sources.</description>
+    </item>
+    
+  </channel>
+</rss>
