@@ -6,20 +6,20 @@
 	
 	<link rel="icon" href="/static/images/logo.png">
 	
-	<title>docker访问http的registry | DreamAsHourse</title>
+	<title>单例模式 | DreamAsHourse</title>
 	
 	
 
 	<meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="docker访问http的registry"/>
-<meta name="twitter:description" content="默认情况下docker只允许访问https的registry，但是有些情况需要访问只有http的registry（比如在内网配置私有的registry）。具体步骤如下（需要修改所有docker节点）："/>
+<meta name="twitter:title" content="单例模式"/>
+<meta name="twitter:description" content="简介 单例模式（Singleton Pattern）是最简单的设计模式之一。单例模式涉及到一个单一的类，该类负责创建自己的对象，同时确保只有单个对象被创建。这个类提供了一种访问其唯一的对象的方式，可以直接访问，不需要实例化该类的对象。"/>
 
-	<meta property="og:title" content="docker访问http的registry" />
-<meta property="og:description" content="默认情况下docker只允许访问https的registry，但是有些情况需要访问只有http的registry（比如在内网配置私有的registry）。具体步骤如下（需要修改所有docker节点）：" />
+	<meta property="og:title" content="单例模式" />
+<meta property="og:description" content="简介 单例模式（Singleton Pattern）是最简单的设计模式之一。单例模式涉及到一个单一的类，该类负责创建自己的对象，同时确保只有单个对象被创建。这个类提供了一种访问其唯一的对象的方式，可以直接访问，不需要实例化该类的对象。" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://magicletters.github.io/posts/k8sdocker/docker%E8%AE%BF%E9%97%AEhttp%E7%9A%84registry/" />
-<meta property="article:published_time" content="2019-09-07T11:42:25+00:00" />
-<meta property="article:modified_time" content="2019-09-07T11:42:25+00:00" />
+<meta property="og:url" content="https://magicletters.github.io/posts/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E5%88%9B%E5%BB%BA%E5%9E%8B%E6%A8%A1%E5%BC%8F/%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/" />
+<meta property="article:published_time" content="2019-09-01T08:10:00+08:00" />
+<meta property="article:modified_time" content="2019-09-01T08:10:00+08:00" />
 
 
 	<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -94,19 +94,19 @@
     <p>Share</p>
     <ul>
         <li class="ml-1 mr-1">
-        <a target="_blank" href="https://twitter.com/intent/tweet?text=docker%e8%ae%bf%e9%97%aehttp%e7%9a%84registry&url=https%3a%2f%2fmagicletters.github.io%2fposts%2fk8sdocker%2fdocker%25E8%25AE%25BF%25E9%2597%25AEhttp%25E7%259A%2584registry%2f" onclick="window.open(this.href, 'twitter-share', 'width=550,height=435');return false;">
+        <a target="_blank" href="https://twitter.com/intent/tweet?text=%e5%8d%95%e4%be%8b%e6%a8%a1%e5%bc%8f&url=https%3a%2f%2fmagicletters.github.io%2fposts%2f%25E8%25AE%25BE%25E8%25AE%25A1%25E6%25A8%25A1%25E5%25BC%258F%2f%25E5%2588%259B%25E5%25BB%25BA%25E5%259E%258B%25E6%25A8%25A1%25E5%25BC%258F%2f%25E5%258D%2595%25E4%25BE%258B%25E6%25A8%25A1%25E5%25BC%258F%2f" onclick="window.open(this.href, 'twitter-share', 'width=550,height=435');return false;">
         <i class="fab fa-twitter"></i>
         </a>
         </li>
         
         <li class="ml-1 mr-1">
-        <a target="_blank" href="https://facebook.com/sharer.php?u=https%3a%2f%2fmagicletters.github.io%2fposts%2fk8sdocker%2fdocker%25E8%25AE%25BF%25E9%2597%25AEhttp%25E7%259A%2584registry%2f" onclick="window.open(this.href, 'facebook-share', 'width=550,height=435');return false;">
+        <a target="_blank" href="https://facebook.com/sharer.php?u=https%3a%2f%2fmagicletters.github.io%2fposts%2f%25E8%25AE%25BE%25E8%25AE%25A1%25E6%25A8%25A1%25E5%25BC%258F%2f%25E5%2588%259B%25E5%25BB%25BA%25E5%259E%258B%25E6%25A8%25A1%25E5%25BC%258F%2f%25E5%258D%2595%25E4%25BE%258B%25E6%25A8%25A1%25E5%25BC%258F%2f" onclick="window.open(this.href, 'facebook-share', 'width=550,height=435');return false;">
         <i class="fab fa-facebook-f"></i>
         </a>
         </li>
 
         <li class="ml-1 mr-1">
-        <a target="_blank" href="https://www.xing.com/spi/shares/new?url=https%3a%2f%2fmagicletters.github.io%2fposts%2fk8sdocker%2fdocker%25E8%25AE%25BF%25E9%2597%25AEhttp%25E7%259A%2584registry%2f" onclick="window.open(this.href, 'xing-share', 'width=550,height=435');return false;">
+        <a target="_blank" href="https://www.xing.com/spi/shares/new?url=https%3a%2f%2fmagicletters.github.io%2fposts%2f%25E8%25AE%25BE%25E8%25AE%25A1%25E6%25A8%25A1%25E5%25BC%258F%2f%25E5%2588%259B%25E5%25BB%25BA%25E5%259E%258B%25E6%25A8%25A1%25E5%25BC%258F%2f%25E5%258D%2595%25E4%25BE%258B%25E6%25A8%25A1%25E5%25BC%258F%2f" onclick="window.open(this.href, 'xing-share', 'width=550,height=435');return false;">
         <i class="fab fa-xing"></i>
         </a>
         </li>        
@@ -131,7 +131,7 @@
                                 <span class="author-description">
                                     以梦为马<br>
                                     <i class="far fa-star"></i>
-                                    Sep 7, 2019
+                                    Sep 1, 2019
                                     <i class="far fa-clock clock"></i>
                                     1 min read
                                 </span>					
@@ -141,7 +141,7 @@
                         
                                                 
                         
-                        <h1 class="posttitle">docker访问http的registry</h1> 
+                        <h1 class="posttitle">单例模式</h1> 
                     </div>
 
                     
@@ -151,17 +151,138 @@
 
                     
                     <div class="article-post">
-                        <p>默认情况下docker只允许访问https的registry，但是有些情况需要访问只有http的registry（比如在内网配置私有的registry）。具体步骤如下（需要修改所有docker节点）：</p>
-<ul>
-<li>在/etc/docker/daemon.json中加入insecure-registries
-例如：</li>
-</ul>
-<pre><code>{
-    &quot;insecure-registries&quot; : [&quot;docker.zhujia.dev&quot;]
-}
-</code></pre><ul>
-<li>重启docker</li>
-</ul>
+                        <div class="sect1">
+<h2 id="_简介">简介</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>单例模式（Singleton Pattern）是最简单的设计模式之一。单例模式涉及到一个单一的类，该类负责创建自己的对象，同时确保只有单个对象被创建。这个类提供了一种访问其唯一的对象的方式，可以直接访问，不需要实例化该类的对象。</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">意图</dt>
+<dd>
+<p>保证一个类仅有一个实例，并提供一个访问它的全局访问点。</p>
+</dd>
+<dt class="hdlist1">主要解决</dt>
+<dd>
+<p>一个全局使用的类频繁地创建与销毁。</p>
+</dd>
+<dt class="hdlist1">何时使用</dt>
+<dd>
+<p>当您想控制实例数目，节省系统资源的时候。</p>
+</dd>
+<dt class="hdlist1">如何解决</dt>
+<dd>
+<p>判断系统是否已经有这个单例，如果有则返回，如果没有则创建。</p>
+</dd>
+<dt class="hdlist1">关键代码</dt>
+<dd>
+<p>构造函数是私有的。</p>
+</dd>
+<dt class="hdlist1">应用实例</dt>
+<dd>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>一个班级只有一个班主任。</p>
+</li>
+<li>
+<p>Windows 是多进程多线程的，在操作一个文件的时候，就不可避免地出现多个进程或线程同时操作一个文件的现象，所以所有文件的处理必须通过唯一的实例来进行。</p>
+</li>
+<li>
+<p>一些设备管理器常常设计为单例模式，比如一个电脑有两台打印机，在输出的时候就要处理不能两台打印机打印同一个文件。</p>
+</li>
+</ol>
+</div>
+</dd>
+<dt class="hdlist1">优点</dt>
+<dd>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>在内存里只有一个实例，减少了内存的开销，尤其是频繁的创建和销毁实例（比如管理学院首页页面缓存）。</p>
+</li>
+<li>
+<p>避免对资源的多重占用（比如写文件操作）。</p>
+</li>
+</ol>
+</div>
+</dd>
+<dt class="hdlist1">缺点</dt>
+<dd>
+<p>没有接口，不能继承，与单一职责原则冲突，一个类应该只关心内部逻辑，而不关心外面怎么样来实例化。</p>
+</dd>
+<dt class="hdlist1">使用场景</dt>
+<dd>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>要求生产唯一序列号。</p>
+</li>
+<li>
+<p>WEB 中的计数器，不用每次刷新都在数据库里加一次，用单例先缓存起来。</p>
+</li>
+<li>
+<p>创建的一个对象需要消耗的资源过多，比如 I/O 与数据库的连接等。</p>
+</li>
+</ol>
+</div>
+</dd>
+<dt class="hdlist1">注意事项</dt>
+<dd>
+<p>一定要确保线程安全，防止多线程同时进入造成 instance 被多次实例化。</p>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_结构示意图">结构示意图</h2>
+<div class="sectionbody">
+<div class="imageblock">
+<div class="content">
+<img src="images/structure.drawio.svg" alt="Structure">
+</div>
+</div>
+<div class="paragraph">
+<p>单例模式的实现通常有两种模式：懒汉式单例和恶汉式单例。</p>
+</div>
+<div class="paragraph">
+<p>懒汉式单例的特点是在类加载时没有生成单例，只有当第一次调用getInstance方法的时候才进行实例化。</p>
+</div>
+<div class="listingblock">
+<div class="title">LazySingleton</div>
+<div class="content">
+<pre class="highlight"><code class="language-java" data-lang="java">public class LazySingleton {
+    private static volatile LazySingleton instance=null;    //保证 instance 在所有线程中同步
+    private LazySingleton(){}    //private 避免类在外部被实例化
+    public static synchronized LazySingleton getInstance() {
+        //getInstance 方法前加同步
+        if(instance==null) {
+            instance=new LazySingleton();
+        }
+        return instance;
+    }
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>饿汉式单例的特点是类一旦加载就创建一个单例，保证在调用 getInstance 方法之前单例已经存在了。</p>
+</div>
+<div class="listingblock">
+<div class="title">HungrySingleton</div>
+<div class="content">
+<pre class="highlight"><code class="language-java" data-lang="java">public class HungrySingleton {
+    private static final HungrySingleton instance=new HungrySingleton();
+    private HungrySingleton(){}
+    public static HungrySingleton getInstance() {
+        return instance;
+    }
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
 
                     </div>
                     
@@ -170,7 +291,7 @@
                         <ul class="tags">
                         
                         <li>
-                        <a href="/tags/docker">docker</a>
+                        <a href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F">设计模式</a>
                         </li>
                         
                         </ul>
@@ -180,10 +301,10 @@
                     
                     <div class="row PageNavigation d-flex justify-content-between font-weight-bold">
                     
-                        <a class="d-block col-md-6" href="https://magicletters.github.io/posts/linux/ubuntu%E5%91%BD%E4%BB%A4%E8%A1%8C%E8%BF%9E%E6%8E%A5wifi/"> &laquo; Ubuntu命令行连接WiFi</a>
+                        <a class="d-block col-md-6" href="https://magicletters.github.io/posts/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E5%88%9B%E5%BB%BA%E5%9E%8B%E6%A8%A1%E5%BC%8F/%E5%8E%9F%E5%9E%8B%E6%A8%A1%E5%BC%8F/"> &laquo; 原型模式</a>
                     
                     
-                        <a class="d-block col-md-6 text-lg-right" href="https://magicletters.github.io/posts/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E5%88%9B%E5%BB%BA%E5%9E%8B%E6%A8%A1%E5%BC%8F/%E5%8E%9F%E5%9E%8B%E6%A8%A1%E5%BC%8F/">原型模式 &raquo;</a>
+                        <a class="d-block col-md-6 text-lg-right" href="https://magicletters.github.io/posts/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E7%9A%84%E5%8E%9F%E5%88%99/">设计模式的原则 &raquo;</a>
                     
                     <div class="clearfix"></div>
                     </div>
