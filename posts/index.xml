@@ -7,10 +7,28 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Zhu Jia - All rights reserved</copyright>
-    <lastBuildDate>Sat, 19 Sep 2020 13:17:04 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 19 Oct 2020 16:25:46 +0800</lastBuildDate>
     
 	<atom:link href="https://magicletters.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Qemu安装arm虚拟机</title>
+      <link>https://magicletters.github.io/posts/qemu%E5%AE%89%E8%A3%85arm%E8%99%9A%E6%8B%9F%E6%9C%BA/</link>
+      <pubDate>Mon, 19 Oct 2020 16:25:46 +0800</pubDate>
+      
+      <guid>https://magicletters.github.io/posts/qemu%E5%AE%89%E8%A3%85arm%E8%99%9A%E6%8B%9F%E6%9C%BA/</guid>
+      <description>安装aarch64虚拟机的依赖软件：</description>
+    </item>
+    
+    <item>
+      <title>x86上运行arm镜像</title>
+      <link>https://magicletters.github.io/posts/k8sdocker/x86%E4%B8%8A%E8%BF%90%E8%A1%8Carm%E9%95%9C%E5%83%8F/</link>
+      <pubDate>Thu, 15 Oct 2020 09:00:00 +0000</pubDate>
+      
+      <guid>https://magicletters.github.io/posts/k8sdocker/x86%E4%B8%8A%E8%BF%90%E8%A1%8Carm%E9%95%9C%E5%83%8F/</guid>
+      <description>设置ARM模拟器 sudo apt-get install qemu binfmt-support qemu-user-static # Install the qemu packages docker run --rm --privileged multiarch/qemu-user-static --reset -p yes # This step will execute the registering scripts docker run --rm -it arm64v8/ubuntu /bin/bash # Testing the emulation environment   https://www.</description>
+    </item>
     
     <item>
       <title>Bash获取当前脚本的绝对路径</title>

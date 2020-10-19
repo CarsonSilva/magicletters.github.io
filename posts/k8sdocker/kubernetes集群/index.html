@@ -153,7 +153,7 @@
                     <div class="article-post">
                         <h2 id="step1-master节点初始化">Step#1 master节点初始化</h2>
 <p>本步骤中的命令只能在master节点服务器上运行，使用kubeadm命令进行初始化操作：</p>
-<pre><code>sudo kubeadm init --pod-network-cidr=10.244.10.0/16 --apiserver-advertise-address=10.10.10.1 --image-repository registry.cn-hangzhou.aliyuncs.com/google_containers
+<pre><code>sudo kubeadm init --pod-network-cidr=10.244.10.0/16 --apiserver-advertise-address=10.10.10.1 --image-repository registry.cn-hangzhou.aliyuncs.com/magicletters
 </code></pre><blockquote>
 <p> &ndash;pod-network-cidr = 指定Pod网络的IP地址范围。 我们正在使用&rsquo;flannel&rsquo;虚拟网络。 如果要使用其他pod网络（如weave-net或calico），请更改范围IP地址。
  &ndash;apiserver-advertise-address = 确定Kubernetes应该在哪个IP地址上公布其API服务器。</p>

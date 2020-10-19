@@ -7,10 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Zhu Jia - All rights reserved</copyright>
-    <lastBuildDate>Sat, 25 Jul 2020 09:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 15 Oct 2020 09:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://magicletters.github.io/tags/docker/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>x86上运行arm镜像</title>
+      <link>https://magicletters.github.io/posts/k8sdocker/x86%E4%B8%8A%E8%BF%90%E8%A1%8Carm%E9%95%9C%E5%83%8F/</link>
+      <pubDate>Thu, 15 Oct 2020 09:00:00 +0000</pubDate>
+      
+      <guid>https://magicletters.github.io/posts/k8sdocker/x86%E4%B8%8A%E8%BF%90%E8%A1%8Carm%E9%95%9C%E5%83%8F/</guid>
+      <description>设置ARM模拟器 sudo apt-get install qemu binfmt-support qemu-user-static # Install the qemu packages docker run --rm --privileged multiarch/qemu-user-static --reset -p yes # This step will execute the registering scripts docker run --rm -it arm64v8/ubuntu /bin/bash # Testing the emulation environment   https://www.</description>
+    </item>
     
     <item>
       <title>docker多架构镜像</title>
