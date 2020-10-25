@@ -7,10 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Zhu Jia - All rights reserved</copyright>
-    <lastBuildDate>Wed, 21 Oct 2020 12:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 22 Oct 2020 09:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://magicletters.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>使用Let’s Encrypt生成通配符域名证书</title>
+      <link>https://magicletters.github.io/posts/k8sdocker/%E4%BD%BF%E7%94%A8lets-encrypt%E7%94%9F%E6%88%90%E9%80%9A%E9%85%8D%E7%AC%A6%E5%9F%9F%E5%90%8D%E8%AF%81%E4%B9%A6/</link>
+      <pubDate>Thu, 22 Oct 2020 09:00:00 +0000</pubDate>
+      
+      <guid>https://magicletters.github.io/posts/k8sdocker/%E4%BD%BF%E7%94%A8lets-encrypt%E7%94%9F%E6%88%90%E9%80%9A%E9%85%8D%E7%AC%A6%E5%9F%9F%E5%90%8D%E8%AF%81%E4%B9%A6/</guid>
+      <description>安装cerbot：</description>
+    </item>
     
     <item>
       <title>在k8s中部署Traefik Ingress控制器</title>
@@ -175,15 +184,6 @@
     </item>
     
     <item>
-      <title>使用glusterfs做持久化存储</title>
-      <link>https://magicletters.github.io/posts/%E4%BD%BF%E7%94%A8glusterfs%E5%81%9A%E6%8C%81%E4%B9%85%E5%8C%96%E5%AD%98%E5%82%A8/</link>
-      <pubDate>Wed, 15 Jul 2020 10:58:46 +0000</pubDate>
-      
-      <guid>https://magicletters.github.io/posts/%E4%BD%BF%E7%94%A8glusterfs%E5%81%9A%E6%8C%81%E4%B9%85%E5%8C%96%E5%AD%98%E5%82%A8/</guid>
-      <description>安装glusterfs 我们直接在物理机上使用yum安装，如果你选择在kubernetes上安装，请参考：https://github.</description>
-    </item>
-    
-    <item>
       <title>Glusterfs的常用命令</title>
       <link>https://magicletters.github.io/posts/glusterfs%E7%9A%84%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</link>
       <pubDate>Wed, 15 Jul 2020 10:07:18 +0000</pubDate>
@@ -226,6 +226,15 @@
       
       <guid>https://magicletters.github.io/posts/linux/git%E8%BE%93%E5%87%BA%E9%A2%9C%E8%89%B2/</guid>
       <description>在~/.gitconfig文件中添加[color]部分：</description>
+    </item>
+    
+    <item>
+      <title>使用glusterfs做持久化存储</title>
+      <link>https://magicletters.github.io/posts/k8sdocker/%E4%BD%BF%E7%94%A8glusterfs%E5%81%9A%E6%8C%81%E4%B9%85%E5%8C%96%E5%AD%98%E5%82%A8/</link>
+      <pubDate>Fri, 25 Oct 2019 08:10:00 +0800</pubDate>
+      
+      <guid>https://magicletters.github.io/posts/k8sdocker/%E4%BD%BF%E7%94%A8glusterfs%E5%81%9A%E6%8C%81%E4%B9%85%E5%8C%96%E5%AD%98%E5%82%A8/</guid>
+      <description>构建gluster镜像 gluster集群可以直接安装在物理机上，也可以通过docker构建集群，还可以通过 k8s部署。为了方便学习研究，本文采取docker的形式构建一个gluster的集群。</description>
     </item>
     
     <item>

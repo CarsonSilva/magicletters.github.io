@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="en-us"><head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="generator" content="Hugo 0.74.3" />
+	
+	<link rel="icon" href="/static/images/logo.png">
+	
+	<title>使用glusterfs做持久化存储 | DreamAsHourse</title>
+	
+	
+
+	<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="使用glusterfs做持久化存储"/>
+<meta name="twitter:description" content="构建gluster镜像 gluster集群可以直接安装在物理机上，也可以通过docker构建集群，还可以通过 k8s部署。为了方便学习研究，本文采取docker的形式构建一个gluster的集群。"/>
+
+	<meta property="og:title" content="使用glusterfs做持久化存储" />
+<meta property="og:description" content="构建gluster镜像 gluster集群可以直接安装在物理机上，也可以通过docker构建集群，还可以通过 k8s部署。为了方便学习研究，本文采取docker的形式构建一个gluster的集群。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://magicletters.github.io/posts/k8sdocker/%E4%BD%BF%E7%94%A8glusterfs%E5%81%9A%E6%8C%81%E4%B9%85%E5%8C%96%E5%AD%98%E5%82%A8/" />
+<meta property="article:published_time" content="2019-10-25T08:10:00+08:00" />
+<meta property="article:modified_time" content="2019-10-25T08:10:00+08:00" />
+
+
+	<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
+	 crossorigin="anonymous">
+	<link href="https://fonts.googleapis.com/css?family=Righteous%7CMerriweather:300,300i,400,400i,700,700i" rel="stylesheet">
+	<link href="/css/medium.css" rel="stylesheet">
+	<link href="/css/additional.css" rel="stylesheet">
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top mediumnavigation nav-down">
+    <div class="container pr-0">
+        
+        <a class="navbar-brand" href="https://magicletters.github.io//">
+
+            
+            <img src="/static/images/logo.png" alt="logo">
+            
+        </a>
+        
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarMediumish" aria-controls="navbarSupportedContent"
+            aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        
+        <div class="collapse navbar-collapse" id="navbarMediumish">
+            
+            <ul class="navbar-nav ml-auto">
+                 
+                <li class="nav-item ">
+                    <a class="nav-link" href="/posts">Posts</a>
+                </li>
+                 
+                <li class="nav-item ">
+                    <a class="nav-link" href="/categories">Categories</a>
+                </li>
+                 
+                <li class="nav-item ">
+                    <a class="nav-link" href="/tags">Tags</a>
+                </li>
+                 
+                <li class="nav-item ">
+                    <a class="nav-link" href="/">About Me</a>
+                </li>
+                 
+                <li class="nav-item ">
+                    <a class="nav-link" href="/static/imprint">Imprint</a>
+                </li>
+                
+            </ul>
+        </div>
+        
+    </div>
+</nav>
+
+
+        <div class="site-content">   
+            <div class="container">
+<div class="mainheading">
+    <h1 class="sitetitle">DreamAsHourse</h1>
+    <p class="lead">
+         以梦为马🏇
+    </p>
+</div><div class="main-content">
+        
+        <div class="container">
+            <div class="row">
+                
+                <div class="col-md-2 pl-0"><div class="share sticky-top sticky-top-offset">
+    <p>Share</p>
+    <ul>
+        <li class="ml-1 mr-1">
+        <a target="_blank" href="https://twitter.com/intent/tweet?text=%e4%bd%bf%e7%94%a8glusterfs%e5%81%9a%e6%8c%81%e4%b9%85%e5%8c%96%e5%ad%98%e5%82%a8&url=https%3a%2f%2fmagicletters.github.io%2fposts%2fk8sdocker%2f%25E4%25BD%25BF%25E7%2594%25A8glusterfs%25E5%2581%259A%25E6%258C%2581%25E4%25B9%2585%25E5%258C%2596%25E5%25AD%2598%25E5%2582%25A8%2f" onclick="window.open(this.href, 'twitter-share', 'width=550,height=435');return false;">
+        <i class="fab fa-twitter"></i>
+        </a>
+        </li>
+        
+        <li class="ml-1 mr-1">
+        <a target="_blank" href="https://facebook.com/sharer.php?u=https%3a%2f%2fmagicletters.github.io%2fposts%2fk8sdocker%2f%25E4%25BD%25BF%25E7%2594%25A8glusterfs%25E5%2581%259A%25E6%258C%2581%25E4%25B9%2585%25E5%258C%2596%25E5%25AD%2598%25E5%2582%25A8%2f" onclick="window.open(this.href, 'facebook-share', 'width=550,height=435');return false;">
+        <i class="fab fa-facebook-f"></i>
+        </a>
+        </li>
+
+        <li class="ml-1 mr-1">
+        <a target="_blank" href="https://www.xing.com/spi/shares/new?url=https%3a%2f%2fmagicletters.github.io%2fposts%2fk8sdocker%2f%25E4%25BD%25BF%25E7%2594%25A8glusterfs%25E5%2581%259A%25E6%258C%2581%25E4%25B9%2585%25E5%258C%2596%25E5%25AD%2598%25E5%2582%25A8%2f" onclick="window.open(this.href, 'xing-share', 'width=550,height=435');return false;">
+        <i class="fab fa-xing"></i>
+        </a>
+        </li>        
+    </ul>
+
+    
+</div>
+</div>
+                                
+                <div class="col-md-9 flex-first flex-md-unordered">
+                    <div class="mainheading">
+                        	
+                        
+                        
+                        
+                        <div class="row post-top-meta">
+                            <div class="col-xs-12 col-md-3 col-lg-2 text-center text-md-left mb-4 mb-md-0 md-nopad-right">
+                                <img class="author-thumb" src="/static/images/author.png" alt="Zhu Jia">
+                            </div>
+                            <div class="col-xs-12 col-md-9 col-lg-10 text-center text-md-left md-nopad-left">
+                                <a target="_blank" class="link-dark">Zhu Jia</a><br>
+                                <span class="author-description">
+                                    以梦为马<br>
+                                    <i class="far fa-star"></i>
+                                    Oct 25, 2019
+                                    <i class="far fa-clock clock"></i>
+                                    3 min read
+                                </span>					
+                            </div>
+                        </div>			
+                        	
+                        
+                                                
+                        
+                        <h1 class="posttitle">使用glusterfs做持久化存储</h1> 
+                    </div>
+
+                    
+                    
+                    
+                    
+
+                    
+                    <div class="article-post">
+                        <div class="sect1">
+<h2 id="_构建gluster镜像">构建gluster镜像</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>gluster集群可以直接安装在物理机上，也可以通过docker构建集群，还可以通过 <a href="https://github.com/gluster/gluster-kubernetes/blob/master/docs/setup-guide.md">k8s部署</a>。为了方便学习研究，本文采取docker的形式构建一个gluster的集群。</p>
+</div>
+<div class="paragraph">
+<p>首先，通过Dockerfile构建一个gluster的镜像（可以在amd64或aarch64架构上构建）：</p>
+</div>
+<div class="listingblock">
+<div class="title">Dockerfile</div>
+<div class="content">
+<pre class="highlight"><code class="language-docker" data-lang="docker">FROM ubuntu:20.04
+MAINTAINER zhujia "magicletters@qq.com"
+
+RUN export DEBIAN_FRONTEND=noninteractive; \
+    export DEBCONF_NONINTERACTIVE_SEEN=true; \
+    echo 'tzdata tzdata/Areas select Asia' | debconf-set-selections; \
+    echo 'tzdata tzdata/Zones/Asia select Shanghai' | debconf-set-selections; \
+    apt update &amp;&amp; apt full-upgrade -y &amp;&amp; apt install -y --no-install-recommends \
+    glusterfs-server
+
+ENTRYPOINT ["/usr/sbin/glusterd", "-N", "--log-file=/dev/stdout"]</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_构建gluster集群">构建gluster集群</h2>
+<div class="sectionbody">
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-bash" data-lang="bash"># 配置hosts
+tee -a /etc/hosts &gt; /dev/null &lt;&lt; EOF
+192.168.0.2     k8s-master
+192.168.0.3     k8s-node1
+192.168.0.4     k8s-node2
+192.168.0.5     k8s-node3
+EOF
+
+mkdir -p /data/glusterfs/lib -p /data/glusterfs/vols
+
+docker run -d --net=host --privileged=true --name=gluster \
+-v /data/glusterfs/lib:/var/lib/glusterd \
+-v /data/glusterfs/vols:/data \
+gluster
+
+docker exec -it gluster /bin/bash
+
+gluster peer probe k8s-node1
+gluster peer probe k8s-node2
+gluster peer probe k8s-node3</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_配置_volume">配置 volume</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>GlusterFS中的volume的模式有很多中，包括以下几种：</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>分布卷（默认模式）</strong>：即DHT, 也叫 分布卷: 将文件以hash算法随机分布到 一台服务器节点中存储。</p>
+</li>
+<li>
+<p><strong>复制模式</strong>：即AFR, 创建volume 时带 replica x 数量: 将文件复制到 replica x 个节点中。</p>
+</li>
+<li>
+<p><strong>条带模式</strong>：即Striped, 创建volume 时带 stripe x 数量： 将文件切割成数据块，分别存储到 stripe x 个节点中 ( 类似raid 0 )。</p>
+</li>
+<li>
+<p><strong>分布式条带模式</strong>：最少需要4台服务器才能创建。 创建volume 时 stripe 2 server = 4 个节点： 是DHT 与 Striped 的组合型。</p>
+</li>
+<li>
+<p><strong>分布式复制模式</strong>：最少需要4台服务器才能创建。 创建volume 时 replica 2 server = 4 个节点：是DHT 与 AFR 的组合型。</p>
+</li>
+<li>
+<p><strong>条带复制卷模式</strong>：最少需要4台服务器才能创建。 创建volume 时 stripe 2 replica 2 server = 4 个节点： 是 Striped 与 AFR 的组合型。</p>
+</li>
+<li>
+<p><strong>三种模式混合</strong>： 至少需要8台 服务器才能创建。 stripe 2 replica 2 , 每4个节点 组成一个 组。</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>在此我们使用默认的<strong>分布卷模式</strong>。<strong>请勿在生产环境上使用该模式，容易导致数据丢失。</strong></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-bash" data-lang="bash"># 创建分布卷
+gluster volume create pg-data transport tcp k8s-master:/data/pg-data k8s-node1:/data/pg-data k8s-node2:/data/pg-data k8s-node3:/data/pg-data force
+
+# 启动 分布卷
+gluster volume start pg-data</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_glusterfs调优">Glusterfs调优</h2>
+<div class="sectionbody">
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-bash" data-lang="bash"># 开启 指定 volume 的配额
+$ gluster volume quota k8s-volume enable
+
+# 限制 指定 volume 的配额
+$ gluster volume quota k8s-volume limit-usage / 1TB
+
+# 设置 cache 大小, 默认32MB
+$ gluster volume set k8s-volume performance.cache-size 4GB
+
+# 设置 io 线程, 太大会导致进程崩溃
+$ gluster volume set k8s-volume performance.io-thread-count 16
+
+# 设置 网络检测时间, 默认42s
+$ gluster volume set k8s-volume network.ping-timeout 10
+
+# 设置 写缓冲区的大小, 默认1M
+$ gluster volume set k8s-volume performance.write-behind-window-size 1024MB</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_kubernetes中配置glusterfs">Kubernetes中配置glusterfs</h2>
+<div class="sectionbody">
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-bash" data-lang="bash"># 在k8s节点上安装客户端
+apt install -y glusterfs-client</code></pre>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_配置_endpoints">配置 endpoints</h3>
+<div class="listingblock">
+<div class="title">gluster-endpoints.yaml</div>
+<div class="content">
+<pre class="highlight"><code class="language-yaml" data-lang="yaml">apiVersion: v1
+kind: Endpoints
+metadata:
+  name: glusterfs-cluster
+subsets:
+- addresses:
+  - ip: 192.168.0.2
+  ports:
+  - port: 1
+- addresses:
+  - ip: 192.168.0.3
+  ports:
+  - port: 1
+- addresses:
+  - ip: 192.168.0.4
+  ports:
+  - port: 1
+- addresses:
+  - ip: 192.168.0.5
+  ports:
+  - port: 1</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_配置_service">配置 service</h3>
+<div class="listingblock">
+<div class="title">gluster-service.yaml</div>
+<div class="content">
+<pre class="highlight"><code class="language-yaml" data-lang="yaml">apiVersion: v1
+kind: Service
+metadata:
+  name: glusterfs-cluster
+spec:
+  ports:
+  - port: 1</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_创建测试_pod">创建测试 pod</h2>
+<div class="sectionbody">
+<div class="listingblock">
+<div class="title">postgres-pv.yaml</div>
+<div class="content">
+<pre class="highlight"><code class="language-yaml" data-lang="yaml">apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: gluster-postgres
+spec:
+  capacity:
+    storage: 80Gi
+  accessModes:
+    - ReadWriteMany
+  glusterfs:
+    endpoints: "glusterfs-cluster"
+    path: "pg-data"
+    readOnly: false</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">postgres-pvc.yaml</div>
+<div class="content">
+<pre class="highlight"><code class="language-yaml" data-lang="yaml">kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: glusterfs-pg-db
+spec:
+  accessModes:
+    - ReadWriteMany
+  resources:
+    requests:
+      storage: 80Gi</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">postgres-configmap.yaml</div>
+<div class="content">
+<pre class="highlight"><code class="language-yaml" data-lang="yaml">apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: postgres-config
+  labels:
+    app: postgres
+data:
+  POSTGRES_DB: mydb
+  POSTGRES_USER: appuser
+  POSTGRES_PASSWORD: userpasswd</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">postgres-deployment.yaml</div>
+<div class="content">
+<pre class="highlight"><code class="language-yaml" data-lang="yaml">apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pg-db
+  labels:
+    app: pg-db
+spec:
+  selector:
+    matchLabels:
+      app: pg-db
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: pg-db
+    spec:
+      containers:
+        - image: postgres:12.3
+          imagePullPolicy: IfNotPresent
+          name: postgres
+          ports:
+            - containerPort: 5432
+          envFrom:
+            - configMapRef:
+                name: postgres-config
+          volumeMounts:
+            - mountPath: /var/lib/postgresql/data
+              name: postgredb
+      volumes:
+        - name: postgredb
+          persistentVolumeClaim:
+            claimName: glusterfs-pg-db</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">postgres-service.yaml</div>
+<div class="content">
+<pre class="highlight"><code class="language-yaml" data-lang="yaml">apiVersion: v1
+kind: Service
+metadata:
+  name: pg-db
+  labels:
+    app: pg-db
+spec:
+  type: NodePort
+  ports:
+    - port: 5432
+      targetPort: 5432
+      nodePort: 30001
+  selector:
+    app: pg-db</code></pre>
+</div>
+</div>
+</div>
+</div>
+
+                    </div>
+                    
+                    
+                    <div class="after-post-tags">
+                        <ul class="tags">
+                        
+                        <li>
+                        <a href="/tags/k8s">k8s</a>
+                        </li>
+                        
+                        <li>
+                        <a href="/tags/docker">docker</a>
+                        </li>
+                        
+                        </ul>
+                    </div>
+                    
+                    
+                    
+                    <div class="row PageNavigation d-flex justify-content-between font-weight-bold">
+                    
+                        <a class="d-block col-md-6" href="https://magicletters.github.io/posts/linux/git%E8%BE%93%E5%87%BA%E9%A2%9C%E8%89%B2/"> &laquo; git输出颜色</a>
+                    
+                    
+                        <a class="d-block col-md-6 text-lg-right" href="https://magicletters.github.io/posts/k8sdocker/fixed-flannel-cni-plugin-error/">FIXED: Flannel CNI plugin. Error &raquo;</a>
+                    
+                    <div class="clearfix"></div>
+                    </div>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+    </div>
+
+
+            </div>
+<div class="jumbotron fortags">
+	<div class="d-md-flex h-100">
+		<div class="col-md-4 transpdark align-self-center text-center h-100">
+			<div class="d-md-flex align-items-center justify-content-center h-100">
+				<h2 class="d-md-block d-none align-self-center py-1 font-weight-light">Explore <span class="d-none d-md-inline">→</span></h2>
+			</div>
+		</div>
+		<div class="col-md-8 p-5 align-self-center text-center">
+			
+			<a class="mt-1 mb-1" href="/tags/adoc">adoc</a>
+			
+			<a class="mt-1 mb-1" href="/tags/arm">arm</a>
+			
+			<a class="mt-1 mb-1" href="/tags/clion">clion</a>
+			
+			<a class="mt-1 mb-1" href="/tags/cpp">cpp</a>
+			
+			<a class="mt-1 mb-1" href="/tags/docker">docker</a>
+			
+			<a class="mt-1 mb-1" href="/tags/golang">golang</a>
+			
+			<a class="mt-1 mb-1" href="/tags/ide">ide</a>
+			
+			<a class="mt-1 mb-1" href="/tags/java">java</a>
+			
+			<a class="mt-1 mb-1" href="/tags/k8s">k8s</a>
+			
+			<a class="mt-1 mb-1" href="/tags/raft">raft</a>
+			
+			<a class="mt-1 mb-1" href="/tags/shell">shell</a>
+			
+			<a class="mt-1 mb-1" href="/tags/spring">spring</a>
+			
+			<a class="mt-1 mb-1" href="/tags/%E5%88%86%E5%B8%83%E5%BC%8F%E5%AD%98%E5%82%A8">分布式存储</a>
+			
+			<a class="mt-1 mb-1" href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F">设计模式</a>
+			
+		</div>
+	</div>
+</div>
+
+<footer class="footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-sm-6 text-center text-lg-left">
+                &copy; Copyright Zhu Jia - All rights reserved
+            </div>
+            <div class="col-md-6 col-sm-6 text-center text-lg-right">    
+                <a target="_blank" rel="noopener" href="https://www.wowthemes.net">Mediumish Theme</a> by WowThemes.net
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+        </div>
+
+
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+<script src="/js/mediumish.js"></script>
+
+    </body>
+</html>
