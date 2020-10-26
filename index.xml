@@ -7,10 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Zhu Jia - All rights reserved</copyright>
-    <lastBuildDate>Thu, 22 Oct 2020 09:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 26 Oct 2020 14:26:15 +0800</lastBuildDate>
     
 	<atom:link href="https://magicletters.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Linux抓包工具</title>
+      <link>https://magicletters.github.io/posts/linux/linux%E6%8A%93%E5%8C%85%E5%B7%A5%E5%85%B7/</link>
+      <pubDate>Mon, 26 Oct 2020 14:26:15 +0800</pubDate>
+      
+      <guid>https://magicletters.github.io/posts/linux/linux%E6%8A%93%E5%8C%85%E5%B7%A5%E5%85%B7/</guid>
+      <description>tcpdump tcpdump是功能最强大且使用最广泛的命令行数据包嗅探器或程序包分析器工具，用于捕获或筛选通过网络在特定接口上接收或传输的TCP/IP数据包。它在大多数基于Linux/Unix的操作系统下可用。tcpdump还为我们提供了将捕获的数据包保存在文件中以供将来分析的选项。它以pcap格式保存文件，可以通过tcpdump命令或Wireshark的开源GUI工具查看该文件。</description>
+    </item>
     
     <item>
       <title>使用Let’s Encrypt生成通配符域名证书</title>
