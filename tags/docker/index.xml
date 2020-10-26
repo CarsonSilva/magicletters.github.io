@@ -7,10 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Zhu Jia - All rights reserved</copyright>
-    <lastBuildDate>Thu, 15 Oct 2020 09:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 25 Oct 2020 08:10:00 +0800</lastBuildDate>
     
 	<atom:link href="https://magicletters.github.io/tags/docker/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>使用glusterfs做持久化存储</title>
+      <link>https://magicletters.github.io/posts/k8sdocker/%E4%BD%BF%E7%94%A8glusterfs%E5%81%9A%E6%8C%81%E4%B9%85%E5%8C%96%E5%AD%98%E5%82%A8/</link>
+      <pubDate>Sun, 25 Oct 2020 08:10:00 +0800</pubDate>
+      
+      <guid>https://magicletters.github.io/posts/k8sdocker/%E4%BD%BF%E7%94%A8glusterfs%E5%81%9A%E6%8C%81%E4%B9%85%E5%8C%96%E5%AD%98%E5%82%A8/</guid>
+      <description>构建gluster镜像 gluster集群可以直接安装在物理机上，也可以通过docker构建集群，还可以通过 k8s部署。为了方便学习研究，本文采取docker的形式构建一个gluster的集群。</description>
+    </item>
     
     <item>
       <title>x86上运行arm镜像</title>
@@ -28,15 +37,6 @@
       
       <guid>https://magicletters.github.io/posts/k8sdocker/docker%E5%A4%9A%E6%9E%B6%E6%9E%84%E9%95%9C%E5%83%8F/</guid>
       <description>如何查询docker镜像是否支持多架构 docker container run mplatform/mquery gcr.</description>
-    </item>
-    
-    <item>
-      <title>使用glusterfs做持久化存储</title>
-      <link>https://magicletters.github.io/posts/k8sdocker/%E4%BD%BF%E7%94%A8glusterfs%E5%81%9A%E6%8C%81%E4%B9%85%E5%8C%96%E5%AD%98%E5%82%A8/</link>
-      <pubDate>Fri, 25 Oct 2019 08:10:00 +0800</pubDate>
-      
-      <guid>https://magicletters.github.io/posts/k8sdocker/%E4%BD%BF%E7%94%A8glusterfs%E5%81%9A%E6%8C%81%E4%B9%85%E5%8C%96%E5%AD%98%E5%82%A8/</guid>
-      <description>构建gluster镜像 gluster集群可以直接安装在物理机上，也可以通过docker构建集群，还可以通过 k8s部署。为了方便学习研究，本文采取docker的形式构建一个gluster的集群。</description>
     </item>
     
     <item>
