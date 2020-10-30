@@ -7,10 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Zhu Jia - All rights reserved</copyright>
-    <lastBuildDate>Fri, 24 Jul 2020 14:12:10 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 29 Oct 2020 14:12:10 +0000</lastBuildDate>
     
 	<atom:link href="https://magicletters.github.io/tags/ide/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>clion同步远程头文件</title>
+      <link>https://magicletters.github.io/posts/linux/clion%E5%90%8C%E6%AD%A5%E8%BF%9C%E7%A8%8B%E5%A4%B4%E6%96%87%E4%BB%B6/</link>
+      <pubDate>Thu, 29 Oct 2020 14:12:10 +0000</pubDate>
+      
+      <guid>https://magicletters.github.io/posts/linux/clion%E5%90%8C%E6%AD%A5%E8%BF%9C%E7%A8%8B%E5%A4%B4%E6%96%87%E4%BB%B6/</guid>
+      <description>使用Clion进行远程开发时，为了正确解析代码，CLion会把远程机器头文件的搜索路径下的内容同步到本地。但是，头文件同步可能很耗时，因此CLion仅在初始文件传输时自动执行它。 之后，它不会由CMake重新加载触发。 因此，每次切换编译器或更改项目依赖项时，需要手工重新同步（Tools | Resync with Remote Hosts）。如果代码中有未解析的（红色）代码，先检查是否由头文件搜索路径过时导致。除了手工同步还可以设置自动同步：在注册表中设置clion.</description>
+    </item>
     
     <item>
       <title>clion基于docker的开发环境配置</title>

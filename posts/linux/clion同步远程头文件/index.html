@@ -6,20 +6,20 @@
 	
 	<link rel="icon" href="/static/images/logo.png">
 	
-	<title>Linux抓包工具 | DreamAsHourse</title>
+	<title>clion同步远程头文件 | DreamAsHourse</title>
 	
 	
 
 	<meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Linux抓包工具"/>
-<meta name="twitter:description" content="tcpdump tcpdump是功能最强大且使用最广泛的命令行数据包嗅探器或程序包分析器工具，用于捕获或筛选通过网络在特定接口上接收或传输的TCP/IP数据包。它在大多数基于Linux/Unix的操作系统下可用。tcpdump还为我们提供了将捕获的数据包保存在文件中以供将来分析的选项。它以pcap格式保存文件，可以通过tcpdump命令或Wireshark的开源GUI工具查看该文件。"/>
+<meta name="twitter:title" content="clion同步远程头文件"/>
+<meta name="twitter:description" content="使用Clion进行远程开发时，为了正确解析代码，CLion会把远程机器头文件的搜索路径下的内容同步到本地。但是，头文件同步可能很耗时，因此CLion仅在初始文件传输时自动执行它。 之后，它不会由CMake重新加载触发。 因此，每次切换编译器或更改项目依赖项时，需要手工重新同步（Tools | Resync with Remote Hosts）。如果代码中有未解析的（红色）代码，先检查是否由头文件搜索路径过时导致。除了手工同步还可以设置自动同步：在注册表中设置clion."/>
 
-	<meta property="og:title" content="Linux抓包工具" />
-<meta property="og:description" content="tcpdump tcpdump是功能最强大且使用最广泛的命令行数据包嗅探器或程序包分析器工具，用于捕获或筛选通过网络在特定接口上接收或传输的TCP/IP数据包。它在大多数基于Linux/Unix的操作系统下可用。tcpdump还为我们提供了将捕获的数据包保存在文件中以供将来分析的选项。它以pcap格式保存文件，可以通过tcpdump命令或Wireshark的开源GUI工具查看该文件。" />
+	<meta property="og:title" content="clion同步远程头文件" />
+<meta property="og:description" content="使用Clion进行远程开发时，为了正确解析代码，CLion会把远程机器头文件的搜索路径下的内容同步到本地。但是，头文件同步可能很耗时，因此CLion仅在初始文件传输时自动执行它。 之后，它不会由CMake重新加载触发。 因此，每次切换编译器或更改项目依赖项时，需要手工重新同步（Tools | Resync with Remote Hosts）。如果代码中有未解析的（红色）代码，先检查是否由头文件搜索路径过时导致。除了手工同步还可以设置自动同步：在注册表中设置clion." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://magicletters.github.io/posts/linux/linux%E6%8A%93%E5%8C%85%E5%B7%A5%E5%85%B7/" />
-<meta property="article:published_time" content="2020-10-26T14:26:15+08:00" />
-<meta property="article:modified_time" content="2020-10-26T14:26:15+08:00" />
+<meta property="og:url" content="https://magicletters.github.io/posts/linux/clion%E5%90%8C%E6%AD%A5%E8%BF%9C%E7%A8%8B%E5%A4%B4%E6%96%87%E4%BB%B6/" />
+<meta property="article:published_time" content="2020-10-29T14:12:10+00:00" />
+<meta property="article:modified_time" content="2020-10-29T14:12:10+00:00" />
 
 
 	<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -94,19 +94,19 @@
     <p>Share</p>
     <ul>
         <li class="ml-1 mr-1">
-        <a target="_blank" href="https://twitter.com/intent/tweet?text=Linux%e6%8a%93%e5%8c%85%e5%b7%a5%e5%85%b7&url=https%3a%2f%2fmagicletters.github.io%2fposts%2flinux%2flinux%25E6%258A%2593%25E5%258C%2585%25E5%25B7%25A5%25E5%2585%25B7%2f" onclick="window.open(this.href, 'twitter-share', 'width=550,height=435');return false;">
+        <a target="_blank" href="https://twitter.com/intent/tweet?text=clion%e5%90%8c%e6%ad%a5%e8%bf%9c%e7%a8%8b%e5%a4%b4%e6%96%87%e4%bb%b6&url=https%3a%2f%2fmagicletters.github.io%2fposts%2flinux%2fclion%25E5%2590%258C%25E6%25AD%25A5%25E8%25BF%259C%25E7%25A8%258B%25E5%25A4%25B4%25E6%2596%2587%25E4%25BB%25B6%2f" onclick="window.open(this.href, 'twitter-share', 'width=550,height=435');return false;">
         <i class="fab fa-twitter"></i>
         </a>
         </li>
         
         <li class="ml-1 mr-1">
-        <a target="_blank" href="https://facebook.com/sharer.php?u=https%3a%2f%2fmagicletters.github.io%2fposts%2flinux%2flinux%25E6%258A%2593%25E5%258C%2585%25E5%25B7%25A5%25E5%2585%25B7%2f" onclick="window.open(this.href, 'facebook-share', 'width=550,height=435');return false;">
+        <a target="_blank" href="https://facebook.com/sharer.php?u=https%3a%2f%2fmagicletters.github.io%2fposts%2flinux%2fclion%25E5%2590%258C%25E6%25AD%25A5%25E8%25BF%259C%25E7%25A8%258B%25E5%25A4%25B4%25E6%2596%2587%25E4%25BB%25B6%2f" onclick="window.open(this.href, 'facebook-share', 'width=550,height=435');return false;">
         <i class="fab fa-facebook-f"></i>
         </a>
         </li>
 
         <li class="ml-1 mr-1">
-        <a target="_blank" href="https://www.xing.com/spi/shares/new?url=https%3a%2f%2fmagicletters.github.io%2fposts%2flinux%2flinux%25E6%258A%2593%25E5%258C%2585%25E5%25B7%25A5%25E5%2585%25B7%2f" onclick="window.open(this.href, 'xing-share', 'width=550,height=435');return false;">
+        <a target="_blank" href="https://www.xing.com/spi/shares/new?url=https%3a%2f%2fmagicletters.github.io%2fposts%2flinux%2fclion%25E5%2590%258C%25E6%25AD%25A5%25E8%25BF%259C%25E7%25A8%258B%25E5%25A4%25B4%25E6%2596%2587%25E4%25BB%25B6%2f" onclick="window.open(this.href, 'xing-share', 'width=550,height=435');return false;">
         <i class="fab fa-xing"></i>
         </a>
         </li>        
@@ -131,7 +131,7 @@
                                 <span class="author-description">
                                     以梦为马<br>
                                     <i class="far fa-star"></i>
-                                    Oct 26, 2020
+                                    Oct 29, 2020
                                     <i class="far fa-clock clock"></i>
                                     1 min read
                                 </span>					
@@ -141,7 +141,7 @@
                         
                                                 
                         
-                        <h1 class="posttitle">Linux抓包工具</h1> 
+                        <h1 class="posttitle">clion同步远程头文件</h1> 
                     </div>
 
                     
@@ -151,64 +151,11 @@
 
                     
                     <div class="article-post">
-                        <div class="sect1">
-<h2 id="_tcpdump">tcpdump</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>tcpdump是功能最强大且使用最广泛的命令行数据包嗅探器或程序包分析器工具，用于捕获或筛选通过网络在特定接口上接收或传输的TCP/IP数据包。它在大多数基于Linux/Unix的操作系统下可用。tcpdump还为我们提供了将捕获的数据包保存在文件中以供将来分析的选项。它以pcap格式保存文件，可以通过tcpdump命令或Wireshark的开源GUI工具查看该文件。</p>
+                        <div class="paragraph">
+<p>使用Clion进行远程开发时，为了正确解析代码，CLion会把远程机器头文件的搜索路径下的内容同步到本地。但是，头文件同步可能很耗时，因此CLion仅在初始文件传输时自动执行它。 之后，它不会由CMake重新加载触发。 因此，每次切换编译器或更改项目依赖项时，需要手工重新同步（<strong>Tools | Resync with Remote Hosts</strong>）。如果代码中有未解析的（红色）代码，先检查是否由头文件搜索路径过时导致。除了手工同步还可以设置自动同步：在注册表中设置clion.remote.resync.system.cache项（<strong>Help | Find Action</strong>输入<em>Registry</em>，然后按名称搜索该项）。</p>
 </div>
 <div class="paragraph">
-<p>tcpdump常见的使用示例：</p>
-</div>
-<div class="dlist">
-<dl>
-<dt class="hdlist1">捕获指定网卡的数据包</dt>
-<dd>
-<p>tcpdump -i eth0　</p>
-</dd>
-<dt class="hdlist1">捕获N个数据包</dt>
-<dd>
-<p>tcpdump -c 5 -i eth0</p>
-</dd>
-<dt class="hdlist1">以ASCII码打印捕获的数据包</dt>
-<dd>
-<p>tcpdump -A -i eth0</p>
-</dd>
-<dt class="hdlist1">显示可用的网卡</dt>
-<dd>
-<p>tcpdump -D</p>
-</dd>
-<dt class="hdlist1">以HEX和ASCII显示捕获的数据包</dt>
-<dd>
-<p>tcpdump -XX -i eth0</p>
-</dd>
-<dt class="hdlist1">捕获并保存到文件</dt>
-<dd>
-<p>tcpdump -w 001.pcap -i eth0</p>
-</dd>
-<dt class="hdlist1">读取pcap文件</dt>
-<dd>
-<p>tcpdump -r 001.pcap</p>
-</dd>
-<dt class="hdlist1">仅捕获tcp数据包</dt>
-<dd>
-<p>tcpdump -i eth0 tcp</p>
-</dd>
-<dt class="hdlist1">捕获指定端口的数据包</dt>
-<dd>
-<p>tcpdump -i eth0 port 22</p>
-</dd>
-<dt class="hdlist1">捕获指定源IP的数据包</dt>
-<dd>
-<p>tcpdump -i eth0 src 192.168.0.2</p>
-</dd>
-<dt class="hdlist1">捕获指定目的IP的数据包</dt>
-<dd>
-<p>tcpdump -i eth0 dst 192.168.0.2</p>
-</dd>
-</dl>
-</div>
-</div>
+<p>如果重新同步不起作用的话，通过ssh登录到远程机器，排除是不是IP对应主机的fingerprint发生变化导致的，如果是fingerprint发生变化，resync是无法生效的。</p>
 </div>
 
                     </div>
@@ -217,6 +164,14 @@
                     <div class="after-post-tags">
                         <ul class="tags">
                         
+                        <li>
+                        <a href="/tags/ide">ide</a>
+                        </li>
+                        
+                        <li>
+                        <a href="/tags/clion">clion</a>
+                        </li>
+                        
                         </ul>
                     </div>
                     
@@ -224,10 +179,8 @@
                     
                     <div class="row PageNavigation d-flex justify-content-between font-weight-bold">
                     
-                        <a class="d-block col-md-6" href="https://magicletters.github.io/posts/linux/clion%E5%90%8C%E6%AD%A5%E8%BF%9C%E7%A8%8B%E5%A4%B4%E6%96%87%E4%BB%B6/"> &laquo; clion同步远程头文件</a>
                     
-                    
-                        <a class="d-block col-md-6 text-lg-right" href="https://magicletters.github.io/posts/k8sdocker/%E4%BD%BF%E7%94%A8glusterfs%E5%81%9A%E6%8C%81%E4%B9%85%E5%8C%96%E5%AD%98%E5%82%A8/">使用glusterfs做持久化存储 &raquo;</a>
+                        <a class="d-block col-md-6 text-lg-right" href="https://magicletters.github.io/posts/linux/linux%E6%8A%93%E5%8C%85%E5%B7%A5%E5%85%B7/">Linux抓包工具 &raquo;</a>
                     
                     <div class="clearfix"></div>
                     </div>

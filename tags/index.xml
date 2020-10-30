@@ -7,10 +7,28 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Zhu Jia - All rights reserved</copyright>
-    <lastBuildDate>Sun, 25 Oct 2020 08:10:00 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 29 Oct 2020 14:12:10 +0000</lastBuildDate>
     
 	<atom:link href="https://magicletters.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>clion</title>
+      <link>https://magicletters.github.io/tags/clion/</link>
+      <pubDate>Thu, 29 Oct 2020 14:12:10 +0000</pubDate>
+      
+      <guid>https://magicletters.github.io/tags/clion/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>ide</title>
+      <link>https://magicletters.github.io/tags/ide/</link>
+      <pubDate>Thu, 29 Oct 2020 14:12:10 +0000</pubDate>
+      
+      <guid>https://magicletters.github.io/tags/ide/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>docker</title>
@@ -72,24 +90,6 @@
       <pubDate>Sun, 26 Jul 2020 10:00:00 +0000</pubDate>
       
       <guid>https://magicletters.github.io/tags/raft/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>clion</title>
-      <link>https://magicletters.github.io/tags/clion/</link>
-      <pubDate>Fri, 24 Jul 2020 14:12:10 +0000</pubDate>
-      
-      <guid>https://magicletters.github.io/tags/clion/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>ide</title>
-      <link>https://magicletters.github.io/tags/ide/</link>
-      <pubDate>Fri, 24 Jul 2020 14:12:10 +0000</pubDate>
-      
-      <guid>https://magicletters.github.io/tags/ide/</guid>
       <description></description>
     </item>
     
