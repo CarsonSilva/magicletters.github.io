@@ -7,10 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Zhu Jia - All rights reserved</copyright>
-    <lastBuildDate>Thu, 29 Oct 2020 14:12:10 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 03 Nov 2020 21:00:00 +0800</lastBuildDate>
     
 	<atom:link href="https://magicletters.github.io/categories/linux/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Raspberry Pi使用USB作为root挂载点</title>
+      <link>https://magicletters.github.io/posts/linux/raspberry-pi%E4%BD%BF%E7%94%A8usb%E4%BD%9C%E4%B8%BAroot%E6%8C%82%E8%BD%BD%E7%82%B9/</link>
+      <pubDate>Tue, 03 Nov 2020 21:00:00 +0800</pubDate>
+      
+      <guid>https://magicletters.github.io/posts/linux/raspberry-pi%E4%BD%BF%E7%94%A8usb%E4%BD%9C%E4%B8%BAroot%E6%8C%82%E8%BD%BD%E7%82%B9/</guid>
+      <description>把SD卡上的内容拷贝到硬盘 使用rsync完成copy操作，rsync命令在copy所有文件的同时还确保文件的权限及拥有者不会发生改变</description>
+    </item>
     
     <item>
       <title>clion同步远程头文件</title>

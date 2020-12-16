@@ -171,7 +171,8 @@ RUN export DEBIAN_FRONTEND=noninteractive; \
     echo 'tzdata tzdata/Areas select Asia' | debconf-set-selections; \
     echo 'tzdata tzdata/Zones/Asia select Shanghai' | debconf-set-selections; \
     apt update &amp;&amp; apt full-upgrade -y &amp;&amp; apt install -y --no-install-recommends \
-    glusterfs-server
+    glusterfs-server \
+    &amp;&amp; rm -rf /var/lib/apt/lists/*
 
 ENTRYPOINT ["/usr/sbin/glusterd", "-N", "--log-file=/dev/stdout"]</code></pre>
 </div>
@@ -196,7 +197,7 @@ mkdir -p /data/glusterfs/lib -p /data/glusterfs/vols
 docker run -d --net=host --privileged=true --name=gluster \
 -v /data/glusterfs/lib:/var/lib/glusterd \
 -v /data/glusterfs/vols:/data \
-gluster
+registry.cn-chengdu.aliyuncs.com/h2o-arm64/glusterfs
 
 docker exec -it gluster /bin/bash
 
@@ -245,6 +246,9 @@ gluster peer probe k8s-node3</code></pre>
 <div class="content">
 <pre class="highlight"><code class="language-bash" data-lang="bash"># 创建分布卷
 gluster volume create pg-data transport tcp k8s-master:/data/pg-data k8s-node1:/data/pg-data k8s-node2:/data/pg-data k8s-node3:/data/pg-data force
+
+gluster volume create pg-data replica 2 transport tcp server1:/exp1 server2:/exp2　server3:/exp3 server4:/exp4
+
 
 # 启动 分布卷
 gluster volume start pg-data</code></pre>

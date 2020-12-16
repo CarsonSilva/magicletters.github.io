@@ -6,20 +6,20 @@
 	
 	<link rel="icon" href="/static/images/logo.png">
 	
-	<title>clion同步远程头文件 | DreamAsHourse</title>
+	<title>Raspberry Pi使用USB作为root挂载点 | DreamAsHourse</title>
 	
 	
 
 	<meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="clion同步远程头文件"/>
-<meta name="twitter:description" content="使用Clion进行远程开发时，为了正确解析代码，CLion会把远程机器头文件的搜索路径下的内容同步到本地。但是，头文件同步可能很耗时，因此CLion仅在初始文件传输时自动执行它。 之后，它不会由CMake重新加载触发。 因此，每次切换编译器或更改项目依赖项时，需要手工重新同步（Tools | Resync with Remote Hosts）。如果代码中有未解析的（红色）代码，先检查是否由头文件搜索路径过时导致。除了手工同步还可以设置自动同步：在注册表中设置clion."/>
+<meta name="twitter:title" content="Raspberry Pi使用USB作为root挂载点"/>
+<meta name="twitter:description" content="把SD卡上的内容拷贝到硬盘 使用rsync完成copy操作，rsync命令在copy所有文件的同时还确保文件的权限及拥有者不会发生改变"/>
 
-	<meta property="og:title" content="clion同步远程头文件" />
-<meta property="og:description" content="使用Clion进行远程开发时，为了正确解析代码，CLion会把远程机器头文件的搜索路径下的内容同步到本地。但是，头文件同步可能很耗时，因此CLion仅在初始文件传输时自动执行它。 之后，它不会由CMake重新加载触发。 因此，每次切换编译器或更改项目依赖项时，需要手工重新同步（Tools | Resync with Remote Hosts）。如果代码中有未解析的（红色）代码，先检查是否由头文件搜索路径过时导致。除了手工同步还可以设置自动同步：在注册表中设置clion." />
+	<meta property="og:title" content="Raspberry Pi使用USB作为root挂载点" />
+<meta property="og:description" content="把SD卡上的内容拷贝到硬盘 使用rsync完成copy操作，rsync命令在copy所有文件的同时还确保文件的权限及拥有者不会发生改变" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://magicletters.github.io/posts/linux/clion%E5%90%8C%E6%AD%A5%E8%BF%9C%E7%A8%8B%E5%A4%B4%E6%96%87%E4%BB%B6/" />
-<meta property="article:published_time" content="2020-10-29T14:12:10+00:00" />
-<meta property="article:modified_time" content="2020-10-29T14:12:10+00:00" />
+<meta property="og:url" content="https://magicletters.github.io/posts/linux/raspberry-pi%E4%BD%BF%E7%94%A8usb%E4%BD%9C%E4%B8%BAroot%E6%8C%82%E8%BD%BD%E7%82%B9/" />
+<meta property="article:published_time" content="2020-11-03T21:00:00+08:00" />
+<meta property="article:modified_time" content="2020-11-03T21:00:00+08:00" />
 
 
 	<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -94,19 +94,19 @@
     <p>Share</p>
     <ul>
         <li class="ml-1 mr-1">
-        <a target="_blank" href="https://twitter.com/intent/tweet?text=clion%e5%90%8c%e6%ad%a5%e8%bf%9c%e7%a8%8b%e5%a4%b4%e6%96%87%e4%bb%b6&url=https%3a%2f%2fmagicletters.github.io%2fposts%2flinux%2fclion%25E5%2590%258C%25E6%25AD%25A5%25E8%25BF%259C%25E7%25A8%258B%25E5%25A4%25B4%25E6%2596%2587%25E4%25BB%25B6%2f" onclick="window.open(this.href, 'twitter-share', 'width=550,height=435');return false;">
+        <a target="_blank" href="https://twitter.com/intent/tweet?text=Raspberry%20Pi%e4%bd%bf%e7%94%a8USB%e4%bd%9c%e4%b8%baroot%e6%8c%82%e8%bd%bd%e7%82%b9&url=https%3a%2f%2fmagicletters.github.io%2fposts%2flinux%2fraspberry-pi%25E4%25BD%25BF%25E7%2594%25A8usb%25E4%25BD%259C%25E4%25B8%25BAroot%25E6%258C%2582%25E8%25BD%25BD%25E7%2582%25B9%2f" onclick="window.open(this.href, 'twitter-share', 'width=550,height=435');return false;">
         <i class="fab fa-twitter"></i>
         </a>
         </li>
         
         <li class="ml-1 mr-1">
-        <a target="_blank" href="https://facebook.com/sharer.php?u=https%3a%2f%2fmagicletters.github.io%2fposts%2flinux%2fclion%25E5%2590%258C%25E6%25AD%25A5%25E8%25BF%259C%25E7%25A8%258B%25E5%25A4%25B4%25E6%2596%2587%25E4%25BB%25B6%2f" onclick="window.open(this.href, 'facebook-share', 'width=550,height=435');return false;">
+        <a target="_blank" href="https://facebook.com/sharer.php?u=https%3a%2f%2fmagicletters.github.io%2fposts%2flinux%2fraspberry-pi%25E4%25BD%25BF%25E7%2594%25A8usb%25E4%25BD%259C%25E4%25B8%25BAroot%25E6%258C%2582%25E8%25BD%25BD%25E7%2582%25B9%2f" onclick="window.open(this.href, 'facebook-share', 'width=550,height=435');return false;">
         <i class="fab fa-facebook-f"></i>
         </a>
         </li>
 
         <li class="ml-1 mr-1">
-        <a target="_blank" href="https://www.xing.com/spi/shares/new?url=https%3a%2f%2fmagicletters.github.io%2fposts%2flinux%2fclion%25E5%2590%258C%25E6%25AD%25A5%25E8%25BF%259C%25E7%25A8%258B%25E5%25A4%25B4%25E6%2596%2587%25E4%25BB%25B6%2f" onclick="window.open(this.href, 'xing-share', 'width=550,height=435');return false;">
+        <a target="_blank" href="https://www.xing.com/spi/shares/new?url=https%3a%2f%2fmagicletters.github.io%2fposts%2flinux%2fraspberry-pi%25E4%25BD%25BF%25E7%2594%25A8usb%25E4%25BD%259C%25E4%25B8%25BAroot%25E6%258C%2582%25E8%25BD%25BD%25E7%2582%25B9%2f" onclick="window.open(this.href, 'xing-share', 'width=550,height=435');return false;">
         <i class="fab fa-xing"></i>
         </a>
         </li>        
@@ -131,7 +131,7 @@
                                 <span class="author-description">
                                     以梦为马<br>
                                     <i class="far fa-star"></i>
-                                    Oct 29, 2020
+                                    Nov 3, 2020
                                     <i class="far fa-clock clock"></i>
                                     1 min read
                                 </span>					
@@ -141,7 +141,7 @@
                         
                                                 
                         
-                        <h1 class="posttitle">clion同步远程头文件</h1> 
+                        <h1 class="posttitle">Raspberry Pi使用USB作为root挂载点</h1> 
                     </div>
 
                     
@@ -151,11 +151,59 @@
 
                     
                     <div class="article-post">
-                        <div class="paragraph">
-<p>使用Clion进行远程开发时，为了正确解析代码，CLion会把远程机器头文件的搜索路径下的内容同步到本地。但是，头文件同步可能很耗时，因此CLion仅在初始文件传输时自动执行它。 之后，它不会由CMake重新加载触发。 因此，每次切换编译器或更改项目依赖项时，需要手工重新同步（<strong>Tools | Resync with Remote Hosts</strong>）。如果代码中有未解析的（红色）代码，先检查是否由头文件搜索路径过时导致。除了手工同步还可以设置自动同步：在注册表中设置clion.remote.resync.system.cache项（<strong>Help | Find Action</strong>输入<em>Registry</em>，然后按名称搜索该项）。</p>
+                        <div class="sect1">
+<h2 id="_把sd卡上的内容拷贝到硬盘">把SD卡上的内容拷贝到硬盘</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>使用rsync完成copy操作，rsync命令在copy所有文件的同时还确保文件的权限及拥有者不会发生改变</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>sudo rsync -axv writable/ rootfs/</pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_增加etcfstab中的配置">增加/etc/fstab中的配置</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>编辑/etc/fstab文件，增加/挂载点的配置:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-bash" data-lang="bash">LABEL=rootfs	/	ext4	defaults,noatime	0	1
+LABEL=writable	/boot	ext4	defaults	0	2
+LABEL=system-boot       /boot/firmware  vfat    defaults        0       1</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_配置硬盘作为树莓派的root文件系统">配置硬盘作为树莓派的root文件系统</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>编辑/boot/firmware/cmdline.txt文件，修改root指向的分区:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>把原来的root=/dev/mmcblk0p2或root=PARTUUID=xxxxxxxx-02或root=LABEL=writable改成root=/dev/sda1或root=LABEL=rootfs</p>
+</li>
+<li>
+<p>增加rootdelay=5</p>
+</li>
+</ol>
 </div>
 <div class="paragraph">
-<p>如果重新同步不起作用的话，通过ssh登录到远程机器，排除是不是IP对应主机的fingerprint发生变化导致的，如果是fingerprint发生变化，resync是无法生效的。</p>
+<p>最终结果类似这样:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>dwc_otg.lpm_enable=0 console=serial0,115200 console=tty1 root=/dev/sda1 rootfstype=ext4 elevator=deadline fsck.repair=yes rootwait rootdelay=5</pre>
+</div>
+</div>
+</div>
 </div>
 
                     </div>
@@ -165,11 +213,7 @@
                         <ul class="tags">
                         
                         <li>
-                        <a href="/tags/ide">ide</a>
-                        </li>
-                        
-                        <li>
-                        <a href="/tags/clion">clion</a>
+                        <a href="/tags/shell">shell</a>
                         </li>
                         
                         </ul>
@@ -179,10 +223,8 @@
                     
                     <div class="row PageNavigation d-flex justify-content-between font-weight-bold">
                     
-                        <a class="d-block col-md-6" href="https://magicletters.github.io/posts/linux/raspberry-pi%E4%BD%BF%E7%94%A8usb%E4%BD%9C%E4%B8%BAroot%E6%8C%82%E8%BD%BD%E7%82%B9/"> &laquo; Raspberry Pi使用USB作为root挂载点</a>
                     
-                    
-                        <a class="d-block col-md-6 text-lg-right" href="https://magicletters.github.io/posts/linux/linux%E6%8A%93%E5%8C%85%E5%B7%A5%E5%85%B7/">Linux抓包工具 &raquo;</a>
+                        <a class="d-block col-md-6 text-lg-right" href="https://magicletters.github.io/posts/linux/clion%E5%90%8C%E6%AD%A5%E8%BF%9C%E7%A8%8B%E5%A4%B4%E6%96%87%E4%BB%B6/">clion同步远程头文件 &raquo;</a>
                     
                     <div class="clearfix"></div>
                     </div>
