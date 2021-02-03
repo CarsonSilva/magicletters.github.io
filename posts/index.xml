@@ -7,10 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Zhu Jia - All rights reserved</copyright>
-    <lastBuildDate>Tue, 03 Nov 2020 21:00:00 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 01 Jan 2021 08:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://magicletters.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Java垃圾回收简介</title>
+      <link>https://magicletters.github.io/posts/java/java%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E7%AE%80%E4%BB%8B/</link>
+      <pubDate>Fri, 01 Jan 2021 08:00:00 +0000</pubDate>
+      
+      <guid>https://magicletters.github.io/posts/java/java%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E7%AE%80%E4%BB%8B/</guid>
+      <description>对象存活分析 常见的对象存活分析算法有两种：引用计数法和可达性分析法</description>
+    </item>
     
     <item>
       <title>Raspberry Pi使用USB作为root挂载点</title>
@@ -181,6 +190,15 @@
       
       <guid>https://magicletters.github.io/posts/algorithm/raft%E7%AE%97%E6%B3%95/</guid>
       <description>Raft 一致性算法论文译文</description>
+    </item>
+    
+    <item>
+      <title>Rate Limiting</title>
+      <link>https://magicletters.github.io/posts/algorithm/%E9%99%90%E9%80%9F/</link>
+      <pubDate>Sun, 26 Jul 2020 10:00:00 +0000</pubDate>
+      
+      <guid>https://magicletters.github.io/posts/algorithm/%E9%99%90%E9%80%9F/</guid>
+      <description>限速器类型  用户速率限制器  允许某些用户受限地访问API。用户发出的请求的数量/持续时间通常与他们的userId，API密钥或IP地址相关。</description>
     </item>
     
     <item>

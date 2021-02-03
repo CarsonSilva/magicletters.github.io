@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>微服务 on DreamAsHourse</title>
+    <link>https://magicletters.github.io/tags/%E5%BE%AE%E6%9C%8D%E5%8A%A1/</link>
+    <description>Recent content in 微服务 on DreamAsHourse</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>Zhu Jia - All rights reserved</copyright>
+    <lastBuildDate>Sun, 26 Jul 2020 10:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://magicletters.github.io/tags/%E5%BE%AE%E6%9C%8D%E5%8A%A1/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Rate Limiting</title>
+      <link>https://magicletters.github.io/posts/algorithm/%E9%99%90%E9%80%9F/</link>
+      <pubDate>Sun, 26 Jul 2020 10:00:00 +0000</pubDate>
+      
+      <guid>https://magicletters.github.io/posts/algorithm/%E9%99%90%E9%80%9F/</guid>
+      <description>限速器类型  用户速率限制器  允许某些用户受限地访问API。用户发出的请求的数量/持续时间通常与他们的userId，API密钥或IP地址相关。</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en-us"><head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="generator" content="Hugo 0.74.3" />
+	
+	<link rel="icon" href="/static/images/logo.png">
+	
+	<title>Rate Limiting | DreamAsHourse</title>
+	
+	
+
+	<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Rate Limiting"/>
+<meta name="twitter:description" content="限速器类型  用户速率限制器  允许某些用户受限地访问API。用户发出的请求的数量/持续时间通常与他们的userId，API密钥或IP地址相关。"/>
+
+	<meta property="og:title" content="Rate Limiting" />
+<meta property="og:description" content="限速器类型  用户速率限制器  允许某些用户受限地访问API。用户发出的请求的数量/持续时间通常与他们的userId，API密钥或IP地址相关。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://magicletters.github.io/posts/algorithm/%E9%99%90%E9%80%9F/" />
+<meta property="article:published_time" content="2020-07-26T10:00:00+00:00" />
+<meta property="article:modified_time" content="2020-07-26T10:00:00+00:00" />
+
+
+	<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
+	 crossorigin="anonymous">
+	<link href="https://fonts.googleapis.com/css?family=Righteous%7CMerriweather:300,300i,400,400i,700,700i" rel="stylesheet">
+	<link href="/css/medium.css" rel="stylesheet">
+	<link href="/css/additional.css" rel="stylesheet">
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top mediumnavigation nav-down">
+    <div class="container pr-0">
+        
+        <a class="navbar-brand" href="https://magicletters.github.io//">
+
+            
+            <img src="/static/images/logo.png" alt="logo">
+            
+        </a>
+        
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarMediumish" aria-controls="navbarSupportedContent"
+            aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        
+        <div class="collapse navbar-collapse" id="navbarMediumish">
+            
+            <ul class="navbar-nav ml-auto">
+                 
+                <li class="nav-item ">
+                    <a class="nav-link" href="/posts">Posts</a>
+                </li>
+                 
+                <li class="nav-item ">
+                    <a class="nav-link" href="/categories">Categories</a>
+                </li>
+                 
+                <li class="nav-item ">
+                    <a class="nav-link" href="/tags">Tags</a>
+                </li>
+                 
+                <li class="nav-item ">
+                    <a class="nav-link" href="/">About Me</a>
+                </li>
+                 
+                <li class="nav-item ">
+                    <a class="nav-link" href="/static/imprint">Imprint</a>
+                </li>
+                
+            </ul>
+        </div>
+        
+    </div>
+</nav>
+
+
+        <div class="site-content">   
+            <div class="container">
+<div class="mainheading">
+    <h1 class="sitetitle">DreamAsHourse</h1>
+    <p class="lead">
+         以梦为马🏇
+    </p>
+</div><div class="main-content">
+        
+        <div class="container">
+            <div class="row">
+                
+                <div class="col-md-2 pl-0"><div class="share sticky-top sticky-top-offset">
+    <p>Share</p>
+    <ul>
+        <li class="ml-1 mr-1">
+        <a target="_blank" href="https://twitter.com/intent/tweet?text=Rate%20Limiting&url=https%3a%2f%2fmagicletters.github.io%2fposts%2falgorithm%2f%25E9%2599%2590%25E9%2580%259F%2f" onclick="window.open(this.href, 'twitter-share', 'width=550,height=435');return false;">
+        <i class="fab fa-twitter"></i>
+        </a>
+        </li>
+        
+        <li class="ml-1 mr-1">
+        <a target="_blank" href="https://facebook.com/sharer.php?u=https%3a%2f%2fmagicletters.github.io%2fposts%2falgorithm%2f%25E9%2599%2590%25E9%2580%259F%2f" onclick="window.open(this.href, 'facebook-share', 'width=550,height=435');return false;">
+        <i class="fab fa-facebook-f"></i>
+        </a>
+        </li>
+
+        <li class="ml-1 mr-1">
+        <a target="_blank" href="https://www.xing.com/spi/shares/new?url=https%3a%2f%2fmagicletters.github.io%2fposts%2falgorithm%2f%25E9%2599%2590%25E9%2580%259F%2f" onclick="window.open(this.href, 'xing-share', 'width=550,height=435');return false;">
+        <i class="fab fa-xing"></i>
+        </a>
+        </li>        
+    </ul>
+
+    
+</div>
+</div>
+                                
+                <div class="col-md-9 flex-first flex-md-unordered">
+                    <div class="mainheading">
+                        	
+                        
+                        
+                        
+                        <div class="row post-top-meta">
+                            <div class="col-xs-12 col-md-3 col-lg-2 text-center text-md-left mb-4 mb-md-0 md-nopad-right">
+                                <img class="author-thumb" src="/static/images/author.png" alt="Zhu Jia">
+                            </div>
+                            <div class="col-xs-12 col-md-9 col-lg-10 text-center text-md-left md-nopad-left">
+                                <a target="_blank" class="link-dark">Zhu Jia</a><br>
+                                <span class="author-description">
+                                    以梦为马<br>
+                                    <i class="far fa-star"></i>
+                                    Jul 26, 2020
+                                    <i class="far fa-clock clock"></i>
+                                    1 min read
+                                </span>					
+                            </div>
+                        </div>			
+                        	
+                        
+                                                
+                        
+                        <h1 class="posttitle">Rate Limiting</h1> 
+                    </div>
+
+                    
+                    
+                    
+                    
+
+                    
+                    <div class="article-post">
+                        <div class="sect1">
+<h2 id="_限速器类型">限速器类型</h2>
+<div class="sectionbody">
+<div class="dlist">
+<dl>
+<dt class="hdlist1">用户速率限制器</dt>
+<dd>
+<p>允许某些用户受限地访问API。用户发出的请求的数量/持续时间通常与他们的userId，API密钥或IP地址相关。</p>
+</dd>
+<dt class="hdlist1">并发/服务器速率限制器</dt>
+<dd>
+<p>跟踪特定用户允许多少个并行会话或连接。它减轻了DDoS攻击。</p>
+</dd>
+<dt class="hdlist1">位置速率限制器</dt>
+<dd>
+<p>可以为特定区域和特定时间段设置速率限制。如果每天在特定时间段内，位置A的用户比位置B的用户更活跃，则可以为该时间段内位置A的用户定义较低的速率限制。</p>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_速率限制器算法">速率限制器算法</h2>
+<div class="sectionbody">
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>令牌桶</p>
+</li>
+<li>
+<p>漏斗</p>
+</li>
+<li>
+<p>固定窗口计数器</p>
+</li>
+<li>
+<p>滑动日志</p>
+</li>
+<li>
+<p>推拉窗柜台</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><a href="https://medium.com/swlh/rate-limiting-fdf15bfe84ab">原文</a></p>
+</div>
+</div>
+</div>
+
+                    </div>
+                    
+                    
+                    <div class="after-post-tags">
+                        <ul class="tags">
+                        
+                        <li>
+                        <a href="/tags/%E5%BE%AE%E6%9C%8D%E5%8A%A1">微服务</a>
+                        </li>
+                        
+                        </ul>
+                    </div>
+                    
+                    
+                    
+                    <div class="row PageNavigation d-flex justify-content-between font-weight-bold">
+                    
+                        <a class="d-block col-md-6" href="https://magicletters.github.io/posts/algorithm/raft%E7%AE%97%E6%B3%95/"> &laquo; Raft算法</a>
+                    
+                    
+                        <a class="d-block col-md-6 text-lg-right" href="https://magicletters.github.io/posts/k8sdocker/docker%E5%A4%9A%E6%9E%B6%E6%9E%84%E9%95%9C%E5%83%8F/">docker多架构镜像 &raquo;</a>
+                    
+                    <div class="clearfix"></div>
+                    </div>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+    </div>
+
+
+            </div>
+<div class="jumbotron fortags">
+	<div class="d-md-flex h-100">
+		<div class="col-md-4 transpdark align-self-center text-center h-100">
+			<div class="d-md-flex align-items-center justify-content-center h-100">
+				<h2 class="d-md-block d-none align-self-center py-1 font-weight-light">Explore <span class="d-none d-md-inline">→</span></h2>
+			</div>
+		</div>
+		<div class="col-md-8 p-5 align-self-center text-center">
+			
+			<a class="mt-1 mb-1" href="/tags/adoc">adoc</a>
+			
+			<a class="mt-1 mb-1" href="/tags/arm">arm</a>
+			
+			<a class="mt-1 mb-1" href="/tags/clion">clion</a>
+			
+			<a class="mt-1 mb-1" href="/tags/cpp">cpp</a>
+			
+			<a class="mt-1 mb-1" href="/tags/docker">docker</a>
+			
+			<a class="mt-1 mb-1" href="/tags/golang">golang</a>
+			
+			<a class="mt-1 mb-1" href="/tags/ide">ide</a>
+			
+			<a class="mt-1 mb-1" href="/tags/java">java</a>
+			
+			<a class="mt-1 mb-1" href="/tags/jvm">jvm</a>
+			
+			<a class="mt-1 mb-1" href="/tags/k8s">k8s</a>
+			
+			<a class="mt-1 mb-1" href="/tags/raft">raft</a>
+			
+			<a class="mt-1 mb-1" href="/tags/shell">shell</a>
+			
+			<a class="mt-1 mb-1" href="/tags/spring">spring</a>
+			
+			<a class="mt-1 mb-1" href="/tags/%E5%88%86%E5%B8%83%E5%BC%8F%E5%AD%98%E5%82%A8">分布式存储</a>
+			
+			<a class="mt-1 mb-1" href="/tags/%E5%BE%AE%E6%9C%8D%E5%8A%A1">微服务</a>
+			
+			<a class="mt-1 mb-1" href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F">设计模式</a>
+			
+		</div>
+	</div>
+</div>
+
+<footer class="footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-sm-6 text-center text-lg-left">
+                &copy; Copyright Zhu Jia - All rights reserved
+            </div>
+            <div class="col-md-6 col-sm-6 text-center text-lg-right">    
+                <a target="_blank" rel="noopener" href="https://www.wowthemes.net">Mediumish Theme</a> by WowThemes.net
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+        </div>
+
+
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+<script src="/js/mediumish.js"></script>
+
+    </body>
+</html>

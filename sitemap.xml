@@ -4,21 +4,41 @@
   
   <url>
     <loc>https://magicletters.github.io/categories/</loc>
-    <lastmod>2020-11-03T21:00:00+08:00</lastmod>
+    <lastmod>2021-01-01T08:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://magicletters.github.io/</loc>
-    <lastmod>2020-11-03T21:00:00+08:00</lastmod>
+    <lastmod>2021-01-01T08:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://magicletters.github.io/categories/linux/</loc>
-    <lastmod>2020-11-03T21:00:00+08:00</lastmod>
+    <loc>https://magicletters.github.io/categories/java/</loc>
+    <lastmod>2021-01-01T08:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://magicletters.github.io/posts/java/java%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E7%AE%80%E4%BB%8B/</loc>
+    <lastmod>2021-01-01T08:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://magicletters.github.io/tags/jvm/</loc>
+    <lastmod>2021-01-01T08:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://magicletters.github.io/posts/</loc>
+    <lastmod>2021-01-01T08:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://magicletters.github.io/tags/</loc>
+    <lastmod>2021-01-01T08:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://magicletters.github.io/categories/linux/</loc>
     <lastmod>2020-11-03T21:00:00+08:00</lastmod>
   </url>
   
@@ -29,11 +49,6 @@
   
   <url>
     <loc>https://magicletters.github.io/tags/shell/</loc>
-    <lastmod>2020-11-03T21:00:00+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://magicletters.github.io/tags/</loc>
     <lastmod>2020-11-03T21:00:00+08:00</lastmod>
   </url>
   
@@ -178,6 +193,16 @@
   </url>
   
   <url>
+    <loc>https://magicletters.github.io/posts/algorithm/%E9%99%90%E9%80%9F/</loc>
+    <lastmod>2020-07-26T10:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://magicletters.github.io/tags/%E5%BE%AE%E6%9C%8D%E5%8A%A1/</loc>
+    <lastmod>2020-07-26T10:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://magicletters.github.io/categories/%E7%AE%97%E6%B3%95/</loc>
     <lastmod>2020-07-26T10:00:00+00:00</lastmod>
   </url>
@@ -220,11 +245,6 @@
   <url>
     <loc>https://magicletters.github.io/posts/golang/why-you-should-use-a-go-module-proxy/</loc>
     <lastmod>2020-05-27T13:39:02+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://magicletters.github.io/categories/java/</loc>
-    <lastmod>2020-05-15T10:35:48+00:00</lastmod>
   </url>
   
   <url>

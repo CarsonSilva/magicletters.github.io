@@ -7,10 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Zhu Jia - All rights reserved</copyright>
-    <lastBuildDate>Fri, 15 May 2020 10:35:48 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 01 Jan 2021 08:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://magicletters.github.io/categories/java/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Java垃圾回收简介</title>
+      <link>https://magicletters.github.io/posts/java/java%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E7%AE%80%E4%BB%8B/</link>
+      <pubDate>Fri, 01 Jan 2021 08:00:00 +0000</pubDate>
+      
+      <guid>https://magicletters.github.io/posts/java/java%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E7%AE%80%E4%BB%8B/</guid>
+      <description>对象存活分析 常见的对象存活分析算法有两种：引用计数法和可达性分析法</description>
+    </item>
     
     <item>
       <title>Spring @Transactional说明</title>

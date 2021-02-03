@@ -21,5 +21,14 @@
       <description>Raft 一致性算法论文译文</description>
     </item>
     
+    <item>
+      <title>Rate Limiting</title>
+      <link>https://magicletters.github.io/posts/algorithm/%E9%99%90%E9%80%9F/</link>
+      <pubDate>Sun, 26 Jul 2020 10:00:00 +0000</pubDate>
+      
+      <guid>https://magicletters.github.io/posts/algorithm/%E9%99%90%E9%80%9F/</guid>
+      <description>限速器类型  用户速率限制器  允许某些用户受限地访问API。用户发出的请求的数量/持续时间通常与他们的userId，API密钥或IP地址相关。</description>
+    </item>
+    
   </channel>
 </rss>
